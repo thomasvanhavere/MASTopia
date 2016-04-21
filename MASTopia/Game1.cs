@@ -19,7 +19,8 @@ namespace MASTopia
 		private GameObjects gameObjects;
 		private BackGround bg;
 
-		private MainMenu main = new MainMenu();
+		private MainMenu mainMenu = new MainMenu();
+		private GameView gameView = new GameView();
 
 		//private GUIElement menu;
 
@@ -50,8 +51,8 @@ namespace MASTopia
 			bg = new BackGround (bgTexture, bgLocation);
 
 			gameObjects = new GameObjects{ backGround = bg,gameBoundX=Window.ClientBounds.Height,gameBoundY=Window.ClientBounds.Width };
-			main.LoadContent (Content,gameObjects);
-
+			mainMenu.LoadContent (Content,gameObjects);
+			gameView.LoadContent (Content, gameObjects);
 			//TODO: use this.Content to load your game content here 
 		}
 
@@ -66,7 +67,10 @@ namespace MASTopia
 			#endif
 			gameObjects.touchInput = new TouchInput ();
 			GetTouchInput ();
-			main.Update (gameObjects);
+			mainMenu.Update (gameObjects);
+			if (mainMenu.InGame) {
+				gameView.Update (gameObjects);
+			}
             
 			base.Update (gameTime);
 		}
@@ -102,7 +106,8 @@ namespace MASTopia
             
 			spriteBatch.Begin ();
 			//bg.Draw (spriteBatch);
-			main.Draw(spriteBatch);
+			mainMenu.Draw(spriteBatch);
+			gameView.Draw (spriteBatch);
 			spriteBatch.End ();
 
 			base.Draw (gameTime);

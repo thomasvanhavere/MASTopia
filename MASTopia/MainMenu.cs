@@ -13,9 +13,19 @@ namespace MASTopia
 {
 	public class MainMenu
 	{
-		enum GameState {MainMenu,enterName,inGame}
-		GameState gameState;
+		public enum GameState {MainMenu,enterName,inGame}
 
+		 public GameState gameState;
+
+		private bool inGame = false;
+
+		public bool InGame{
+			get{return inGame;}
+			set{ inGame = value;}
+		}
+
+
+	
 		List<GUIElement>main = new List<GUIElement>();
 		List<GUIElement>EnterName = new List<GUIElement>();
 
@@ -32,7 +42,7 @@ namespace MASTopia
 			main.Add (new GUIElement ("nameBtn"));
 
 			EnterName.Add (new GUIElement ("name"));
-			EnterName.Add (new GUIElement ("done"));
+			EnterName.Add (new GUIElement ("resto"));
 		}
 		public void LoadContent(ContentManager content , GameObjects gameObjects)
 		{
@@ -104,6 +114,7 @@ namespace MASTopia
 				//play the game
 				Console.WriteLine("You pressed Play");
 				gameState = GameState.inGame;
+				inGame = true;
 			}
 			if (element =="nameBtn") {
 				gameState = GameState.enterName;

@@ -16,5 +16,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)GUIElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TouchInput.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MainMenu.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameView.cs" />
   </ItemGroup>
 </Project>
