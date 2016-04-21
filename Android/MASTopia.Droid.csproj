@@ -1,0 +1,117 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectTypeGuids>{EFBA0AD7-5A72-4C68-AF49-83D382785DCF};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <ProjectGuid>{9E8CFDDD-5F34-4A4E-AF7C-819B82C9EB27}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>MASTopia.Droid</RootNamespace>
+    <MonoAndroidAssetsPrefix>Assets</MonoAndroidAssetsPrefix>
+    <MonoAndroidResourcePrefix>Resources</MonoAndroidResourcePrefix>
+    <AndroidManifest>Properties\AndroidManifest.xml</AndroidManifest>
+    <AndroidResgenClass>Resource</AndroidResgenClass>
+    <AndroidResgenFile>Resources\Resource.designer.cs</AndroidResgenFile>
+    <AndroidApplication>True</AndroidApplication>
+    <AndroidUseLatestPlatformSdk>False</AndroidUseLatestPlatformSdk>
+    <AssemblyName>MASTopia.Droid</AssemblyName>
+    <MonoGamePlatform>Android</MonoGamePlatform>
+    <TargetFrameworkVersion>v5.0</TargetFrameworkVersion>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug</OutputPath>
+    <DefineConstants>DEBUG;</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidLinkMode>None</AndroidLinkMode>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>full</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release</OutputPath>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <AndroidUseSharedRuntime>false</AndroidUseSharedRuntime>
+    <ConsolePause>false</ConsolePause>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Core" />
+    <Reference Include="Mono.Android" />
+    <Reference Include="OpenTK-1.0" />
+    <Reference Include="MonoGame.Framework">
+      <HintPath>..\packages\MonoGame.Framework.Android.3.5.1.1679\lib\MonoAndroid\MonoGame.Framework.dll</HintPath>
+      <Private>False</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Activity1.cs" />
+    <Compile Include="Resources\Resource.designer.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\AboutResources.txt" />
+    <None Include="Properties\AndroidManifest.xml" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidResource Include="Resources\drawable\Icon.png" />
+    <AndroidResource Include="Resources\drawable\Splash.png" />
+    <AndroidResource Include="Resources\values\Styles.xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <AndroidAsset Include="Assets\AboutAssets.txt" />
+    <AndroidAsset Include="..\iOS\Content\temp-bg.png">
+      <Link>Assets\Content\temp-bg.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Main Game\future.png">
+      <Link>Assets\Content\Main Game\future.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Main Game\market.png">
+      <Link>Assets\Content\Main Game\market.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Main Game\resto.png">
+      <Link>Assets\Content\Main Game\resto.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Main Game\transport.png">
+      <Link>Assets\Content\Main Game\transport.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Main Game\waste.png">
+      <Link>Assets\Content\Main Game\waste.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Main Menu\done.png">
+      <Link>Assets\Content\Main Menu\done.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Main Menu\menu.png">
+      <Link>Assets\Content\Main Menu\menu.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Main Menu\name.png">
+      <Link>Assets\Content\Main Menu\name.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Main Menu\nameBtn.png">
+      <Link>Assets\Content\Main Menu\nameBtn.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Main Menu\play.png">
+      <Link>Assets\Content\Main Menu\play.png</Link>
+    </AndroidAsset>
+  </ItemGroup>
+  <ItemGroup>
+    <MonoGameContentReference Include="Assets\Content\Content.mgcb" />
+  </ItemGroup>
+  <Import Project="..\MASTopia\MASTopia.projitems" Label="Shared" Condition="Exists('..\MASTopia\MASTopia.projitems')" />
+  <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
+  <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
+  <ItemGroup>
+    <Content Include="Assets\Content\MyFont.xnb">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+  </ItemGroup>
+</Project>

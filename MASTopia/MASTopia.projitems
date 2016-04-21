@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="utf-8"?>
+<Project xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <MSBuildAllProjects>$(MSBuildAllProjects);$(MSBuildThisFileFullPath)</MSBuildAllProjects>
+    <HasSharedItems>true</HasSharedItems>
+    <SharedGUID>{5D77F3E2-EC4D-44EB-9660-37A55E2518E1}</SharedGUID>
+  </PropertyGroup>
+  <PropertyGroup Label="Configuration">
+    <Import_RootNamespace>MASTopia</Import_RootNamespace>
+  </PropertyGroup>
+  <ItemGroup>
+    <Compile Include="$(MSBuildThisFileDirectory)Game1.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GameObjects.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BackGround.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)sprite.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)GUIElement.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)TouchInput.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)MainMenu.cs" />
+  </ItemGroup>
+</Project>
