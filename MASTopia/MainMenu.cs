@@ -31,36 +31,36 @@ namespace MASTopia
 
 		private Keys[] lastPressedKeys = new Keys[5];
 
-		private SpriteFont sf;
+	//	private SpriteFont sf;
 
 	
 		private string myName = string.Empty;
 		public MainMenu()
 		{
-			main.Add (new GUIElement ("menu"));
-			main.Add (new GUIElement ("play"));
-			main.Add (new GUIElement ("nameBtn"));
+			main.Add (new GUIElement ("Main-Menu/menu"));
+			main.Add (new GUIElement ("Main-Menu/play"));
+			main.Add (new GUIElement ("Main-Menu/nameBtn"));
 
-			EnterName.Add (new GUIElement ("name"));
-			EnterName.Add (new GUIElement ("resto"));
+			EnterName.Add (new GUIElement ("Main-Menu/name"));
+			EnterName.Add (new GUIElement ("Main-Menu/done"));
 		}
 		public void LoadContent(ContentManager content , GameObjects gameObjects)
 		{
-			sf = content.Load<SpriteFont> ("MyFont");
+			//sf = content.Load<SpriteFont> ("MyFont");
 			foreach (GUIElement element in main) {
 				element.LoadContent (content);
 				element.Center (gameObjects.gameBoundX, gameObjects.gameBoundY);
 				element.clickEvent += OnClick;
 					
 			}
-			main.Find (x => x.AssetName == "play").moveElement (0, -100);
+			main.Find (x => x.AssetName == "Main-Menu/play").moveElement (0, -100);
 
 			foreach (GUIElement element in EnterName) {
 				element.LoadContent (content);
 				element.Center (gameObjects.gameBoundX, gameObjects.gameBoundY);
 				element.clickEvent += OnClick;
 			}
-			EnterName.Find (x => x.AssetName == "done").moveElement (0, 60);
+			EnterName.Find (x => x.AssetName == "Main-Menu/done").moveElement (0, 60);
 
 		}
 		public void Update(GameObjects gameObjects)
@@ -96,11 +96,10 @@ namespace MASTopia
 				foreach (GUIElement element in EnterName) {
 					element.Draw (spriteBatch);
 				}
-				spriteBatch.DrawString(sf,myName, new Vector2(305,300),Color.Black);
+			//	spriteBatch.DrawString(sf,myName, new Vector2(305,300),Color.Black);
 				break;
 			case GameState.inGame:
-
-
+				inGame = true;
 				break;
 			default:
 				break;
@@ -110,16 +109,16 @@ namespace MASTopia
 		}
 		public void OnClick(string element)
 		{
-			if (element=="play") {
+			if (element=="Main-Menu/play") {
 				//play the game
 				Console.WriteLine("You pressed Play");
 				gameState = GameState.inGame;
-				inGame = true;
+				//inGame = true;
 			}
-			if (element =="nameBtn") {
+			if (element =="Main-Menu/nameBtn") {
 				gameState = GameState.enterName;
 			}
-			if (element=="done") {
+			if (element=="Main-Menu/done") {
 				gameState = GameState.MainMenu;
 			}
 		}

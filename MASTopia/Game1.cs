@@ -107,7 +107,10 @@ namespace MASTopia
 			spriteBatch.Begin ();
 			//bg.Draw (spriteBatch);
 			mainMenu.Draw(spriteBatch);
-			gameView.Draw (spriteBatch);
+			if (mainMenu.InGame) {
+				gameView.Draw (spriteBatch);
+			}
+
 			spriteBatch.End ();
 
 			base.Draw (gameTime);

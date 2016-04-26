@@ -70,37 +70,35 @@
     <AndroidAsset Include="..\iOS\Content\temp-bg.png">
       <Link>Assets\Content\temp-bg.png</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\iOS\Content\Main Game\future.png">
-      <Link>Assets\Content\Main Game\future.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <AndroidAsset Include="..\iOS\Content\Main-Game\future.png">
+      <Link>Assets\Content\Main-Game\future.png</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\iOS\Content\Main Game\market.png">
-      <Link>Assets\Content\Main Game\market.png</Link>
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    <AndroidAsset Include="..\iOS\Content\Main-Menu\done.png">
+      <Link>Assets\Content\Main-Menu\done.png</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\iOS\Content\Main Game\resto.png">
-      <Link>Assets\Content\Main Game\resto.png</Link>
+    <AndroidAsset Include="..\iOS\Content\Main-Menu\menu.png">
+      <Link>Assets\Content\Main-Menu\menu.png</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\iOS\Content\Main Game\transport.png">
-      <Link>Assets\Content\Main Game\transport.png</Link>
+    <AndroidAsset Include="..\iOS\Content\Main-Menu\name.png">
+      <Link>Assets\Content\Main-Menu\name.png</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\iOS\Content\Main Game\waste.png">
-      <Link>Assets\Content\Main Game\waste.png</Link>
+    <AndroidAsset Include="..\iOS\Content\Main-Menu\nameBtn.png">
+      <Link>Assets\Content\Main-Menu\nameBtn.png</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\iOS\Content\Main Menu\done.png">
-      <Link>Assets\Content\Main Menu\done.png</Link>
+    <AndroidAsset Include="..\iOS\Content\Main-Menu\play.png">
+      <Link>Assets\Content\Main-Menu\play.png</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\iOS\Content\Main Menu\menu.png">
-      <Link>Assets\Content\Main Menu\menu.png</Link>
+    <AndroidAsset Include="..\iOS\Content\Main-Game\market.png">
+      <Link>Assets\Content\Main-Game\market.png</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\iOS\Content\Main Menu\name.png">
-      <Link>Assets\Content\Main Menu\name.png</Link>
+    <AndroidAsset Include="..\iOS\Content\Main-Game\resto.png">
+      <Link>Assets\Content\Main-Game\resto.png</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\iOS\Content\Main Menu\nameBtn.png">
-      <Link>Assets\Content\Main Menu\nameBtn.png</Link>
+    <AndroidAsset Include="..\iOS\Content\Main-Game\transport.png">
+      <Link>Assets\Content\Main-Game\transport.png</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\iOS\Content\Main Menu\play.png">
-      <Link>Assets\Content\Main Menu\play.png</Link>
+    <AndroidAsset Include="..\iOS\Content\Main-Game\waste.png">
+      <Link>Assets\Content\Main-Game\waste.png</Link>
     </AndroidAsset>
   </ItemGroup>
   <ItemGroup>
@@ -109,9 +107,4 @@
   <Import Project="..\MASTopia\MASTopia.projitems" Label="Shared" Condition="Exists('..\MASTopia\MASTopia.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
-  <ItemGroup>
-    <Content Include="Assets\Content\MyFont.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-  </ItemGroup>
 </Project>

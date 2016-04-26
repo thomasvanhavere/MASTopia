@@ -15,6 +15,8 @@ namespace MASTopia
 
 		private Rectangle GUIRect;
 
+		private Vector2 position;
+
 		private string assetName;
 
 		public string AssetName {
@@ -50,6 +52,14 @@ namespace MASTopia
 		public void Draw(SpriteBatch spriteBatch)
 		{
 			spriteBatch.Draw (GUITexture, GUIRect, Color.White);
+		}
+
+		public void Draw(SpriteBatch spriteBatch , float scale)
+		{
+			position = new Vector2(GUIRect.X,GUIRect.Y);
+
+			spriteBatch.Draw(GUITexture, position, null, Color.White, 0f, 
+				Vector2.Zero, scale, SpriteEffects.None, 0f);
 		}
 		public void Center(int height, int width)
 		{
