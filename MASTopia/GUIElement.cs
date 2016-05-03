@@ -60,6 +60,8 @@ namespace MASTopia
 
 			spriteBatch.Draw(GUITexture, position, null, Color.White, 0f, 
 				Vector2.Zero, scale, SpriteEffects.None, 0f);
+			
+			GUIRect = new Rectangle(0,0,(int)(GUITexture.Width*scale),(int)(GUITexture.Height*scale));
 		}
 		public void Center(int height, int width)
 		{

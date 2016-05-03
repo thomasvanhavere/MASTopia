@@ -105,7 +105,7 @@ namespace MASTopia
 			switch (gamePart) {
 			case GamePart.main:
 				foreach (GUIElement element in mainBuildings) {
-					element.Draw (spriteBatch,0.75f);
+					element.Draw (spriteBatch);
 				}
 				break;
 			case GamePart.market:

@@ -37,11 +37,12 @@ namespace MASTopia
 		private string myName = string.Empty;
 		public MainMenu()
 		{
-			main.Add (new GUIElement ("Main-Menu/menu"));
+			main.Add (new GUIElement ("Main-Menu/MAS-background"));
 			main.Add (new GUIElement ("Main-Menu/play"));
-			main.Add (new GUIElement ("Main-Menu/nameBtn"));
+			main.Add (new GUIElement ("Main-Menu/Settings"));
+			main.Add (new GUIElement ("Main-Menu/leaderboard"));
 
-			EnterName.Add (new GUIElement ("Main-Menu/name"));
+			//EnterName.Add (new GUIElement ("Main-Menu/name"));
 			EnterName.Add (new GUIElement ("Main-Menu/done"));
 		}
 		public void LoadContent(ContentManager content , GameObjects gameObjects)
@@ -53,7 +54,10 @@ namespace MASTopia
 				element.clickEvent += OnClick;
 					
 			}
-			main.Find (x => x.AssetName == "Main-Menu/play").moveElement (0, -100);
+			main.Find (x => x.AssetName == "Main-Menu/play").moveElement (0,350);
+			main.Find (x => x.AssetName == "Main-Menu/Settings").moveElement (-300,350);
+			main.Find (x => x.AssetName == "Main-Menu/leaderboard").moveElement (300,350);
+
 
 			foreach (GUIElement element in EnterName) {
 				element.LoadContent (content);
@@ -115,9 +119,10 @@ namespace MASTopia
 				gameState = GameState.inGame;
 				//inGame = true;
 			}
-			if (element =="Main-Menu/nameBtn") {
+			if (element =="Main-Menu/Settings") {
 				gameState = GameState.enterName;
 			}
+
 			if (element=="Main-Menu/done") {
 				gameState = GameState.MainMenu;
 			}
