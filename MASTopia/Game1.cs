@@ -16,8 +16,12 @@ namespace MASTopia
 		GraphicsDeviceManager graphics;
 		SpriteBatch spriteBatch;
 
+		//Resolution Independence
+		Vector2 virtualScreen = new Vector2(1920, 1080);
+		Vector3 ScalingFactor;
+		Matrix Scale;
+
 		private GameObjects gameObjects;
-		private BackGround bg;
 
 		private MainMenu mainMenu = new MainMenu();
 		private GameView gameView = new GameView();
@@ -45,12 +49,9 @@ namespace MASTopia
 			// Create a new SpriteBatch, which can be used to draw textures.
 			spriteBatch = new SpriteBatch (GraphicsDevice);
 
-			var bgTexture = Content.Load<Texture2D> ("temp-bg");
-			var bgLocation = new Vector2 (0, 0);
 
-			bg = new BackGround (bgTexture, bgLocation);
 
-			gameObjects = new GameObjects{ backGround = bg,gameBoundX=Window.ClientBounds.Height,gameBoundY=Window.ClientBounds.Width };
+			gameObjects = new GameObjects{gameBoundX=Window.ClientBounds.Height,gameBoundY=Window.ClientBounds.Width};
 			mainMenu.LoadContent (Content,gameObjects);
 			gameView.LoadContent (Content, gameObjects);
 			//TODO: use this.Content to load your game content here 
@@ -67,11 +68,12 @@ namespace MASTopia
 			#endif
 			gameObjects.touchInput = new TouchInput ();
 			GetTouchInput ();
+			//calculateScalingFactor ();
+
 			mainMenu.Update (gameObjects);
 			if (mainMenu.InGame) {
 				gameView.Update (gameObjects);
 			}
-            
 			base.Update (gameTime);
 		}
 
@@ -104,8 +106,8 @@ namespace MASTopia
             
 			//TODO: Add your drawing code here
             
-			spriteBatch.Begin ();
-			//bg.Draw (spriteBatch);
+			//spriteBatch.Begin (SpriteSortMode.Texture, null, null, null, null,null, Scale);
+			spriteBatch.Begin();
 			mainMenu.Draw(spriteBatch);
 			if (mainMenu.InGame) {
 				gameView.Draw (spriteBatch);
@@ -114,6 +116,16 @@ namespace MASTopia
 			spriteBatch.End ();
 
 			base.Draw (gameTime);
+		}
+		public void calculateScalingFactor()
+		{
+			float widthScale = (float)GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / virtualScreen.X; 
+			float heightScale = (float)GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height / virtualScreen.Y;
+			ScalingFactor = new Vector3(heightScale, widthScale, 1);
+			Scale = Matrix.CreateScale(ScalingFactor);
+			Console.WriteLine ((float)GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width);
+			Console.WriteLine ((float)GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height);
+
 		}
 	}
 } 

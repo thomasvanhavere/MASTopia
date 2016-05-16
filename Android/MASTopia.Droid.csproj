@@ -67,39 +67,6 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\AboutAssets.txt" />
-    <AndroidAsset Include="..\iOS\Content\temp-bg.png">
-      <Link>Assets\Content\temp-bg.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\iOS\Content\Main-Game\future.png">
-      <Link>Assets\Content\Main-Game\future.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\iOS\Content\Main-Game\market.png">
-      <Link>Assets\Content\Main-Game\market.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\iOS\Content\Main-Game\resto.png">
-      <Link>Assets\Content\Main-Game\resto.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\iOS\Content\Main-Game\transport.png">
-      <Link>Assets\Content\Main-Game\transport.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\iOS\Content\Main-Game\waste.png">
-      <Link>Assets\Content\Main-Game\waste.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\iOS\Content\Main-Menu\Background.png">
-      <Link>Assets\Content\Main-Menu\Background.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\iOS\Content\Main-Menu\Settings.png">
-      <Link>Assets\Content\Main-Menu\Settings.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\iOS\Content\Main-Menu\done.png">
-      <Link>Assets\Content\Main-Menu\done.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\iOS\Content\Main-Menu\leaderboard.png">
-      <Link>Assets\Content\Main-Menu\leaderboard.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\iOS\Content\Main-Menu\play.png">
-      <Link>Assets\Content\Main-Menu\play.png</Link>
-    </AndroidAsset>
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Assets\Content\Content.mgcb" />
@@ -107,8 +74,4 @@
   <Import Project="..\MASTopia\MASTopia.projitems" Label="Shared" Condition="Exists('..\MASTopia\MASTopia.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
-  <ItemGroup>
-    <Folder Include="Assets\Content\Main-Game\" />
-    <Folder Include="Assets\Content\Main-Menu\" />
-  </ItemGroup>
 </Project>

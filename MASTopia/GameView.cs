@@ -17,23 +17,33 @@ namespace MASTopia
 		public enum GamePart
 		{
 			main,
-			future,
+			faction,
 			market,
-			resto,
-			transport,
-			waste
+			waste,
+			harbour,
+			profile,
+			settings,
+			Xp,
+			Monney,
+			barracks
 		}
 		private GamePart gamePart;
 		List<GUIElement> mainBuildings = new List<GUIElement>();
 		List<GUIElement> BasicElements = new List<GUIElement>();
 
+
 		public GameView ()
 		{
+			mainBuildings.Add (new GUIElement ("Main-Game/island"));
+			mainBuildings.Add (new GUIElement ("Main-Game/barracks"));
+			mainBuildings.Add (new GUIElement ("Main-Game/Flag"));
 			mainBuildings.Add (new GUIElement ("Main-Game/market"));
-			mainBuildings.Add (new GUIElement ("Main-Game/future"));
-			mainBuildings.Add (new GUIElement ("Main-Game/resto"));
-			mainBuildings.Add (new GUIElement ("Main-Game/transport"));
-			mainBuildings.Add (new GUIElement ("Main-Game/waste"));
+			mainBuildings.Add (new GUIElement ("Main-Game/boat"));
+			mainBuildings.Add (new GUIElement ("Main-Game/money-button"));
+			mainBuildings.Add (new GUIElement ("Main-Game/profile"));
+			mainBuildings.Add (new GUIElement ("Main-Game/settings"));
+			mainBuildings.Add (new GUIElement ("Main-Game/wastePlant"));
+			mainBuildings.Add (new GUIElement ("Main-Game/Xp-Level"));
 
 			BasicElements.Add(new GUIElement("Main-Menu/done"));
 
@@ -45,11 +55,17 @@ namespace MASTopia
 				element.Center (gameObjects.gameBoundX, gameObjects.gameBoundY);
 				element.clickEvent += OnClick;
 			}
-			mainBuildings.Find (x => x.AssetName == "Main-Game/market").moveElement (-350, -200);
-			mainBuildings.Find (x => x.AssetName == "Main-Game/future").moveElement (-50, -200);
-			mainBuildings.Find (x => x.AssetName == "Main-Game/resto").moveElement (300, -200);
-			mainBuildings.Find (x => x.AssetName == "Main-Game/transport").moveElement (-150, 200);
-			mainBuildings.Find (x => x.AssetName == "Main-Game/waste").moveElement (250, 150);
+			mainBuildings.Find (x => x.AssetName == "Main-Game/money-button").moveElement (-550, -400);
+			mainBuildings.Find (x => x.AssetName == "Main-Game/Xp-Level").moveElement (-150, -400);
+			mainBuildings.Find (x => x.AssetName == "Main-Game/profile").moveElement (600, -350);
+
+			mainBuildings.Find (x => x.AssetName == "Main-Game/barracks").moveElement (-130, -300);
+			mainBuildings.Find (x => x.AssetName == "Main-Game/Flag").moveElement (-425, -150);
+			mainBuildings.Find (x => x.AssetName == "Main-Game/market").moveElement (200, -175);
+
+			mainBuildings.Find (x => x.AssetName == "Main-Game/settings").moveElement (600, 350);
+			mainBuildings.Find (x => x.AssetName == "Main-Game/wastePlant").moveElement (200, 100);
+			mainBuildings.Find (x => x.AssetName == "Main-Game/boat").moveElement (-550, 300);
 
 			foreach (var element in BasicElements) {
 				element.LoadContent (content);
@@ -71,22 +87,42 @@ namespace MASTopia
 					element.Update (gameObjects);
 				}
 				break;
-			case GamePart.future:
+			case GamePart.faction:
 				foreach (var element in BasicElements) {
 					element.Update (gameObjects);
 				}
 				break;
-			case GamePart.resto:
+			case GamePart.harbour:
 				foreach (var element in BasicElements) {
 					element.Update (gameObjects);
 				}
 				break;
-			case GamePart.transport:
+			case GamePart.profile:
 				foreach (var element in BasicElements) {
 					element.Update (gameObjects);
 				}
 				break;
 			case GamePart.waste:
+				foreach (var element in BasicElements) {
+					element.Update (gameObjects);
+				}
+				break;
+			case GamePart.settings:
+				foreach (var element in BasicElements) {
+					element.Update (gameObjects);
+				}
+				break;
+			case GamePart.Monney:
+				foreach (var element in BasicElements) {
+					element.Update (gameObjects);
+				}
+				break;
+			case GamePart.Xp:
+				foreach (var element in BasicElements) {
+					element.Update (gameObjects);
+				}
+				break;
+			case GamePart.barracks:
 				foreach (var element in BasicElements) {
 					element.Update (gameObjects);
 				}
@@ -113,22 +149,42 @@ namespace MASTopia
 					element.Draw (spriteBatch);
 				}
 				break;
-			case GamePart.future:
+			case GamePart.faction:
 				foreach (var element in BasicElements) {
 					element.Draw (spriteBatch);
 				}
 				break;
-			case GamePart.resto:
+			case GamePart.harbour:
 				foreach (var element in BasicElements) {
 					element.Draw (spriteBatch);
 				}
 				break;
-			case GamePart.transport:
+			case GamePart.profile:
 				foreach (var element in BasicElements) {
 					element.Draw (spriteBatch);
 				}
 				break;
 			case GamePart.waste:
+				foreach (var element in BasicElements) {
+					element.Draw (spriteBatch);
+				}
+				break;
+			case GamePart.settings:
+				foreach (var element in BasicElements) {
+					element.Draw (spriteBatch);
+				}
+				break;
+			case GamePart.Monney:
+				foreach (var element in BasicElements) {
+					element.Draw (spriteBatch);
+				}
+				break;
+			case GamePart.Xp:
+				foreach (var element in BasicElements) {
+					element.Draw (spriteBatch);
+				}
+				break;
+			case GamePart.barracks:
 				foreach (var element in BasicElements) {
 					element.Draw (spriteBatch);
 				}
@@ -143,17 +199,29 @@ namespace MASTopia
 			if (element=="Main-Game/market") {
 				gamePart = GamePart.market;
 			}
-			if (element=="Main-Game/future") {
-				gamePart = GamePart.future;
+			if (element=="Main-Game/Flag") {
+				gamePart = GamePart.faction;
 			}
-			if (element=="Main-Game/resto") {
-				gamePart = GamePart.resto;
+			if (element=="Main-Game/boat") {
+				gamePart = GamePart.harbour;
 			}
-			if (element=="Main-Game/transport") {
-				gamePart = GamePart.transport;
+			if (element=="Main-Game/profile") {
+				gamePart = GamePart.profile;
 			}
-			if (element=="Main-Game/waste") {
+			if (element=="Main-Game/wastePlant") {
 				gamePart = GamePart.waste;
+			}
+			if (element=="Main-Game/settings") {
+				gamePart = GamePart.settings;
+			}
+			if (element=="Main-Game/money-button") {
+				gamePart = GamePart.Monney;
+			}
+			if (element=="Main-Game/Xp-Level") {
+				gamePart = GamePart.Xp;
+			}
+			if (element=="Main-Game/barracks") {
+				gamePart = GamePart.barracks;
 			}
 			if (element=="Main-Menu/done") {
 				gamePart = GamePart.main;
