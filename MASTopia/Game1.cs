@@ -71,6 +71,8 @@ namespace MASTopia
 			gameObjects.HeightScale = heightScale;
 			Console.WriteLine (gameObjects.gameBoundX);
 			Console.WriteLine (gameObjects.gameBoundY);
+			Console.WriteLine (widthScale);
+			Console.WriteLine (heightScale);
 
 			Scale = Matrix.CreateScale(widthScale,heightScale,1);
 		}
@@ -92,7 +94,7 @@ namespace MASTopia
 			GetTouchInput ();
 
 			mainMenu.Update (gameObjects);
-			if (mainMenu.InGame) {
+			if (mainMenu.State==MainMenu.GameState.inGame) {
 				gameView.Update (gameObjects);
 				if (gameView.State==MASTopia.GameView.GamePart.barracks) {
 					barrack.Update (gameObjects);
@@ -121,8 +123,6 @@ namespace MASTopia
 					var touch = TouchpannelState [0];
 					gameObjects.touchInput.X = (int)(touch.Position.X/gameObjects.WidthScale);
 					gameObjects.touchInput.Y = (int)(touch.Position.Y/gameObjects.HeightScale);
-//					Console.WriteLine (touch.Position.X);
-//					Console.WriteLine (touch.Position.X/gameObjects.WidthScale);
 
 				}
 
@@ -138,10 +138,12 @@ namespace MASTopia
 
 			//spriteBatch.Begin();
 			mainMenu.Draw(spriteBatch);
-			if (mainMenu.InGame) {
+			if (mainMenu.State==MainMenu.GameState.inGame) {
 				gameView.Draw (spriteBatch);
 				if (gameView.State==MASTopia.GameView.GamePart.barracks) {
+
 					barrack.Draw (spriteBatch);
+
 				}
 			}
 

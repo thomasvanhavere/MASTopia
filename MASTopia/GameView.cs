@@ -58,31 +58,31 @@ namespace MASTopia
 			BasicElements.Add(new GUIElement("Main-Menu/done"));
 
 		}
-		public void LoadContent(ContentManager content , GameObjects gameObjects)
+		public void LoadContent(ContentManager content , GameObjects Obj)
 		{
 			foreach (GUIElement element in mainBuildings) {
-				element.LoadContent (content,gameObjects);
-				//element.Center (gameObjects.gameBoundX, gameObjects.gameBoundY);
+				element.LoadContent (content,Obj);
+				//element.Center (Obj.gameBoundX, Obj.gameBoundY);
 				element.clickEvent += OnClick;
 			}
 			mainBuildings.Find (x => x.AssetName == "Main-Game/island").PutBg ();
 
 
-			mainBuildings.Find (x => x.AssetName == "Main-Game/money-button").moveElement (-550, -400);
-			mainBuildings.Find (x => x.AssetName == "Main-Game/Xp-Level").moveElement (-150, -400);
-			mainBuildings.Find (x => x.AssetName == "Main-Game/profile").moveElement (600, -350);
+			mainBuildings.Find (x => x.AssetName == "Main-Game/money-button").moveElement (50, 50);
+			mainBuildings.Find (x => x.AssetName == "Main-Game/Xp-Level").moveElement  (350,50);
+			mainBuildings.Find (x => x.AssetName == "Main-Game/profile").moveElement  (1700,50);
 
-			mainBuildings.Find (x => x.AssetName == "Main-Game/barracks").moveElement (-130, -300);
-			mainBuildings.Find (x => x.AssetName == "Main-Game/Flag").moveElement (-425, -150);
-			mainBuildings.Find (x => x.AssetName == "Main-Game/market").moveElement (200, -175);
+			mainBuildings.Find (x => x.AssetName == "Main-Game/barracks").moveElement  (850,100);
+			mainBuildings.Find (x => x.AssetName == "Main-Game/Flag").moveElement  (450,220);
+			mainBuildings.Find (x => x.AssetName == "Main-Game/market").moveElement  (1075,330);
 
-			mainBuildings.Find (x => x.AssetName == "Main-Game/settings").moveElement (600, 350);
-			mainBuildings.Find (x => x.AssetName == "Main-Game/wastePlant").moveElement (200, 100);
-			mainBuildings.Find (x => x.AssetName == "Main-Game/boat").moveElement (-550, 300);
+			mainBuildings.Find (x => x.AssetName == "Main-Game/settings").moveElement  (1700,900);
+			mainBuildings.Find (x => x.AssetName == "Main-Game/wastePlant").moveElement  (1200,500);
+			mainBuildings.Find (x => x.AssetName == "Main-Game/boat").moveElement  (200,750);
 
 			foreach (var element in BasicElements) {
-				element.LoadContent (content,gameObjects);
-				element.Center (gameObjects.gameBoundX, gameObjects.gameBoundY);
+				element.LoadContent (content,Obj);
+				element.Center (Obj.gameBoundX, Obj.gameBoundY);
 				element.clickEvent += OnClick;
 			}
 

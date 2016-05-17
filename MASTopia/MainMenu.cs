@@ -17,13 +17,17 @@ namespace MASTopia
 
 		 public GameState gameState;
 
-		private bool inGame = false;
-
-		public bool InGame{
-			get{return inGame;}
-			set{ inGame = value;}
+	
+		public GameState State {
+			get
+			{
+				return gameState;
+			}
+			set 
+			{
+				gameState = value;
+			}
 		}
-
 
 	
 		List<GUIElement>main = new List<GUIElement>();
@@ -31,7 +35,6 @@ namespace MASTopia
 
 		private Keys[] lastPressedKeys = new Keys[5];
 
-	//	private SpriteFont sf;
 
 	
 		private string myName = string.Empty;
@@ -45,40 +48,39 @@ namespace MASTopia
 			//EnterName.Add (new GUIElement ("Main-Menu/name"));
 			EnterName.Add (new GUIElement ("Main-Menu/done"));
 		}
-		public void LoadContent(ContentManager content , GameObjects gameObjects)
+		public void LoadContent(ContentManager content , GameObjects Obj)
 		{
-			//sf = content.Load<SpriteFont> ("MyFont");
 			foreach (GUIElement element in main) {
-				element.LoadContent (content,gameObjects);
+				element.LoadContent (content,Obj);
 				element.clickEvent += OnClick;
 					
 			}
 			main.Find (x => x.AssetName == "Main-Menu/MAS-background").PutBg ();
 
-			main.Find (x => x.AssetName == "Main-Menu/play").moveElement (720,900);
-			main.Find (x => x.AssetName == "Main-Menu/Settings").moveElement (0,350);
-			main.Find (x => x.AssetName == "Main-Menu/leaderboard").moveElement (300,350);
+			main.Find (x => x.AssetName == "Main-Menu/play").moveElement (765,850);
+			main.Find (x => x.AssetName == "Main-Menu/Settings").moveElement (550,850);
+			main.Find (x => x.AssetName == "Main-Menu/leaderboard").moveElement (1200,850);
 
 
 			foreach (GUIElement element in EnterName) {
-				element.LoadContent (content,gameObjects);
-				element.Center (gameObjects.gameBoundX, gameObjects.gameBoundY);
+				element.LoadContent (content,Obj);
+				element.Center (Obj.gameBoundX, Obj.gameBoundY);
 				element.clickEvent += OnClick;
 			}
 			EnterName.Find (x => x.AssetName == "Main-Menu/done").moveElement (0, 60);
 
 		}
-		public void Update(GameObjects gameObjects)
+		public void Update(GameObjects Obj)
 		{
 			switch (gameState) {
 			case GameState.MainMenu:
 				foreach (GUIElement element in main) {
-					element.Update (gameObjects);
+					element.Update (Obj);
 				}
 				break;
 			case GameState.enterName:
 				foreach (GUIElement element in EnterName) {
-					element.Update (gameObjects);
+					element.Update (Obj);
 
 				}
 				GetKeys ();
@@ -101,9 +103,6 @@ namespace MASTopia
 				foreach (GUIElement element in EnterName) {
 					element.Draw (spriteBatch);
 				}
-				break;
-			case GameState.inGame:
-				inGame = true;
 				break;
 			default:
 				break;

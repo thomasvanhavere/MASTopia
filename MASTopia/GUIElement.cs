@@ -38,7 +38,6 @@ namespace MASTopia
 		public void LoadContent(ContentManager content, GameObjects Obj)
 		{
 			GUITexture = content.Load<Texture2D> (assetName);
-			//GUIRect = new Rectangle (0, 0, (int)(GUITexture.Width*Obj.WidthScale), (int)(GUITexture.Height*Obj.HeightScale));
 			GUIRect = new Rectangle (0, 0, (GUITexture.Width), (GUITexture.Height));
 
 		}
@@ -49,6 +48,8 @@ namespace MASTopia
 
 				clickEvent (assetName);
 			}
+
+
 		}
 		public void Draw(SpriteBatch spriteBatch)
 		{
@@ -73,6 +74,7 @@ namespace MASTopia
 		}
 		public void moveElement(int x, int y)
 		{
+			
 			GUIRect = new Rectangle (GUIRect.X += x, GUIRect.Y += y, GUIRect.Width, GUIRect.Height);
 		}
 		public void PutBg()

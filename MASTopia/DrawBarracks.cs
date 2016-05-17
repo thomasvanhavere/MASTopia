@@ -33,7 +33,6 @@ namespace MASTopia
 		{
 			Screen1.Add (new GUIElement ("barracks/barrack-bg"));
 			Screen1.Add (new GUIElement ("barracks/upgrade"));
-
 		}
 
 		public void LoadContent(ContentManager content , GameObjects gameObjects)
@@ -44,8 +43,9 @@ namespace MASTopia
 				element.clickEvent += OnClick;
 			}
 		//	mainBuildings.Find (x => x.AssetName == "Main-Game/money-button").moveElement (-550, -400);
+
 			Screen1.Find(x=>x.AssetName=="barracks/barrack-bg").PutBg();
-		
+			
 
 		}
 		public void Update(GameObjects gameObjects)
