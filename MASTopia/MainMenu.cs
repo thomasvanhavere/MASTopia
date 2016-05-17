@@ -49,18 +49,19 @@ namespace MASTopia
 		{
 			//sf = content.Load<SpriteFont> ("MyFont");
 			foreach (GUIElement element in main) {
-				element.LoadContent (content);
-				element.Center (gameObjects.gameBoundX, gameObjects.gameBoundY);
+				element.LoadContent (content,gameObjects);
 				element.clickEvent += OnClick;
 					
 			}
-			main.Find (x => x.AssetName == "Main-Menu/play").moveElement (0,350);
-			main.Find (x => x.AssetName == "Main-Menu/Settings").moveElement (-300,350);
+			main.Find (x => x.AssetName == "Main-Menu/MAS-background").PutBg ();
+
+			main.Find (x => x.AssetName == "Main-Menu/play").moveElement (720,900);
+			main.Find (x => x.AssetName == "Main-Menu/Settings").moveElement (0,350);
 			main.Find (x => x.AssetName == "Main-Menu/leaderboard").moveElement (300,350);
 
 
 			foreach (GUIElement element in EnterName) {
-				element.LoadContent (content);
+				element.LoadContent (content,gameObjects);
 				element.Center (gameObjects.gameBoundX, gameObjects.gameBoundY);
 				element.clickEvent += OnClick;
 			}
@@ -100,7 +101,6 @@ namespace MASTopia
 				foreach (GUIElement element in EnterName) {
 					element.Draw (spriteBatch);
 				}
-			//	spriteBatch.DrawString(sf,myName, new Vector2(305,300),Color.Black);
 				break;
 			case GameState.inGame:
 				inGame = true;

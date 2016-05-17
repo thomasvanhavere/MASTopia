@@ -15,7 +15,14 @@ namespace MASTopia
 		public int gameBoundX{ get; set;}
 		public int gameBoundY{ get; set;}
 
-
+		public float WidthScale {
+			get;
+			set;
+		}
+		public float HeightScale {
+			get;
+			set;
+		}
 	}
 }
 

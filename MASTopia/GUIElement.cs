@@ -27,7 +27,6 @@ namespace MASTopia
 				assetName = value;
 			}
 		}
-
 		public delegate void ElementClicked(string element);
 
 		public event ElementClicked clickEvent;
@@ -36,14 +35,16 @@ namespace MASTopia
 		{
 			this.assetName = assetName;
 		}
-		public void LoadContent(ContentManager content)
+		public void LoadContent(ContentManager content, GameObjects Obj)
 		{
 			GUITexture = content.Load<Texture2D> (assetName);
-			GUIRect = new Rectangle (0, 0, GUITexture.Width, GUITexture.Height);
+			//GUIRect = new Rectangle (0, 0, (int)(GUITexture.Width*Obj.WidthScale), (int)(GUITexture.Height*Obj.HeightScale));
+			GUIRect = new Rectangle (0, 0, (GUITexture.Width), (GUITexture.Height));
 
 		}
 		public void Update(GameObjects gameObjects)
 		{
+
 			if (GUIRect.Contains(new Point(gameObjects.touchInput.X,gameObjects.touchInput.Y))&&gameObjects.touchInput.tapped ){
 
 				clickEvent (assetName);
@@ -52,6 +53,9 @@ namespace MASTopia
 		public void Draw(SpriteBatch spriteBatch)
 		{
 			spriteBatch.Draw (GUITexture, GUIRect, Color.White);
+//			Rectangle temp = new Rectangle (this.GUIRect.X, this.GUIRect.Y, GUITexture.Width, GUITexture.Height);
+//			GUIRect = temp;
+
 		}
 
 		public void Draw(SpriteBatch spriteBatch , float scale)
@@ -70,6 +74,10 @@ namespace MASTopia
 		public void moveElement(int x, int y)
 		{
 			GUIRect = new Rectangle (GUIRect.X += x, GUIRect.Y += y, GUIRect.Width, GUIRect.Height);
+		}
+		public void PutBg()
+		{
+			GUIRect = new Rectangle (0, 0, this.GUITexture.Width, this.GUITexture.Height);
 		}
 	}
 }

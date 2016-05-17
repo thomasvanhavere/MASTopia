@@ -96,8 +96,31 @@
     <BundleResource Include="Default.png" />
     <BundleResource Include="GameThumbnail.png" />
     <BundleResource Include="Resources\Icon.png" />
-    <BundleResource Include="Content\Main-Game\Flag.png" />
+    <BundleResource Include="Content\Main-Game\Flag.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </BundleResource>
     <BundleResource Include="Content\Main-Game\wastePlant.png" />
+    <BundleResource Include="Content\barracks\Background-upgrade-bar.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="Content\barracks\Defense.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="Content\barracks\attack.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="Content\barracks\barrack-bg.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="Content\barracks\barracks-bg2.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="Content\barracks\target.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="Content\barracks\upgrade.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </BundleResource>
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />

@@ -16,15 +16,17 @@ namespace MASTopia
 		GraphicsDeviceManager graphics;
 		SpriteBatch spriteBatch;
 
+		private GameObjects gameObjects;
+
 		//Resolution Independence
-		Vector2 virtualScreen = new Vector2(1920, 1080);
+		Vector2 virtualScreen = new Vector2(1920f, 1080f);
 		Vector3 ScalingFactor;
 		Matrix Scale;
 
-		private GameObjects gameObjects;
-
 		private MainMenu mainMenu = new MainMenu();
 		private GameView gameView = new GameView();
+		private DrawBarracks barrack = new DrawBarracks();
+
 
 		//private GUIElement menu;
 
@@ -32,12 +34,14 @@ namespace MASTopia
 		{
 			graphics = new GraphicsDeviceManager (this);
 			Content.RootDirectory = "Content";
+
 		}
 
 
 		protected override void Initialize ()
 		{
 			IsMouseVisible = true;  
+
 
 			TouchPanel.EnabledGestures = GestureType.VerticalDrag | GestureType.Flick | GestureType.Tap; 
 
@@ -46,40 +50,62 @@ namespace MASTopia
 			
 		protected override void LoadContent ()
 		{
-			// Create a new SpriteBatch, which can be used to draw textures.
+			gameObjects = new GameObjects();
+			CalculateGameBounds ();
 			spriteBatch = new SpriteBatch (GraphicsDevice);
 
+			//gameObjects = new GameObjects{gameBoundX=Window.ClientBounds.Height,gameBoundY=Window.ClientBounds.Width};
 
 
-			gameObjects = new GameObjects{gameBoundX=Window.ClientBounds.Height,gameBoundY=Window.ClientBounds.Width};
 			mainMenu.LoadContent (Content,gameObjects);
 			gameView.LoadContent (Content, gameObjects);
-			//TODO: use this.Content to load your game content here 
+			barrack.LoadContent (Content, gameObjects);
 		}
+		public void CalculateGameBounds()
+		{
+			float widthScale = (float)GraphicsDevice.PresentationParameters.BackBufferWidth / virtualScreen.X; 
+			float heightScale = (float)GraphicsDevice.PresentationParameters.BackBufferHeight / virtualScreen.Y;
+			gameObjects.gameBoundY = (int)(virtualScreen.X * widthScale);
+			gameObjects.gameBoundX = (int)(virtualScreen.Y * heightScale);
+			gameObjects.WidthScale = widthScale;
+			gameObjects.HeightScale = heightScale;
+			Console.WriteLine (gameObjects.gameBoundX);
+			Console.WriteLine (gameObjects.gameBoundY);
 
+			Scale = Matrix.CreateScale(widthScale,heightScale,1);
+		}
 
 		protected override void Update (GameTime gameTime)
 		{
+			//Calculate ScalingFactor
+
+
+
 			// For Mobile devices, this logic will close the Game when the Back button is pressed
 			// Exit() is obsolete on iOS
 			#if !__IOS__ &&  !__TVOS__
 			if (GamePad.GetState (PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState ().IsKeyDown (Keys.Escape))
 				Exit ();
 			#endif
+
 			gameObjects.touchInput = new TouchInput ();
 			GetTouchInput ();
-			//calculateScalingFactor ();
 
 			mainMenu.Update (gameObjects);
 			if (mainMenu.InGame) {
 				gameView.Update (gameObjects);
+				if (gameView.State==MASTopia.GameView.GamePart.barracks) {
+					barrack.Update (gameObjects);
+				}
 			}
 			base.Update (gameTime);
 		}
 
 		private void GetTouchInput()
 		{
+			
 			var TouchpannelState = TouchPanel.GetState ();
+
 			while (TouchPanel.IsGestureAvailable) {
 				var gesture = TouchPanel.ReadGesture ();
 				if (gesture.Delta.Y>0) {
@@ -93,11 +119,13 @@ namespace MASTopia
 				}
 				if (TouchpannelState.Count>=1) {
 					var touch = TouchpannelState [0];
-					gameObjects.touchInput.X = (int)touch.Position.X;
-					gameObjects.touchInput.Y = (int)touch.Position.Y;
+					gameObjects.touchInput.X = (int)(touch.Position.X/gameObjects.WidthScale);
+					gameObjects.touchInput.Y = (int)(touch.Position.Y/gameObjects.HeightScale);
+//					Console.WriteLine (touch.Position.X);
+//					Console.WriteLine (touch.Position.X/gameObjects.WidthScale);
+
 				}
 
-			
 			}
 		}
 		protected override void Draw (GameTime gameTime)
@@ -106,27 +134,22 @@ namespace MASTopia
             
 			//TODO: Add your drawing code here
             
-			//spriteBatch.Begin (SpriteSortMode.Texture, null, null, null, null,null, Scale);
-			spriteBatch.Begin();
+			spriteBatch.Begin (SpriteSortMode.Texture, null, null, null, null,null, Scale);
+
+			//spriteBatch.Begin();
 			mainMenu.Draw(spriteBatch);
 			if (mainMenu.InGame) {
 				gameView.Draw (spriteBatch);
+				if (gameView.State==MASTopia.GameView.GamePart.barracks) {
+					barrack.Draw (spriteBatch);
+				}
 			}
 
 			spriteBatch.End ();
 
 			base.Draw (gameTime);
 		}
-		public void calculateScalingFactor()
-		{
-			float widthScale = (float)GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width / virtualScreen.X; 
-			float heightScale = (float)GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height / virtualScreen.Y;
-			ScalingFactor = new Vector3(heightScale, widthScale, 1);
-			Scale = Matrix.CreateScale(ScalingFactor);
-			Console.WriteLine ((float)GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Width);
-			Console.WriteLine ((float)GraphicsAdapter.DefaultAdapter.CurrentDisplayMode.Height);
 
-		}
 	}
 } 
 

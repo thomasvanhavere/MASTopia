@@ -16,5 +16,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)TouchInput.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MainMenu.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GameView.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DrawBarracks.cs" />
   </ItemGroup>
 </Project>

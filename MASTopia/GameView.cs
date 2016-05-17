@@ -27,10 +27,20 @@ namespace MASTopia
 			Monney,
 			barracks
 		}
+
 		private GamePart gamePart;
 		List<GUIElement> mainBuildings = new List<GUIElement>();
 		List<GUIElement> BasicElements = new List<GUIElement>();
-
+		public GamePart State {
+			get
+			{
+				return gamePart;
+			}
+			set 
+			{
+				gamePart = value;
+			}
+		}
 
 		public GameView ()
 		{
@@ -51,10 +61,13 @@ namespace MASTopia
 		public void LoadContent(ContentManager content , GameObjects gameObjects)
 		{
 			foreach (GUIElement element in mainBuildings) {
-				element.LoadContent (content);
-				element.Center (gameObjects.gameBoundX, gameObjects.gameBoundY);
+				element.LoadContent (content,gameObjects);
+				//element.Center (gameObjects.gameBoundX, gameObjects.gameBoundY);
 				element.clickEvent += OnClick;
 			}
+			mainBuildings.Find (x => x.AssetName == "Main-Game/island").PutBg ();
+
+
 			mainBuildings.Find (x => x.AssetName == "Main-Game/money-button").moveElement (-550, -400);
 			mainBuildings.Find (x => x.AssetName == "Main-Game/Xp-Level").moveElement (-150, -400);
 			mainBuildings.Find (x => x.AssetName == "Main-Game/profile").moveElement (600, -350);
@@ -68,7 +81,7 @@ namespace MASTopia
 			mainBuildings.Find (x => x.AssetName == "Main-Game/boat").moveElement (-550, 300);
 
 			foreach (var element in BasicElements) {
-				element.LoadContent (content);
+				element.LoadContent (content,gameObjects);
 				element.Center (gameObjects.gameBoundX, gameObjects.gameBoundY);
 				element.clickEvent += OnClick;
 			}
@@ -118,11 +131,6 @@ namespace MASTopia
 				}
 				break;
 			case GamePart.Xp:
-				foreach (var element in BasicElements) {
-					element.Update (gameObjects);
-				}
-				break;
-			case GamePart.barracks:
 				foreach (var element in BasicElements) {
 					element.Update (gameObjects);
 				}
@@ -184,11 +192,7 @@ namespace MASTopia
 					element.Draw (spriteBatch);
 				}
 				break;
-			case GamePart.barracks:
-				foreach (var element in BasicElements) {
-					element.Draw (spriteBatch);
-				}
-				break;
+			
 			default:
 				break;
 			}
