@@ -54,6 +54,8 @@ namespace MASTopia
 			mainBuildings.Add (new GUIElement ("Main-Game/settings"));
 			mainBuildings.Add (new GUIElement ("Main-Game/wastePlant"));
 			mainBuildings.Add (new GUIElement ("Main-Game/Xp-Level"));
+			mainBuildings.Add (new GUIElement ("Main-Game/farm"));
+
 
 			BasicElements.Add(new GUIElement("Main-Menu/done"));
 
@@ -77,8 +79,11 @@ namespace MASTopia
 			mainBuildings.Find (x => x.AssetName == "Main-Game/market").moveElement  (1075,330);
 
 			mainBuildings.Find (x => x.AssetName == "Main-Game/settings").moveElement  (1700,900);
-			mainBuildings.Find (x => x.AssetName == "Main-Game/wastePlant").moveElement  (1200,500);
+			mainBuildings.Find (x => x.AssetName == "Main-Game/wastePlant").moveElement  (1050,550);
 			mainBuildings.Find (x => x.AssetName == "Main-Game/boat").moveElement  (200,750);
+			mainBuildings.Find (x => x.AssetName == "Main-Game/farm").moveElement  (1300,350);
+
+
 
 			foreach (var element in BasicElements) {
 				element.LoadContent (content,Obj);
@@ -101,11 +106,6 @@ namespace MASTopia
 				}
 				break;
 			case GamePart.faction:
-				foreach (var element in BasicElements) {
-					element.Update (gameObjects);
-				}
-				break;
-			case GamePart.harbour:
 				foreach (var element in BasicElements) {
 					element.Update (gameObjects);
 				}
@@ -162,11 +162,6 @@ namespace MASTopia
 					element.Draw (spriteBatch);
 				}
 				break;
-			case GamePart.harbour:
-				foreach (var element in BasicElements) {
-					element.Draw (spriteBatch);
-				}
-				break;
 			case GamePart.profile:
 				foreach (var element in BasicElements) {
 					element.Draw (spriteBatch);
@@ -202,6 +197,7 @@ namespace MASTopia
 		{
 			if (element=="Main-Game/market") {
 				gamePart = GamePart.market;
+
 			}
 			if (element=="Main-Game/Flag") {
 				gamePart = GamePart.faction;

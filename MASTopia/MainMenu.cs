@@ -64,7 +64,7 @@ namespace MASTopia
 
 			foreach (GUIElement element in EnterName) {
 				element.LoadContent (content,Obj);
-				element.Center (Obj.gameBoundX, Obj.gameBoundY);
+				//element.Center (Obj.gameBoundX, Obj.gameBoundY);
 				element.clickEvent += OnClick;
 			}
 			EnterName.Find (x => x.AssetName == "Main-Menu/done").moveElement (0, 60);

@@ -23,6 +23,10 @@ namespace MASTopia
 			get;
 			set;
 		}
+		public Enum State {
+			get;
+			set;
+		}
 	}
 }
 

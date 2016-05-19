@@ -3,7 +3,7 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio 2012
 Project("{D954291E-2A0B-460D-934E-DC6B0785DB48}") = "MASTopia", "MASTopia\MASTopia.shproj", "{5D77F3E2-EC4D-44EB-9660-37A55E2518E1}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MASTopia.iOS", "iOS\MASTopia.iOS.csproj", "{75902D9D-9141-4F7C-BE9C-1D53F29DA6E8}"
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MASTopia.IOS", "iOS\MASTopia.IOS.csproj", "{75902D9D-9141-4F7C-BE9C-1D53F29DA6E8}"
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "MASTopia.Droid", "Android\MASTopia.Droid.csproj", "{9E8CFDDD-5F34-4A4E-AF7C-819B82C9EB27}"
 EndProject

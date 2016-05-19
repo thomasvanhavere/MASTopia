@@ -12,6 +12,14 @@ namespace MASTopia
 		public bool up{ get; set; }
 		public bool down{ get; set; }
 		public bool tapped{ get; set; }
+		public bool swippedRight {
+			get;
+			set;
+		}
+		public bool swippedLeft {
+			get;
+			set;
+		}
 		public int X{ get; set; }
 		public int Y{ get; set; }
 	}

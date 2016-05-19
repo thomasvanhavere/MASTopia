@@ -17,5 +17,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)MainMenu.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GameView.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DrawBarracks.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DrawBaseClass.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DrawHarbour.cs" />
   </ItemGroup>
 </Project>
