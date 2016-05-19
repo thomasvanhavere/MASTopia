@@ -20,7 +20,6 @@ namespace MASTopia
 
 		//Resolution Independence
 		Vector2 virtualScreen = new Vector2(1920f, 1080f);
-		//Vector3 ScalingFactor;
 		Matrix Scale;
 
 		private MainMenu mainMenu = new MainMenu();
@@ -28,7 +27,6 @@ namespace MASTopia
 		private DrawBarracks barrack = new DrawBarracks();
 		private DrawHarbour harbour = new DrawHarbour();
 
-		//private GUIElement menu;
 
 		public Game1 ()
 		{
@@ -53,9 +51,6 @@ namespace MASTopia
 			gameObjects = new GameObjects();
 			CalculateGameBounds ();
 			spriteBatch = new SpriteBatch (GraphicsDevice);
-
-			//gameObjects = new GameObjects{gameBoundX=Window.ClientBounds.Height,gameBoundY=Window.ClientBounds.Width};
-
 
 			mainMenu.LoadContent (Content,gameObjects);
 			gameView.LoadContent (Content, gameObjects);
@@ -93,13 +88,14 @@ namespace MASTopia
 						barrack.scherm = DrawBarracks.screens.Screen1;
 
 					}
-					if (gameView.State==MASTopia.GameView.GamePart.harbour) {
-						harbour.Update (gameObjects);
-						if (harbour.State==DrawHarbour.Acties.Exit) {
-							gameView.State = GameView.GamePart.main;
-							harbour.State = DrawHarbour.Acties.main;
 
-						}
+				}
+				if (gameView.State==MASTopia.GameView.GamePart.harbour) {
+					harbour.Update (gameObjects);
+					if (harbour.State==DrawHarbour.Acties.Exit) {
+						gameView.State = GameView.GamePart.main;
+						harbour.State = DrawHarbour.Acties.main;
+
 					}
 				}
 			}

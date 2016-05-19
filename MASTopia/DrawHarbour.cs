@@ -39,8 +39,7 @@ namespace MASTopia
 			harbour.Add (new GUIElement ("Boat/boat-screen"));
 			harbour.Add (new GUIElement ("Boat/go-fishing"));
 			harbour.Add (new GUIElement ("Cross-Screen/upgrade"));
-			harbour.Add (new GUIElement ("Cross-Screen/X1"));
-
+			harbour.Add (new GUIElement ("Cross-Screen/X"));
 
 		}
 		public void LoadContent(ContentManager content , GameObjects gameObjects)
@@ -54,32 +53,25 @@ namespace MASTopia
 
 			harbour.Find (x => x.AssetName == "Boat/go-fishing").moveElement (150, 800);
 			harbour.Find (x => x.AssetName == "Cross-Screen/upgrade").moveElement (1615, 800);
-			harbour.Find (x => x.AssetName == "Cross-Screen/X1").moveElement (1770, 75);
+			harbour.Find (x => x.AssetName == "Cross-Screen/X").moveElement (1770, 75);
 		}
 		public void Update(GameObjects gameObjects)
-		{
-			
+		{			
 				foreach (GUIElement element in harbour) {
 					element.Update (gameObjects);
 				}
-	
-
-
+			Console.WriteLine ("Update harbour");
 		}
 		public void Draw(SpriteBatch spriteBatch)
 		{
-			
-
-				foreach (GUIElement element in harbour) {
+			foreach (GUIElement element in harbour) {
 					element.Draw (spriteBatch);
 				}
 
 		}
-
-
 		public void OnClick(string element)
 		{
-			if (element== "Cross-Screen/X1") {
+			if (element== "Cross-Screen/X") {
 				acties = Acties.Exit;
 				Console.WriteLine ("Exit x");
 			}

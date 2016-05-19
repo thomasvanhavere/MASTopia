@@ -87,7 +87,6 @@ namespace MASTopia
 
 			foreach (var element in BasicElements) {
 				element.LoadContent (content,Obj);
-				element.Center (Obj.gameBoundX, Obj.gameBoundY);
 				element.clickEvent += OnClick;
 			}
 

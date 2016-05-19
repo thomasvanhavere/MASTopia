@@ -93,10 +93,6 @@ namespace MASTopia
 			Screen2.Find(x=>x.AssetName=="barracks/target").moveElement(660,740);
 			Screen2.Find(x=>x.AssetName=="barracks/defense").moveElement(1230,740);
 			Screen2.Find(x=>x.AssetName=="Cross-Screen/X1").moveElement(1770,75);
-
-
-
-
 		}
 		public void Update(GameObjects gameObjects)
 		{
@@ -127,8 +123,7 @@ namespace MASTopia
 
 		}
 		public void Draw(SpriteBatch spriteBatch)
-		{
-			
+		{			
 			switch (screen) {
 			case screens.Screen1:
 				foreach (GUIElement element in Screen1) {

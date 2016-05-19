@@ -54,8 +54,6 @@ namespace MASTopia
 		public void Draw(SpriteBatch spriteBatch)
 		{
 			spriteBatch.Draw (GUITexture, GUIRect, Color.White);
-//			Rectangle temp = new Rectangle (this.GUIRect.X, this.GUIRect.Y, GUITexture.Width, GUITexture.Height);
-//			GUIRect = temp;
 
 		}
 
