@@ -70,7 +70,6 @@ namespace MASTopia
 			foreach (GUIElement element in resto) {
 				element.Update (gameObjects);
 			}
-			Console.WriteLine ("Update harbour");
 		}
 		public void Draw(SpriteBatch spriteBatch)
 		{

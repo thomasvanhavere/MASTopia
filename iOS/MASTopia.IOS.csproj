@@ -131,6 +131,9 @@
     <BundleResource Include="Content\Resto\resto-bg.png" />
     <BundleResource Include="Content\Resto\up.png" />
     <BundleResource Include="Content\Main-Game\Foodtruck.png" />
+    <BundleResource Include="Content\Farm\Place-tiles.png" />
+    <BundleResource Include="Content\Farm\farm-bg.png" />
+    <BundleResource Include="Content\WastePlant\wastePlant-bg.png" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />

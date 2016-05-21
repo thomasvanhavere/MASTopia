@@ -21,5 +21,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)DrawHarbour.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DrawMarket.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DrawResto.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DrawFarm.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DrawWastePlant.cs" />
   </ItemGroup>
 </Project>

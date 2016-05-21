@@ -24,6 +24,7 @@ namespace MASTopia
 			profile,
 			settings,
 			resto,
+			farm,
 			Xp,
 			Monney,
 			barracks
@@ -152,6 +153,9 @@ namespace MASTopia
 				gamePart = GamePart.main;
 			}
 			if (element=="Main-Game/Foodtruck") {
+				gamePart = GamePart.resto;
+			}
+			if (element=="Main-Game/farm") {
 				gamePart = GamePart.resto;
 			}
 		}

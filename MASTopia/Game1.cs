@@ -28,6 +28,8 @@ namespace MASTopia
 		private DrawHarbour harbour = new DrawHarbour();
 		private DrawMarket market = new DrawMarket();
 		private DrawResto resto = new DrawResto();
+		private DrawFarm farm = new DrawFarm();
+		private DrawWastePlant waste = new DrawWastePlant();
 
 		public Game1 ()
 		{
@@ -59,6 +61,9 @@ namespace MASTopia
 			harbour.LoadContent (Content, gameObjects);
 			market.LoadContent (Content, gameObjects);
 			resto.LoadContent (Content, gameObjects);
+			farm.LoadContent (Content, gameObjects);
+			waste.LoadContent (Content, gameObjects);
+
 		}
 		public void CalculateGameBounds()
 		{
@@ -114,6 +119,21 @@ namespace MASTopia
 					if (resto.State==DrawResto.Acties.Exit) {
 						gameView.State = GameView.GamePart.main;
 						resto.State = DrawResto.Acties.main;
+
+					}
+				}
+				if (gameView.State==MASTopia.GameView.GamePart.farm) {
+					farm.Update (gameObjects);
+					if (farm.State==DrawFarm.Acties.Exit) {
+						gameView.State = GameView.GamePart.main;
+						farm.State = DrawFarm.Acties.main;
+					}
+				}
+				if (gameView.State==MASTopia.GameView.GamePart.waste) {
+					waste.Update (gameObjects);
+					if (waste.State==DrawWastePlant.Acties.Exit) {
+						gameView.State = GameView.GamePart.main;
+						waste.State = DrawWastePlant.Acties.main;
 
 					}
 				}
@@ -182,6 +202,12 @@ namespace MASTopia
 				}
 				if (gameView.State==MASTopia.GameView.GamePart.resto) {
 					resto.Draw (spriteBatch);
+				}
+				if (gameView.State==MASTopia.GameView.GamePart.farm) {
+					farm.Draw (spriteBatch);
+				}
+				if (gameView.State==MASTopia.GameView.GamePart.waste) {
+					waste.Draw (spriteBatch);
 				}
 			}
 
