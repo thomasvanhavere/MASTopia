@@ -35,7 +35,7 @@ namespace MASTopia
 
 		public DrawHarbour ()
 		{
-			harbour.Add (new GUIElement ("Main-Game/island"));
+			harbour.Add (new GUIElement ("Cross-Screen/Island-bg"));
 			harbour.Add (new GUIElement ("Boat/boat-screen"));
 			harbour.Add (new GUIElement ("Boat/go-fishing"));
 			harbour.Add (new GUIElement ("Cross-Screen/upgrade-small"));
@@ -48,7 +48,7 @@ namespace MASTopia
 				element.LoadContent (content, gameObjects);
 				element.clickEvent += OnClick;
 			}
-			harbour.Find (x => x.AssetName == "Main-Game/island").PutBg ();
+			harbour.Find (x => x.AssetName == "Cross-Screen/Island-bg").PutBg ();
 
 			harbour.Find (x => x.AssetName == "Boat/boat-screen").moveElement(65,25);
 
@@ -77,6 +77,7 @@ namespace MASTopia
 				acties = Acties.Exit;
 				Console.WriteLine ("Exit x");
 			}
+
 
 		}
 	}

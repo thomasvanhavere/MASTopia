@@ -56,12 +56,12 @@ namespace MASTopia
 		List<GUIElement> Screen2 = new List<GUIElement>();
 		public DrawBarracks ()
 		{
-			Screen1.Add (new GUIElement ("Main-Game/island"));
+			Screen1.Add (new GUIElement ("Cross-Screen/Island-bg"));
 			Screen1.Add (new GUIElement ("barracks/barrack-bg"));
 			Screen1.Add (new GUIElement ("Cross-Screen/upgrade"));
 			Screen1.Add (new GUIElement ("Cross-Screen/X"));
 
-			Screen2.Add (new GUIElement ("Main-Game/island"));
+			Screen2.Add (new GUIElement ("Cross-Screen/Island-bg"));
 			Screen2.Add (new GUIElement ("barracks/barracks-bg2"));
 			Screen2.Add (new GUIElement ("Cross-Screen/X"));
 			Screen2.Add (new GUIElement ("barracks/attack"));
@@ -75,7 +75,7 @@ namespace MASTopia
 				element.LoadContent (content,gameObjects);
 				element.clickEvent += OnClick;
 			}
-			Screen1.Find(x=>x.AssetName=="Main-Game/island").PutBg();
+			Screen1.Find(x=>x.AssetName=="Cross-Screen/Island-bg").PutBg();
 			Screen1.Find(x=>x.AssetName=="barracks/barrack-bg").PutBg();
 			Screen1.Find(x=>x.AssetName=="Cross-Screen/upgrade").moveElement(835,750);
 			Screen1.Find(x=>x.AssetName=="Cross-Screen/X").moveElement(1770,75);
@@ -86,7 +86,7 @@ namespace MASTopia
 				element.clickEvent += OnClick;
 			}
 
-			Screen2.Find(x=>x.AssetName=="Main-Game/island").PutBg();
+			Screen2.Find(x=>x.AssetName=="Cross-Screen/Island-bg").PutBg();
 			Screen2.Find(x=>x.AssetName=="barracks/barracks-bg2").PutBg();
 
 			Screen2.Find(x=>x.AssetName=="barracks/attack").moveElement(150,740);

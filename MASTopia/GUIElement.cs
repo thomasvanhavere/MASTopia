@@ -18,6 +18,10 @@ namespace MASTopia
 		private Vector2 position;
 
 		private string assetName;
+		public int Counter {
+			get;
+			set;
+		}
 
 		public string AssetName {
 			get {
@@ -30,6 +34,10 @@ namespace MASTopia
 		public delegate void ElementClicked(string element);
 
 		public event ElementClicked clickEvent;
+
+		public GUIElement()
+		{
+		}
 
 		public GUIElement(string assetName)
 		{

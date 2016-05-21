@@ -114,7 +114,6 @@
     <BundleResource Include="Content\Market\Buy\buy-sell-bg.png" />
     <BundleResource Include="Content\Market\Buy\dial-button.png" />
     <BundleResource Include="Content\Market\Buy\minus.png" />
-    <BundleResource Include="Content\Market\Buy\plus.png" />
     <BundleResource Include="Content\Market\Buy\sell-button.png" />
     <BundleResource Include="Content\Market\Buy-Sep\button-fish.png" />
     <BundleResource Include="Content\Market\Buy-Sep\button-grains.png" />
@@ -126,26 +125,12 @@
     <BundleResource Include="Content\Market\Buy-Sep\buy-vegetables-screen.png" />
     <BundleResource Include="Content\Market\Buy-Sep\over-scroll-bar.png" />
     <BundleResource Include="Content\Market\Buy-Sep\scroll-bar.png" />
-    <BundleResource Include="Content\Market\storage\bar.png" />
-    <BundleResource Include="Content\Market\storage\fish-curve-l.png" />
-    <BundleResource Include="Content\Market\storage\fish-curve-r.png" />
-    <BundleResource Include="Content\Market\storage\fish-square.png" />
-    <BundleResource Include="Content\Market\storage\fish-symbol.png" />
-    <BundleResource Include="Content\Market\storage\grains-curve-l.png" />
-    <BundleResource Include="Content\Market\storage\grains-curve-r.png" />
-    <BundleResource Include="Content\Market\storage\grains-square.png" />
-    <BundleResource Include="Content\Market\storage\meat-curve-l.png" />
-    <BundleResource Include="Content\Market\storage\meat-curver.png" />
-    <BundleResource Include="Content\Market\storage\meat-square.png" />
-    <BundleResource Include="Content\Market\storage\meat-symbol.png" />
-    <BundleResource Include="Content\Market\storage\storage-screen.png" />
-    <BundleResource Include="Content\Market\storage\symbol grains.png" />
-    <BundleResource Include="Content\Market\storage\symbol vegetables.png" />
-    <BundleResource Include="Content\Market\storage\vegetables-curve-l.png" />
-    <BundleResource Include="Content\Market\storage\vegetables-curve-r.png" />
-    <BundleResource Include="Content\Market\storage\vegetables-square.png" />
-    <BundleResource Include="Content\Cross-Screen\Island-bg.png" />
-    <BundleResource Include="Content\Cross-Screen\upgrade-small.png" />
+    <BundleResource Include="Content\Resto\down.png" />
+    <BundleResource Include="Content\Resto\prepare-b.png" />
+    <BundleResource Include="Content\Resto\prepare-r.png" />
+    <BundleResource Include="Content\Resto\resto-bg.png" />
+    <BundleResource Include="Content\Resto\up.png" />
+    <BundleResource Include="Content\Main-Game\Foodtruck.png" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
@@ -225,6 +210,27 @@
     <Content Include="Content\Market\upgrade-screen.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Cross-Screen\Island-bg.png" />
+    <Content Include="Content\Cross-Screen\upgrade-small.png" />
+    <Content Include="Content\Market\storage\bar.png" />
+    <Content Include="Content\Market\storage\fish-curve-l.png" />
+    <Content Include="Content\Market\storage\fish-curve-r.png" />
+    <Content Include="Content\Market\storage\fish-square.png" />
+    <Content Include="Content\Market\storage\fish-symbol.png" />
+    <Content Include="Content\Market\storage\grains-curve-l.png" />
+    <Content Include="Content\Market\storage\grains-curve-r.png" />
+    <Content Include="Content\Market\storage\grains-square.png" />
+    <Content Include="Content\Market\storage\meat-curve-l.png" />
+    <Content Include="Content\Market\storage\meat-curver.png" />
+    <Content Include="Content\Market\storage\meat-square.png" />
+    <Content Include="Content\Market\storage\meat-symbol.png" />
+    <Content Include="Content\Market\storage\storage-screen.png" />
+    <Content Include="Content\Market\storage\symbol grains.png" />
+    <Content Include="Content\Market\storage\symbol vegetables.png" />
+    <Content Include="Content\Market\storage\vegetables-curve-l.png" />
+    <Content Include="Content\Market\storage\vegetables-curve-r.png" />
+    <Content Include="Content\Market\storage\vegetables-square.png" />
+    <Content Include="Content\Market\Buy\plus.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Main-Game\" />

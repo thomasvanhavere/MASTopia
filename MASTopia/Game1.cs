@@ -27,6 +27,7 @@ namespace MASTopia
 		private DrawBarracks barrack = new DrawBarracks();
 		private DrawHarbour harbour = new DrawHarbour();
 		private DrawMarket market = new DrawMarket();
+		private DrawResto resto = new DrawResto();
 
 		public Game1 ()
 		{
@@ -51,12 +52,13 @@ namespace MASTopia
 			gameObjects = new GameObjects();
 			CalculateGameBounds ();
 			spriteBatch = new SpriteBatch (GraphicsDevice);
-
+			gameObjects.Graphics = graphics;
 			mainMenu.LoadContent (Content,gameObjects);
 			gameView.LoadContent (Content, gameObjects);
 			barrack.LoadContent (Content, gameObjects);
 			harbour.LoadContent (Content, gameObjects);
 			market.LoadContent (Content, gameObjects);
+			resto.LoadContent (Content, gameObjects);
 		}
 		public void CalculateGameBounds()
 		{
@@ -107,6 +109,14 @@ namespace MASTopia
 
 					}
 				}
+				if (gameView.State==MASTopia.GameView.GamePart.resto) {
+					resto.Update (gameObjects);
+					if (resto.State==DrawResto.Acties.Exit) {
+						gameView.State = GameView.GamePart.main;
+						resto.State = DrawResto.Acties.main;
+
+					}
+				}
 			}
 
 
@@ -154,7 +164,7 @@ namespace MASTopia
             
 			//TODO: Add your drawing code here
             
-			spriteBatch.Begin (SpriteSortMode.FrontToBack, null, null, null, null,null, Scale);
+			spriteBatch.Begin (SpriteSortMode.Immediate, null, null, null, null,null, Scale);
 
 			mainMenu.Draw(spriteBatch);
 			if (mainMenu.State==MainMenu.GameState.inGame) {
@@ -170,7 +180,9 @@ namespace MASTopia
 				if (gameView.State==MASTopia.GameView.GamePart.market) {
 					market.Draw (spriteBatch);
 				}
-
+				if (gameView.State==MASTopia.GameView.GamePart.resto) {
+					resto.Draw (spriteBatch);
+				}
 			}
 
 			spriteBatch.End ();

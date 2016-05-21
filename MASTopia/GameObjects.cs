@@ -27,6 +27,10 @@ namespace MASTopia
 			get;
 			set;
 		}
+		public GraphicsDeviceManager Graphics {
+			get;
+			set;
+		}
 	}
 }
 

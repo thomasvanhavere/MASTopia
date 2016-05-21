@@ -23,6 +23,7 @@ namespace MASTopia
 			harbour,
 			profile,
 			settings,
+			resto,
 			Xp,
 			Monney,
 			barracks
@@ -54,8 +55,7 @@ namespace MASTopia
 			mainBuildings.Add (new GUIElement ("Main-Game/wastePlant"));
 			mainBuildings.Add (new GUIElement ("Main-Game/Xp-Level"));
 			mainBuildings.Add (new GUIElement ("Main-Game/farm"));
-
-
+			mainBuildings.Add (new GUIElement ("Main-Game/Foodtruck"));
 
 		}
 		public void LoadContent(ContentManager content , GameObjects Obj)
@@ -77,9 +77,13 @@ namespace MASTopia
 			mainBuildings.Find (x => x.AssetName == "Main-Game/market").moveElement  (1075,330);
 
 			mainBuildings.Find (x => x.AssetName == "Main-Game/settings").moveElement  (1700,900);
-			mainBuildings.Find (x => x.AssetName == "Main-Game/wastePlant").moveElement  (1050,550);
+			mainBuildings.Find (x => x.AssetName == "Main-Game/wastePlant").moveElement  (1100,580);
+
 			mainBuildings.Find (x => x.AssetName == "Main-Game/boat").moveElement  (200,750);
-			mainBuildings.Find (x => x.AssetName == "Main-Game/farm").moveElement  (1300,350);
+
+			mainBuildings.Find (x => x.AssetName == "Main-Game/farm").moveElement  (1250,390);
+
+			mainBuildings.Find (x => x.AssetName == "Main-Game/Foodtruck").moveElement  (840,480);
 
 
 		}
@@ -146,6 +150,9 @@ namespace MASTopia
 			}
 			if (element=="Main-Menu/done") {
 				gamePart = GamePart.main;
+			}
+			if (element=="Main-Game/Foodtruck") {
+				gamePart = GamePart.resto;
 			}
 		}
 	}
