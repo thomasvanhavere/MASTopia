@@ -63,7 +63,7 @@ namespace MASTopia
 
 			Screen2.Add (new GUIElement ("Main-Game/island"));
 			Screen2.Add (new GUIElement ("barracks/barracks-bg2"));
-			Screen2.Add (new GUIElement ("Cross-Screen/X1"));
+			Screen2.Add (new GUIElement ("Cross-Screen/X"));
 			Screen2.Add (new GUIElement ("barracks/attack"));
 			Screen2.Add (new GUIElement ("barracks/target"));
 			Screen2.Add (new GUIElement ("barracks/defense"));
@@ -92,7 +92,7 @@ namespace MASTopia
 			Screen2.Find(x=>x.AssetName=="barracks/attack").moveElement(150,740);
 			Screen2.Find(x=>x.AssetName=="barracks/target").moveElement(660,740);
 			Screen2.Find(x=>x.AssetName=="barracks/defense").moveElement(1230,740);
-			Screen2.Find(x=>x.AssetName=="Cross-Screen/X1").moveElement(1770,75);
+			Screen2.Find(x=>x.AssetName=="Cross-Screen/X").moveElement(1770,75);
 		}
 		public void Update(GameObjects gameObjects)
 		{
@@ -149,11 +149,11 @@ namespace MASTopia
 				screen = screens.Exit;
 				Console.WriteLine ("Exit x");
 			}
-			if (element== "Cross-Screen/X1") {
-				screen = screens.Exit;
-				Console.WriteLine ("Exit X1");
-
-			}
+//			if (element== "Cross-Screen/X1") {
+//				screen = screens.Exit;
+//				Console.WriteLine ("Exit X1");
+//
+//			}
 
 		}
 	}

@@ -19,5 +19,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)DrawBarracks.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DrawBaseClass.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DrawHarbour.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DrawMarket.cs" />
   </ItemGroup>
 </Project>

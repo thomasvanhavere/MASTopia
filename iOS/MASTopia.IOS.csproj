@@ -94,6 +94,9 @@
   <ItemGroup>
     <None Include="Info.plist" />
     <None Include="packages.config" />
+    <None Include="Content\Market\.DS_Store" />
+    <None Include="Content\Market\Buy\.DS_Store" />
+    <None Include="Content\Market\storage\.DS_Store" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="Default.png" />
@@ -107,6 +110,42 @@
     <BundleResource Include="Content\Boat\boat-screen.png" />
     <BundleResource Include="Content\Boat\go-fishing.png" />
     <BundleResource Include="Content\Cross-Screen\upgrade.png" />
+    <BundleResource Include="Content\Market\Buy\buy-button.png" />
+    <BundleResource Include="Content\Market\Buy\buy-sell-bg.png" />
+    <BundleResource Include="Content\Market\Buy\dial-button.png" />
+    <BundleResource Include="Content\Market\Buy\minus.png" />
+    <BundleResource Include="Content\Market\Buy\plus.png" />
+    <BundleResource Include="Content\Market\Buy\sell-button.png" />
+    <BundleResource Include="Content\Market\Buy-Sep\button-fish.png" />
+    <BundleResource Include="Content\Market\Buy-Sep\button-grains.png" />
+    <BundleResource Include="Content\Market\Buy-Sep\button-meat.png" />
+    <BundleResource Include="Content\Market\Buy-Sep\button-vegetables.png" />
+    <BundleResource Include="Content\Market\Buy-Sep\buy-fish-screen.png" />
+    <BundleResource Include="Content\Market\Buy-Sep\buy-grains-screen.png" />
+    <BundleResource Include="Content\Market\Buy-Sep\buy-meat-screen.png" />
+    <BundleResource Include="Content\Market\Buy-Sep\buy-vegetables-screen.png" />
+    <BundleResource Include="Content\Market\Buy-Sep\over-scroll-bar.png" />
+    <BundleResource Include="Content\Market\Buy-Sep\scroll-bar.png" />
+    <BundleResource Include="Content\Market\storage\bar.png" />
+    <BundleResource Include="Content\Market\storage\fish-curve-l.png" />
+    <BundleResource Include="Content\Market\storage\fish-curve-r.png" />
+    <BundleResource Include="Content\Market\storage\fish-square.png" />
+    <BundleResource Include="Content\Market\storage\fish-symbol.png" />
+    <BundleResource Include="Content\Market\storage\grains-curve-l.png" />
+    <BundleResource Include="Content\Market\storage\grains-curve-r.png" />
+    <BundleResource Include="Content\Market\storage\grains-square.png" />
+    <BundleResource Include="Content\Market\storage\meat-curve-l.png" />
+    <BundleResource Include="Content\Market\storage\meat-curver.png" />
+    <BundleResource Include="Content\Market\storage\meat-square.png" />
+    <BundleResource Include="Content\Market\storage\meat-symbol.png" />
+    <BundleResource Include="Content\Market\storage\storage-screen.png" />
+    <BundleResource Include="Content\Market\storage\symbol grains.png" />
+    <BundleResource Include="Content\Market\storage\symbol vegetables.png" />
+    <BundleResource Include="Content\Market\storage\vegetables-curve-l.png" />
+    <BundleResource Include="Content\Market\storage\vegetables-curve-r.png" />
+    <BundleResource Include="Content\Market\storage\vegetables-square.png" />
+    <BundleResource Include="Content\Cross-Screen\Island-bg.png" />
+    <BundleResource Include="Content\Cross-Screen\upgrade-small.png" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
@@ -183,6 +222,9 @@
     </Content>
     <Content Include="Content\Cross-Screen\X1.png" />
     <Content Include="Content\Cross-Screen\X2.png" />
+    <Content Include="Content\Market\upgrade-screen.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Main-Game\" />

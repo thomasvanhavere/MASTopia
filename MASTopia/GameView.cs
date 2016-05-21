@@ -30,7 +30,6 @@ namespace MASTopia
 
 		private GamePart gamePart;
 		List<GUIElement> mainBuildings = new List<GUIElement>();
-		List<GUIElement> BasicElements = new List<GUIElement>();
 		public GamePart State {
 			get
 			{
@@ -57,7 +56,6 @@ namespace MASTopia
 			mainBuildings.Add (new GUIElement ("Main-Game/farm"));
 
 
-			BasicElements.Add(new GUIElement("Main-Menu/done"));
 
 		}
 		public void LoadContent(ContentManager content , GameObjects Obj)
@@ -84,53 +82,12 @@ namespace MASTopia
 			mainBuildings.Find (x => x.AssetName == "Main-Game/farm").moveElement  (1300,350);
 
 
-
-			foreach (var element in BasicElements) {
-				element.LoadContent (content,Obj);
-				element.clickEvent += OnClick;
-			}
-
 		}
 		public void Update(GameObjects gameObjects)
 		{
 			switch (gamePart) {
 			case GamePart.main:
 				foreach (GUIElement element in mainBuildings) {
-					element.Update (gameObjects);
-				}
-				break;
-			case GamePart.market:
-				foreach (var element in BasicElements) {
-					element.Update (gameObjects);
-				}
-				break;
-			case GamePart.faction:
-				foreach (var element in BasicElements) {
-					element.Update (gameObjects);
-				}
-				break;
-			case GamePart.profile:
-				foreach (var element in BasicElements) {
-					element.Update (gameObjects);
-				}
-				break;
-			case GamePart.waste:
-				foreach (var element in BasicElements) {
-					element.Update (gameObjects);
-				}
-				break;
-			case GamePart.settings:
-				foreach (var element in BasicElements) {
-					element.Update (gameObjects);
-				}
-				break;
-			case GamePart.Monney:
-				foreach (var element in BasicElements) {
-					element.Update (gameObjects);
-				}
-				break;
-			case GamePart.Xp:
-				foreach (var element in BasicElements) {
 					element.Update (gameObjects);
 				}
 				break;
@@ -148,41 +105,6 @@ namespace MASTopia
 			switch (gamePart) {
 			case GamePart.main:
 				foreach (GUIElement element in mainBuildings) {
-					element.Draw (spriteBatch);
-				}
-				break;
-			case GamePart.market:
-				foreach (var element in BasicElements) {
-					element.Draw (spriteBatch);
-				}
-				break;
-			case GamePart.faction:
-				foreach (var element in BasicElements) {
-					element.Draw (spriteBatch);
-				}
-				break;
-			case GamePart.profile:
-				foreach (var element in BasicElements) {
-					element.Draw (spriteBatch);
-				}
-				break;
-			case GamePart.waste:
-				foreach (var element in BasicElements) {
-					element.Draw (spriteBatch);
-				}
-				break;
-			case GamePart.settings:
-				foreach (var element in BasicElements) {
-					element.Draw (spriteBatch);
-				}
-				break;
-			case GamePart.Monney:
-				foreach (var element in BasicElements) {
-					element.Draw (spriteBatch);
-				}
-				break;
-			case GamePart.Xp:
-				foreach (var element in BasicElements) {
 					element.Draw (spriteBatch);
 				}
 				break;
