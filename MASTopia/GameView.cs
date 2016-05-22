@@ -126,26 +126,31 @@ namespace MASTopia
 
 			}
 			if (element=="Main-Game/Flag") {
-				gamePart = GamePart.faction;
+				//gamePart = GamePart.faction;
+				Console.WriteLine("clicked flag");
 			}
 			if (element=="Main-Game/boat") {
 				gamePart = GamePart.harbour;
 			}
 			if (element=="Main-Game/profile") {
-				gamePart = GamePart.profile;
+				//gamePart = GamePart.profile;
+				Console.WriteLine("clicked Profile");
+
 			}
 			if (element=="Main-Game/wastePlant") {
 				gamePart = GamePart.waste;
 			}
 			if (element=="Main-Game/settings") {
-				gamePart = GamePart.settings;
+				//gamePart = GamePart.settings;
+				Console.WriteLine("clicked Settings");
+
 			}
-			if (element=="Main-Game/money-button") {
-				gamePart = GamePart.Monney;
-			}
-			if (element=="Main-Game/Xp-Level") {
-				gamePart = GamePart.Xp;
-			}
+//			if (element=="Main-Game/money-button") {
+//				gamePart = GamePart.Monney;
+//			}
+//			if (element=="Main-Game/Xp-Level") {
+//				gamePart = GamePart.Xp;
+//			}
 			if (element=="Main-Game/barracks") {
 				gamePart = GamePart.barracks;
 			}
