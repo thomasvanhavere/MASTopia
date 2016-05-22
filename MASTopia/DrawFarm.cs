@@ -36,10 +36,11 @@ namespace MASTopia
 		public DrawFarm ()
 		{
 			farm.Add (new GUIElement ("Cross-Screen/Island-bg"));
-			farm.Add (new GUIElement ("Cross-Screen/upgrade"));
-			farm.Add (new GUIElement ("Cross-Screen/X"));
 			farm.Add (new GUIElement ("Farm/farm-bg"));
 			farm.Add (new GUIElement ("Farm/Place-tiles"));
+			farm.Add (new GUIElement ("Cross-Screen/upgrade"));
+			farm.Add (new GUIElement ("Cross-Screen/X"));
+
 		}
 		public void LoadContent(ContentManager content , GameObjects gameObjects)
 		{

@@ -62,12 +62,18 @@ namespace MASTopia
 			MarketScreen2.Add (new GUIElement ("Market/Buy/sell-button"));
 
 		
-			for (int i = 0; i < 4; i++) {
-				Buttons.Add (new GUIElement ("Market/Buy/plus"));
-			}
-			for (int J = 0; J < 4; J++) {
-				Buttons.Add (new GUIElement ("Market/Buy/minus"));
-			}
+
+			Buttons.Add (new GUIElement ("Market/Buy/plus-fish"));
+			Buttons.Add (new GUIElement ("Market/Buy/plus-meat"));
+			Buttons.Add (new GUIElement ("Market/Buy/plus-veg"));
+			Buttons.Add (new GUIElement ("Market/Buy/plus-grain"));
+
+			Buttons.Add (new GUIElement ("Market/Buy/minus-fish"));
+			Buttons.Add (new GUIElement ("Market/Buy/minus-meat"));
+			Buttons.Add (new GUIElement ("Market/Buy/minus-veg"));
+			Buttons.Add (new GUIElement ("Market/Buy/minus-grain"));
+
+
 			for (int i = 0; i < 4; i++) {
 				Buttons.Add (new GUIElement ("Market/Buy/dial-button"));
 
@@ -107,27 +113,26 @@ namespace MASTopia
 			MarketScreen2.Find (x => x.AssetName == "Market/Buy/sell-button").moveElement (1575,885 );
 
 
-			int X = 370;
-			int Y = 750;
-			int counter = 0;
 			foreach (GUIElement element in Buttons) {
 
 				element.LoadContent (content, gameObjects);
 				element.clickEvent += OnClick;
-				if (counter==4) {
-					X = 370;
-					Y = 910;
-				}
-				if (counter==8) {
-					Y = 820;
-					X = 370;
-				}
-				element.moveElement (X, Y);
-				X+=360;
-				element.Counter = counter;
-				counter++;
-
 			}
+			Buttons.Find (x => x.AssetName == "Market/Buy/plus-fish").moveElement (370,750 );
+			Buttons.Find (x => x.AssetName == "Market/Buy/plus-meat").moveElement (740,750 );
+			Buttons.Find (x => x.AssetName == "Market/Buy/plus-grain").moveElement (1110,750 );
+			Buttons.Find (x => x.AssetName == "Market/Buy/plus-veg").moveElement (1480,750 );
+
+			Buttons.Find (x => x.AssetName == "Market/Buy/minus-fish").moveElement (370,900 );
+			Buttons.Find (x => x.AssetName == "Market/Buy/minus-meat").moveElement (740,900 );
+			Buttons.Find (x => x.AssetName == "Market/Buy/minus-grain").moveElement (1110,900 );
+			Buttons.Find (x => x.AssetName == "Market/Buy/minus-veg").moveElement (1480,900 );
+
+			Buttons.ElementAt (8).moveElement (370, 815);
+			Buttons.ElementAt (9).moveElement (740, 815);
+			Buttons.ElementAt (10).moveElement (1110, 815);
+			Buttons.ElementAt (11).moveElement (1480, 815);
+
 
 			foreach (GUIElement element in MarketScreen3) {
 				

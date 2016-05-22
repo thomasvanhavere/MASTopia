@@ -11,7 +11,6 @@
   <ItemGroup>
     <Compile Include="$(MSBuildThisFileDirectory)Game1.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GameObjects.cs" />
-    <Compile Include="$(MSBuildThisFileDirectory)sprite.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)GUIElement.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)TouchInput.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)MainMenu.cs" />
@@ -23,5 +22,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)DrawResto.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DrawFarm.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DrawWastePlant.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SettingsMenu.cs" />
   </ItemGroup>
 </Project>

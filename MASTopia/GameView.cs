@@ -57,13 +57,13 @@ namespace MASTopia
 			mainBuildings.Add (new GUIElement ("Main-Game/Xp-Level"));
 			mainBuildings.Add (new GUIElement ("Main-Game/farm"));
 			mainBuildings.Add (new GUIElement ("Main-Game/Foodtruck"));
+			mainBuildings.Add (new GUIElement ("Main-Game/grounds"));
 
 		}
 		public void LoadContent(ContentManager content , GameObjects Obj)
 		{
 			foreach (GUIElement element in mainBuildings) {
 				element.LoadContent (content,Obj);
-				//element.Center (Obj.gameBoundX, Obj.gameBoundY);
 				element.clickEvent += OnClick;
 			}
 			mainBuildings.Find (x => x.AssetName == "Main-Game/island").PutBg ();
@@ -83,7 +83,7 @@ namespace MASTopia
 			mainBuildings.Find (x => x.AssetName == "Main-Game/boat").moveElement  (200,750);
 
 			mainBuildings.Find (x => x.AssetName == "Main-Game/farm").moveElement  (1250,390);
-
+			mainBuildings.Find (x => x.AssetName == "Main-Game/grounds").moveElement  (1185,240);
 			mainBuildings.Find (x => x.AssetName == "Main-Game/Foodtruck").moveElement  (840,480);
 
 
@@ -145,12 +145,6 @@ namespace MASTopia
 				Console.WriteLine("clicked Settings");
 
 			}
-//			if (element=="Main-Game/money-button") {
-//				gamePart = GamePart.Monney;
-//			}
-//			if (element=="Main-Game/Xp-Level") {
-//				gamePart = GamePart.Xp;
-//			}
 			if (element=="Main-Game/barracks") {
 				gamePart = GamePart.barracks;
 			}
@@ -161,7 +155,7 @@ namespace MASTopia
 				gamePart = GamePart.resto;
 			}
 			if (element=="Main-Game/farm") {
-				gamePart = GamePart.resto;
+				gamePart = GamePart.farm;
 			}
 		}
 	}

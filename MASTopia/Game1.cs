@@ -30,7 +30,7 @@ namespace MASTopia
 		private DrawResto resto = new DrawResto();
 		private DrawFarm farm = new DrawFarm();
 		private DrawWastePlant waste = new DrawWastePlant();
-
+		private SettingsMenu settings = new SettingsMenu();
 		public Game1 ()
 		{
 			graphics = new GraphicsDeviceManager (this);
@@ -63,7 +63,7 @@ namespace MASTopia
 			resto.LoadContent (Content, gameObjects);
 			farm.LoadContent (Content, gameObjects);
 			waste.LoadContent (Content, gameObjects);
-
+			settings.LoadContent (Content, gameObjects);
 		}
 		public void CalculateGameBounds()
 		{
@@ -75,9 +75,6 @@ namespace MASTopia
 			gameObjects.HeightScale = heightScale;
 			Scale = Matrix.CreateScale(widthScale,heightScale,1);
 
-//			graphics.PreferredBackBufferWidth = gameObjects.gameBoundY;
-//			graphics.PreferredBackBufferHeight = gameObjects.gameBoundX;
-//			graphics.ApplyChanges();
 		}
 
 		protected override void Update (GameTime gameTime)
@@ -88,8 +85,16 @@ namespace MASTopia
 			#endif
 			gameObjects.touchInput = new TouchInput ();
 			GetTouchInput ();
-
-			mainMenu.Update (gameObjects);
+			if (mainMenu.State == MainMenu.GameState.MainMenu) {
+				mainMenu.Update (gameObjects);
+			}
+			if (mainMenu.State==MainMenu.GameState.settings) {
+				settings.Update (gameObjects);
+				if (settings.State==SettingsMenu.Acties.Exit) {
+					mainMenu.State = MainMenu.GameState.MainMenu;
+					settings.State = SettingsMenu.Acties.main;
+				}
+			}
 			if (mainMenu.State==MainMenu.GameState.inGame) {
 				gameView.Update (gameObjects);
 
@@ -189,8 +194,15 @@ namespace MASTopia
 			//TODO: Add your drawing code here
             
 			spriteBatch.Begin (SpriteSortMode.Immediate, null, null, null, null,null, Scale);
+			if (mainMenu.State==MainMenu.GameState.MainMenu) {
+				mainMenu.Draw(spriteBatch);
 
-			mainMenu.Draw(spriteBatch);
+			}
+
+			if (mainMenu.State==MainMenu.GameState.settings) {
+				settings.Draw (spriteBatch);
+
+			}
 			if (mainMenu.State==MainMenu.GameState.inGame) {
 				gameView.Draw (spriteBatch);
 

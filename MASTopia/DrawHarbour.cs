@@ -38,7 +38,7 @@ namespace MASTopia
 			harbour.Add (new GUIElement ("Cross-Screen/Island-bg"));
 			harbour.Add (new GUIElement ("Boat/boat-screen"));
 			harbour.Add (new GUIElement ("Boat/go-fishing"));
-			harbour.Add (new GUIElement ("Cross-Screen/upgrade-small"));
+			harbour.Add (new GUIElement ("Cross-Screen/upgrade"));
 			harbour.Add (new GUIElement ("Cross-Screen/X"));
 
 		}
@@ -53,7 +53,7 @@ namespace MASTopia
 			harbour.Find (x => x.AssetName == "Boat/boat-screen").moveElement(65,25);
 
 			harbour.Find (x => x.AssetName == "Boat/go-fishing").moveElement (150, 800);
-			harbour.Find (x => x.AssetName == "Cross-Screen/upgrade-small").moveElement (1615, 800);
+			harbour.Find (x => x.AssetName == "Cross-Screen/upgrade").moveElement (1590, 775);
 			harbour.Find (x => x.AssetName == "Cross-Screen/X").moveElement (1770, 75);
 
 		}

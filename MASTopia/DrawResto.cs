@@ -38,7 +38,7 @@ namespace MASTopia
 			resto.Add (new GUIElement ("Cross-Screen/Island-bg"));
 			resto.Add (new GUIElement ("Resto/resto-bg"));
 
-			resto.Add (new GUIElement ("Cross-Screen/upgrade-small"));
+			resto.Add (new GUIElement ("Cross-Screen/upgrade"));
 			resto.Add (new GUIElement ("Cross-Screen/X"));
 
 			resto.Add (new GUIElement ("Resto/down"));
@@ -55,7 +55,7 @@ namespace MASTopia
 				element.clickEvent += OnClick;
 			}
 			resto.Find (x => x.AssetName == "Cross-Screen/Island-bg").PutBg ();
-			resto.Find (x => x.AssetName == "Cross-Screen/upgrade-small").moveElement (880, 810);
+			resto.Find (x => x.AssetName == "Cross-Screen/upgrade").moveElement (880, 810);
 			resto.Find (x => x.AssetName == "Cross-Screen/X").moveElement (1770, 75);
 
 			resto.Find (x => x.AssetName == "Resto/down").moveElement (1735, 625);

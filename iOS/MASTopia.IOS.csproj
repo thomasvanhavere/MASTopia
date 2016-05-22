@@ -114,7 +114,6 @@
     <BundleResource Include="Content\Market\Buy\buy-button.png" />
     <BundleResource Include="Content\Market\Buy\buy-sell-bg.png" />
     <BundleResource Include="Content\Market\Buy\dial-button.png" />
-    <BundleResource Include="Content\Market\Buy\minus.png" />
     <BundleResource Include="Content\Market\Buy\sell-button.png" />
     <BundleResource Include="Content\Market\Buy-Sep\button-fish.png" />
     <BundleResource Include="Content\Market\Buy-Sep\button-grains.png" />
@@ -135,7 +134,27 @@
     <BundleResource Include="Content\Farm\Place-tiles.png" />
     <BundleResource Include="Content\Farm\farm-bg.png" />
     <BundleResource Include="Content\WastePlant\wastePlant-bg.png" />
-    <BundleResource Include="Content\Market\storage-bg.png" />
+    <BundleResource Include="Content\Market\storage-bg.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="Content\Market\Buy\minus-fish.png" />
+    <BundleResource Include="Content\Market\Buy\minus-grain.png" />
+    <BundleResource Include="Content\Market\Buy\minus-meat.png" />
+    <BundleResource Include="Content\Market\Buy\minus-veg.png" />
+    <BundleResource Include="Content\Market\Buy\plus-fish.png" />
+    <BundleResource Include="Content\Market\Buy\plus-grain.png" />
+    <BundleResource Include="Content\Market\Buy\plus-meat.png" />
+    <BundleResource Include="Content\Market\Buy\plus-veg.png" />
+    <BundleResource Include="Content\Main-Game\grounds.png" />
+    <BundleResource Include="Content\settings\contact.png" />
+    <BundleResource Include="Content\settings\english.png" />
+    <BundleResource Include="Content\settings\facebook.png" />
+    <BundleResource Include="Content\settings\music-off.png" />
+    <BundleResource Include="Content\settings\music-on.png" />
+    <BundleResource Include="Content\settings\nederlands.png" />
+    <BundleResource Include="Content\settings\settings-bg.png" />
+    <BundleResource Include="Content\settings\sound-off.png" />
+    <BundleResource Include="Content\settings\sound-on.png" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
@@ -234,7 +253,6 @@
     <Content Include="Content\Market\storage\vegetables-curve-l.png" />
     <Content Include="Content\Market\storage\vegetables-curve-r.png" />
     <Content Include="Content\Market\storage\vegetables-square.png" />
-    <Content Include="Content\Market\Buy\plus.png" />
     <Content Include="Content\Attack\attack-bg.png" />
     <Content Include="Content\Attack\evil-bunny.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
