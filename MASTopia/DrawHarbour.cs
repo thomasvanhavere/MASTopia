@@ -77,7 +77,12 @@ namespace MASTopia
 				acties = Acties.Exit;
 				Console.WriteLine ("Exit x");
 			}
-
+			if (element== "Boat/go-fishing") {
+				Console.WriteLine ("go-fishing");
+			}
+			if (element== "Cross-Screen/upgrade-small") {
+				Console.WriteLine ("Upgrade @ Harbour");
+			}
 
 		}
 	}

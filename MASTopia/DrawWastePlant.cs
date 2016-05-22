@@ -72,7 +72,9 @@ namespace MASTopia
 				acties = Acties.Exit;
 				Console.WriteLine ("Exit x");
 			}
-
+			if (element== "Cross-Screen/upgrade") {
+				Console.WriteLine ("Upgrade @ wastePlant");
+			}
 
 		}
 	}

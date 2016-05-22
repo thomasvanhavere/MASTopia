@@ -28,6 +28,7 @@
     <MtouchDebug>true</MtouchDebug>
     <CodesignKey>iPhone Developer: vanhaverethomas@gmail.com (KN3QMKM6DT)</CodesignKey>
     <MtouchFastDev>true</MtouchFastDev>
+    <CodesignProvision>fd581880-e82c-4042-b39e-25718186cc1b</CodesignProvision>
   </PropertyGroup>
   <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|iPhone' ">
     <DebugType>full</DebugType>
@@ -66,7 +67,7 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <MtouchArch>ARMv7, ARM64</MtouchArch>
-    <CodesignEntitlements> Entitlements.plist</CodesignEntitlements>
+    <CodesignEntitlements>Entitlements.plist </CodesignEntitlements>
     <MtouchFloat32>true</MtouchFloat32>
     <MtouchUseRefCounting>true</MtouchUseRefCounting>
     <MtouchDebug>true</MtouchDebug>
