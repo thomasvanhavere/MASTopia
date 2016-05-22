@@ -17,6 +17,9 @@ namespace MASTopia
 		{
 			Screen1,
 			Screen2,
+			Attack,
+			Defense,
+			Target,
 			Exit
 		}
 
@@ -54,6 +57,8 @@ namespace MASTopia
 
 		List<GUIElement> Screen1 = new List<GUIElement>();
 		List<GUIElement> Screen2 = new List<GUIElement>();
+		List<GUIElement> Attack = new List<GUIElement>();
+
 		public DrawBarracks ()
 		{
 			Screen1.Add (new GUIElement ("Cross-Screen/Island-bg"));
@@ -67,6 +72,14 @@ namespace MASTopia
 			Screen2.Add (new GUIElement ("barracks/attack"));
 			Screen2.Add (new GUIElement ("barracks/target"));
 			Screen2.Add (new GUIElement ("barracks/defense"));
+
+			Attack.Add (new GUIElement ("Cross-Screen/Island-bg"));
+			Attack.Add (new GUIElement ("Attack/attack-bg"));
+			Attack.Add (new GUIElement ("Attack/evil-bunny"));
+			Attack.Add (new GUIElement ("Attack/kamikazee-rats"));
+			Attack.Add (new GUIElement ("Attack/nija-pig"));
+			Attack.Add (new GUIElement ("Attack/nucleair-snail"));
+			Attack.Add (new GUIElement ("Cross-Screen/X"));
 		}
 
 		public void LoadContent(ContentManager content , GameObjects gameObjects)
@@ -93,6 +106,20 @@ namespace MASTopia
 			Screen2.Find(x=>x.AssetName=="barracks/target").moveElement(660,740);
 			Screen2.Find(x=>x.AssetName=="barracks/defense").moveElement(1230,740);
 			Screen2.Find(x=>x.AssetName=="Cross-Screen/X").moveElement(1770,75);
+
+			foreach (GUIElement element in Attack) {
+				element.LoadContent (content,gameObjects);
+				element.clickEvent += OnClick;
+			}
+			Attack.Find(x=>x.AssetName=="Cross-Screen/Island-bg").PutBg();
+			//Attack.Find(x=>x.AssetName=="Attack/attack-bg").PutBg;
+			Attack.Find(x=>x.AssetName=="Attack/evil-bunny").moveElement(140,200);
+			Attack.Find(x=>x.AssetName=="Attack/kamikazee-rats").moveElement(540,250);
+			Attack.Find(x=>x.AssetName=="Attack/nija-pig").moveElement(940,300);
+			Attack.Find(x=>x.AssetName=="Attack/nucleair-snail").moveElement(1340,300);
+
+			Attack.Find(x=>x.AssetName=="Cross-Screen/X").moveElement(1770,75);
+
 		}
 		public void Update(GameObjects gameObjects)
 		{
@@ -106,6 +133,12 @@ namespace MASTopia
 
 			case screens.Screen2:
 				foreach (GUIElement element in Screen2) {
+					element.Update (gameObjects);
+				}
+			
+				break;
+			case screens.Attack:
+				foreach (GUIElement element in Attack) {
 					element.Update (gameObjects);
 				}
 
@@ -136,6 +169,12 @@ namespace MASTopia
 				}
 
 			break;
+			case screens.Attack:
+				foreach (GUIElement element in Attack) {
+					element.Draw (spriteBatch);
+				}
+
+				break;
 			default:
 				break;
 			}
@@ -145,15 +184,29 @@ namespace MASTopia
 
 		public void OnClick(string element)
 		{
-			if (element== "Cross-Screen/X") {
+			if (element== "Cross-Screen/X" && screen==screens.Attack) {
+				screen = screens.Screen2;
+				Console.WriteLine ("Exit x @ attack");
+			}
+			else if (element== "Cross-Screen/X") {
 				screen = screens.Exit;
 				Console.WriteLine ("Exit x");
 			}
-//			if (element== "Cross-Screen/X1") {
-//				screen = screens.Exit;
-//				Console.WriteLine ("Exit X1");
-//
-//			}
+
+			if (element== "Cross-Screen/upgrade") {
+				Console.WriteLine ("Upgrade @ Barrack");
+			}
+			if (element== "barracks/attack") {
+				Console.WriteLine ("Attack !!!");
+				screen = screens.Attack;
+			}
+
+			if (element=="barracks/target" ) {
+				Console.WriteLine ("Target !!!");
+			}
+			if (element== "barracks/defense") {
+				Console.WriteLine ("Defense");
+			}
 
 		}
 	}
