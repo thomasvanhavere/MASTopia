@@ -38,21 +38,21 @@ namespace MASTopia
 		public DrawMarket ()
 		{
 			MarketScreen1.Add (new GUIElement ("Cross-Screen/Island-bg"));
-			MarketScreen1.Add (new GUIElement ("Market/storage/storage-screen"));
+			MarketScreen1.Add (new GUIElement ("Market/storage-bg"));
 			MarketScreen1.Add (new GUIElement ("Cross-Screen/X"));
 			
-			MarketScreen1.Add(new GUIElement ("Market/storage/grains-curve-l"));
-			MarketScreen1.Add(new GUIElement ("Market/storage/grains-square"));
-			MarketScreen1.Add(new GUIElement ("Market/storage/symbol grains"));
-
-			MarketScreen1.Add(new GUIElement ("Market/storage/vegetables-square"));
-			MarketScreen1.Add(new GUIElement ("Market/storage/symbol vegetables"));
-
-			MarketScreen1.Add(new GUIElement ("Market/storage/fish-square"));
-			MarketScreen1.Add(new GUIElement ("Market/storage/fish-symbol"));
-
-			MarketScreen1.Add(new GUIElement ("Market/storage/meat-square"));
-			MarketScreen1.Add(new GUIElement ("Market/storage/meat-symbol"));
+//			MarketScreen1.Add(new GUIElement ("Market/storage/grains-curve-l"));
+//			MarketScreen1.Add(new GUIElement ("Market/storage/grains-square"));
+//			MarketScreen1.Add(new GUIElement ("Market/storage/symbol grains"));
+//
+//			MarketScreen1.Add(new GUIElement ("Market/storage/vegetables-square"));
+//			MarketScreen1.Add(new GUIElement ("Market/storage/symbol vegetables"));
+//
+//			MarketScreen1.Add(new GUIElement ("Market/storage/fish-square"));
+//			MarketScreen1.Add(new GUIElement ("Market/storage/fish-symbol"));
+//
+//			MarketScreen1.Add(new GUIElement ("Market/storage/meat-square"));
+//			MarketScreen1.Add(new GUIElement ("Market/storage/meat-symbol"));
 
 
 			MarketScreen2.Add (new GUIElement ("Cross-Screen/Island-bg"));
@@ -87,11 +87,11 @@ namespace MASTopia
 				element.clickEvent += OnClick;
 			}
 			MarketScreen1.Find (x => x.AssetName == "Cross-Screen/Island-bg").PutBg ();
-			MarketScreen1.Find (x => x.AssetName == "Market/storage/storage-screen").moveElement(65,25);
+			MarketScreen1.Find (x => x.AssetName == "Market/storage-bg").moveElement(65,25);
 
-			MarketScreen1.Find (x => x.AssetName == "Market/storage/grains-curve-l").moveElement (140, 884);
-			MarketScreen1.Find (x => x.AssetName == "Market/storage/symbol grains").moveElement (160, 800);
-			MarketScreen1.Find (x => x.AssetName == "Market/storage/grains-square").moveElement (150, 884);
+//			MarketScreen1.Find (x => x.AssetName == "Market/storage/grains-curve-l").moveElement (140, 884);
+//			MarketScreen1.Find (x => x.AssetName == "Market/storage/symbol grains").moveElement (160, 800);
+//			MarketScreen1.Find (x => x.AssetName == "Market/storage/grains-square").moveElement (150, 884);
 			MarketScreen1.Find (x => x.AssetName == "Cross-Screen/X").moveElement (1770, 75);
 
 

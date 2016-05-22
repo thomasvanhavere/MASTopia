@@ -74,6 +74,10 @@ namespace MASTopia
 			gameObjects.WidthScale = widthScale;
 			gameObjects.HeightScale = heightScale;
 			Scale = Matrix.CreateScale(widthScale,heightScale,1);
+
+//			graphics.PreferredBackBufferWidth = gameObjects.gameBoundY;
+//			graphics.PreferredBackBufferHeight = gameObjects.gameBoundX;
+//			graphics.ApplyChanges();
 		}
 
 		protected override void Update (GameTime gameTime)

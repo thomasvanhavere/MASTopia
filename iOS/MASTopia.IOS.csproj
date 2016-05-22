@@ -67,7 +67,7 @@
     <WarningLevel>4</WarningLevel>
     <ConsolePause>false</ConsolePause>
     <MtouchArch>ARMv7, ARM64</MtouchArch>
-    <CodesignEntitlements>Entitlements.plist </CodesignEntitlements>
+    <CodesignEntitlements>Entitlements.plist</CodesignEntitlements>
     <MtouchFloat32>true</MtouchFloat32>
     <MtouchUseRefCounting>true</MtouchUseRefCounting>
     <MtouchDebug>true</MtouchDebug>
@@ -98,9 +98,9 @@
     <None Include="Content\Market\.DS_Store" />
     <None Include="Content\Market\Buy\.DS_Store" />
     <None Include="Content\Market\storage\.DS_Store" />
+    <None Include="Entitlements.plist" />
   </ItemGroup>
   <ItemGroup>
-    <BundleResource Include="Default.png" />
     <BundleResource Include="GameThumbnail.png" />
     <BundleResource Include="Resources\Icon.png" />
     <BundleResource Include="Content\Main-Game\Flag.png">
@@ -135,19 +135,7 @@
     <BundleResource Include="Content\Farm\Place-tiles.png" />
     <BundleResource Include="Content\Farm\farm-bg.png" />
     <BundleResource Include="Content\WastePlant\wastePlant-bg.png" />
-    <BundleResource Include="Content\Attack\attack-bg.png" />
-    <BundleResource Include="Content\Attack\evil-bunny.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </BundleResource>
-    <BundleResource Include="Content\Attack\kamikazee-rats.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </BundleResource>
-    <BundleResource Include="Content\Attack\nija-pig.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </BundleResource>
-    <BundleResource Include="Content\Attack\nucleair-snail.png">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </BundleResource>
+    <BundleResource Include="Content\Market\storage-bg.png" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
@@ -241,17 +229,35 @@
     <Content Include="Content\Market\storage\meat-curver.png" />
     <Content Include="Content\Market\storage\meat-square.png" />
     <Content Include="Content\Market\storage\meat-symbol.png" />
-    <Content Include="Content\Market\storage\storage-screen.png" />
     <Content Include="Content\Market\storage\symbol grains.png" />
     <Content Include="Content\Market\storage\symbol vegetables.png" />
     <Content Include="Content\Market\storage\vegetables-curve-l.png" />
     <Content Include="Content\Market\storage\vegetables-curve-r.png" />
     <Content Include="Content\Market\storage\vegetables-square.png" />
     <Content Include="Content\Market\Buy\plus.png" />
+    <Content Include="Content\Attack\attack-bg.png" />
+    <Content Include="Content\Attack\evil-bunny.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Attack\kamikazee-rats.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Attack\nija-pig.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
+    <Content Include="Content\Attack\nucleair-snail.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Main-Game\" />
     <Folder Include="Content\Main-Menu\" />
     <Folder Include="Content\Boat\" />
+  </ItemGroup>
+  <ItemGroup>
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Contents.json" />
+  </ItemGroup>
+  <ItemGroup>
+    <InterfaceDefinition Include="Resources\LaunchScreen.xib" />
   </ItemGroup>
 </Project>

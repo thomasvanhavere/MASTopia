@@ -709,18 +709,6 @@
 /processorParam:TextureFormat=Color
 /build:Market/Storage/meat-symbol.png
 
-#begin Market/Storage/storage-screen.png
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:Market/Storage/storage-screen.png
-
 #begin Market/Storage/symbol grains.png
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -972,4 +960,16 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:Attack/nucleair-snail.png
+
+#begin Market/storage-bg.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:Market/storage-bg.png
 

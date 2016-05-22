@@ -71,7 +71,7 @@ namespace MASTopia
 			Screen2.Add (new GUIElement ("Cross-Screen/X"));
 			Screen2.Add (new GUIElement ("barracks/attack"));
 			Screen2.Add (new GUIElement ("barracks/target"));
-			Screen2.Add (new GUIElement ("barracks/defense"));
+			Screen2.Add (new GUIElement ("barracks/Defense"));
 
 			Attack.Add (new GUIElement ("Cross-Screen/Island-bg"));
 			Attack.Add (new GUIElement ("Attack/attack-bg"));
@@ -104,7 +104,7 @@ namespace MASTopia
 
 			Screen2.Find(x=>x.AssetName=="barracks/attack").moveElement(150,740);
 			Screen2.Find(x=>x.AssetName=="barracks/target").moveElement(660,740);
-			Screen2.Find(x=>x.AssetName=="barracks/defense").moveElement(1230,740);
+			Screen2.Find(x=>x.AssetName=="barracks/Defense").moveElement(1230,740);
 			Screen2.Find(x=>x.AssetName=="Cross-Screen/X").moveElement(1770,75);
 
 			foreach (GUIElement element in Attack) {
@@ -204,7 +204,7 @@ namespace MASTopia
 			if (element=="barracks/target" ) {
 				Console.WriteLine ("Target !!!");
 			}
-			if (element== "barracks/defense") {
+			if (element== "barracks/Defense") {
 				Console.WriteLine ("Defense");
 			}
 
