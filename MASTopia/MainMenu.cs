@@ -13,7 +13,7 @@ namespace MASTopia
 {
 	public class MainMenu
 	{
-		public enum GameState {MainMenu,inGame,settings}
+		public enum GameState {MainMenu,inGame,settings,factions}
 
 		 public GameState gameState = GameState.MainMenu;
 
@@ -78,8 +78,8 @@ namespace MASTopia
 				gameState = GameState.settings;
 			}
 
-			if (element=="Main-Menu/done") {
-				gameState = GameState.MainMenu;
+			if (element=="Main-Menu/leaderboard") {
+				gameState = GameState.factions;
 			}
 		}
 

@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿
+using System.Collections.Generic;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
@@ -10,12 +11,11 @@ using System.Linq;
 using System;
 namespace MASTopia
 {
-	public class DrawWastePlant
+	public class DrawProfile
 	{
 		public enum Acties
 		{
 			main,
-			Upgrade,
 			Exit
 
 		}
@@ -30,39 +30,36 @@ namespace MASTopia
 				acties=value;
 			}
 		}
-		List<GUIElement> waste = new List<GUIElement>();
+		List<GUIElement> profile = new List<GUIElement>();
 
-		public DrawWastePlant ()
+
+		public DrawProfile ()
 		{
-			waste.Add (new GUIElement ("Cross-Screen/Island-bg"));
-			waste.Add (new GUIElement ("WastePlant/wastePlant-bg"));
-			waste.Add (new GUIElement ("Cross-Screen/upgrade"));
-			waste.Add (new GUIElement ("Cross-Screen/X"));
+			profile.Add (new GUIElement ("Cross-Screen/Island-bg"));
+			profile.Add (new GUIElement ("Profile/profile-bg"));
 
-
+			profile.Add (new GUIElement ("Cross-Screen/X"));
 		}
 		public void LoadContent(ContentManager content , GameObjects gameObjects)
 		{
-			foreach (GUIElement element in waste) {
+			foreach (GUIElement element in profile) {
 				element.LoadContent (content, gameObjects);
 				element.clickEvent += OnClick;
 			}
-			waste.Find (x => x.AssetName == "Cross-Screen/Island-bg").PutBg ();
-			waste.Find (x => x.AssetName == "WastePlant/wastePlant-bg").moveElement (65,25);
-
-			waste.Find (x => x.AssetName == "Cross-Screen/upgrade").moveElement (135, 750);
-			waste.Find (x => x.AssetName == "Cross-Screen/X").moveElement (1770, 75);
+			profile.Find (x => x.AssetName == "Cross-Screen/Island-bg").PutBg ();
+			profile.Find (x => x.AssetName == "Profile/profile-bg").moveElement (65,25);
+			profile.Find (x => x.AssetName == "Cross-Screen/X").moveElement (1770, 75);
 
 		}
 		public void Update(GameObjects gameObjects)
 		{			
-			foreach (GUIElement element in waste) {
+			foreach (GUIElement element in profile) {
 				element.Update (gameObjects);
 			}
 		}
 		public void Draw(SpriteBatch spriteBatch)
 		{
-			foreach (GUIElement element in waste) {
+			foreach (GUIElement element in profile) {
 				element.Draw (spriteBatch);
 			}
 
@@ -73,10 +70,6 @@ namespace MASTopia
 				acties = Acties.Exit;
 				Console.WriteLine ("Exit x");
 			}
-			if (element== "Cross-Screen/upgrade") {
-				Console.WriteLine ("Upgrade @ wastePlant");
-			}
-
 		}
 	}
 }

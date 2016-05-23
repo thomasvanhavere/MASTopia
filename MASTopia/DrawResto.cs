@@ -55,7 +55,9 @@ namespace MASTopia
 				element.clickEvent += OnClick;
 			}
 			resto.Find (x => x.AssetName == "Cross-Screen/Island-bg").PutBg ();
-			resto.Find (x => x.AssetName == "Cross-Screen/upgrade").moveElement (880, 810);
+			resto.Find (x => x.AssetName == "Resto/resto-bg").moveElement (65,25);
+
+			resto.Find (x => x.AssetName == "Cross-Screen/upgrade").moveElement (820, 780);
 			resto.Find (x => x.AssetName == "Cross-Screen/X").moveElement (1770, 75);
 
 			resto.Find (x => x.AssetName == "Resto/down").moveElement (1735, 625);

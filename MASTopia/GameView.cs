@@ -22,7 +22,6 @@ namespace MASTopia
 			waste,
 			harbour,
 			profile,
-			settings,
 			resto,
 			farm,
 			Xp,
@@ -55,9 +54,9 @@ namespace MASTopia
 			mainBuildings.Add (new GUIElement ("Main-Game/settings"));
 			mainBuildings.Add (new GUIElement ("Main-Game/wastePlant"));
 			mainBuildings.Add (new GUIElement ("Main-Game/Xp-Level"));
+			mainBuildings.Add (new GUIElement ("Main-Game/grounds"));
 			mainBuildings.Add (new GUIElement ("Main-Game/farm"));
 			mainBuildings.Add (new GUIElement ("Main-Game/Foodtruck"));
-			mainBuildings.Add (new GUIElement ("Main-Game/grounds"));
 
 		}
 		public void LoadContent(ContentManager content , GameObjects Obj)
@@ -81,9 +80,9 @@ namespace MASTopia
 			mainBuildings.Find (x => x.AssetName == "Main-Game/wastePlant").moveElement  (1100,580);
 
 			mainBuildings.Find (x => x.AssetName == "Main-Game/boat").moveElement  (200,750);
+			mainBuildings.Find (x => x.AssetName == "Main-Game/grounds").moveElement  (1185,240);
 
 			mainBuildings.Find (x => x.AssetName == "Main-Game/farm").moveElement  (1250,390);
-			mainBuildings.Find (x => x.AssetName == "Main-Game/grounds").moveElement  (1185,240);
 			mainBuildings.Find (x => x.AssetName == "Main-Game/Foodtruck").moveElement  (840,480);
 
 
@@ -126,14 +125,14 @@ namespace MASTopia
 
 			}
 			if (element=="Main-Game/Flag") {
-				//gamePart = GamePart.faction;
+				gamePart = GamePart.faction;
 				Console.WriteLine("clicked flag");
 			}
 			if (element=="Main-Game/boat") {
 				gamePart = GamePart.harbour;
 			}
 			if (element=="Main-Game/profile") {
-				//gamePart = GamePart.profile;
+				gamePart = GamePart.profile;
 				Console.WriteLine("clicked Profile");
 
 			}
@@ -141,7 +140,7 @@ namespace MASTopia
 				gamePart = GamePart.waste;
 			}
 			if (element=="Main-Game/settings") {
-				//gamePart = GamePart.settings;
+				gamePart = GamePart.faction;
 				Console.WriteLine("clicked Settings");
 
 			}

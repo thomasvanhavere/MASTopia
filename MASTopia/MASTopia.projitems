@@ -23,5 +23,7 @@
     <Compile Include="$(MSBuildThisFileDirectory)DrawFarm.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DrawWastePlant.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)SettingsMenu.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DrawProfile.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)DrawFactions.cs" />
   </ItemGroup>
 </Project>

@@ -155,6 +155,13 @@
     <BundleResource Include="Content\settings\settings-bg.png" />
     <BundleResource Include="Content\settings\sound-off.png" />
     <BundleResource Include="Content\settings\sound-on.png" />
+    <BundleResource Include="Content\Factions\augmentulitaria-screen.png" />
+    <BundleResource Include="Content\Factions\augmentulitaria.png" />
+    <BundleResource Include="Content\Factions\factions bg.png" />
+    <BundleResource Include="Content\Factions\rhizome-screen.png" />
+    <BundleResource Include="Content\Factions\rhizome.png" />
+    <BundleResource Include="Content\Factions\transhumania-screen.png" />
+    <BundleResource Include="Content\Factions\transhumania.png" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
@@ -266,6 +273,7 @@
     <Content Include="Content\Attack\nucleair-snail.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
+    <Content Include="Content\Profile\profile-bg.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Main-Game\" />

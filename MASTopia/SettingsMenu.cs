@@ -15,6 +15,12 @@ namespace MASTopia
 		public enum Acties
 		{
 			main,
+			soundOn,
+			soundOff,
+			musicOn,
+			musicOff,
+			Nederlands,
+			Engels,
 			Exit
 
 		}
@@ -67,10 +73,12 @@ namespace MASTopia
 
 		}
 		public void Update(GameObjects gameObjects)
-		{			
+		{	
 			foreach (GUIElement element in Settings) {
+				
 				element.Update (gameObjects);
 			}
+
 		}
 		public void Draw(SpriteBatch spriteBatch)
 		{
@@ -79,13 +87,14 @@ namespace MASTopia
 			}
 
 		}
-
-
 		public void OnClick(string element)
 		{
 			if (element== "Cross-Screen/X") {
 				acties = Acties.Exit;
 				Console.WriteLine ("Exit x");
+			}
+			if (element=="settings/music-on") {
+				acties = Acties.musicOff;
 			}
 		
 

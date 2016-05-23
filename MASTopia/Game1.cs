@@ -31,6 +31,8 @@ namespace MASTopia
 		private DrawFarm farm = new DrawFarm();
 		private DrawWastePlant waste = new DrawWastePlant();
 		private SettingsMenu settings = new SettingsMenu();
+		private DrawProfile profile = new DrawProfile();
+		private DrawFactions factions = new DrawFactions();
 		public Game1 ()
 		{
 			graphics = new GraphicsDeviceManager (this);
@@ -64,6 +66,8 @@ namespace MASTopia
 			farm.LoadContent (Content, gameObjects);
 			waste.LoadContent (Content, gameObjects);
 			settings.LoadContent (Content, gameObjects);
+			profile.LoadContent (Content, gameObjects);
+			factions.LoadContent (Content, gameObjects);
 		}
 		public void CalculateGameBounds()
 		{
@@ -93,6 +97,13 @@ namespace MASTopia
 				if (settings.State==SettingsMenu.Acties.Exit) {
 					mainMenu.State = MainMenu.GameState.MainMenu;
 					settings.State = SettingsMenu.Acties.main;
+				}
+			}
+			if (mainMenu.State==MainMenu.GameState.factions) {
+				factions.Update (gameObjects);
+				if (factions.State==DrawFactions.Acties.Exit) {
+					mainMenu.State = MainMenu.GameState.MainMenu;
+					factions.State = DrawFactions.Acties.main;
 				}
 			}
 			if (mainMenu.State==MainMenu.GameState.inGame) {
@@ -143,6 +154,22 @@ namespace MASTopia
 					if (waste.State==DrawWastePlant.Acties.Exit) {
 						gameView.State = GameView.GamePart.main;
 						waste.State = DrawWastePlant.Acties.main;
+
+					}
+				}
+				if (gameView.State==MASTopia.GameView.GamePart.profile) {
+					profile.Update (gameObjects);
+					if (profile.State==DrawProfile.Acties.Exit) {
+						gameView.State = GameView.GamePart.main;
+						profile.State = DrawProfile.Acties.main;
+
+					}
+				}
+				if (gameView.State==MASTopia.GameView.GamePart.faction) {
+					factions.Update (gameObjects);
+					if (factions.State==DrawFactions.Acties.Exit) {
+						gameView.State = GameView.GamePart.main;
+						factions.State = DrawFactions.Acties.main;
 
 					}
 				}
@@ -203,6 +230,10 @@ namespace MASTopia
 				settings.Draw (spriteBatch);
 
 			}
+			if (mainMenu.State==MainMenu.GameState.factions) {
+				factions.Draw (spriteBatch);
+
+			}
 			if (mainMenu.State==MainMenu.GameState.inGame) {
 				gameView.Draw (spriteBatch);
 
@@ -224,6 +255,12 @@ namespace MASTopia
 				}
 				if (gameView.State==MASTopia.GameView.GamePart.waste) {
 					waste.Draw (spriteBatch);
+				}
+				if (gameView.State==MASTopia.GameView.GamePart.profile) {
+					profile.Draw (spriteBatch);
+				}
+				if (gameView.State==MASTopia.GameView.GamePart.faction) {
+					factions.Draw (spriteBatch);
 				}
 			}
 
