@@ -50,7 +50,7 @@ namespace MASTopia
 			}
 			farm.Find (x => x.AssetName == "Cross-Screen/Island-bg").PutBg ();
 			farm.Find (x => x.AssetName == "Cross-Screen/upgrade").moveElement (135, 750);
-			farm.Find (x => x.AssetName == "Cross-Screen/X").moveElement (1770, 75);
+			farm.Find (x => x.AssetName == "Cross-Screen/X").moveElement (1750,65);
 			farm.Find (x => x.AssetName == "Farm/Place-tiles").moveElement (1560, 750);
 
 		}

@@ -69,7 +69,7 @@ namespace MASTopia
 			Settings.Find (x => x.AssetName == "settings/facebook").moveElement (660,815);
 
 
-			Settings.Find (x => x.AssetName == "Cross-Screen/X").moveElement (1770, 75);
+			Settings.Find (x => x.AssetName == "Cross-Screen/X").moveElement (1750,65);
 
 		}
 		public void Update(GameObjects gameObjects)

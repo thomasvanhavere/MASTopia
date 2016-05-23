@@ -91,7 +91,7 @@ namespace MASTopia
 			Screen1.Find(x=>x.AssetName=="Cross-Screen/Island-bg").PutBg();
 			Screen1.Find(x=>x.AssetName=="barracks/barrack-bg").PutBg();
 			Screen1.Find(x=>x.AssetName=="Cross-Screen/upgrade").moveElement(835,750);
-			Screen1.Find(x=>x.AssetName=="Cross-Screen/X").moveElement(1770,75);
+			Screen1.Find(x=>x.AssetName=="Cross-Screen/X").moveElement(1750,65);
 
 
 			foreach (GUIElement element in Screen2) {
@@ -105,7 +105,7 @@ namespace MASTopia
 			Screen2.Find(x=>x.AssetName=="barracks/attack").moveElement(150,740);
 			Screen2.Find(x=>x.AssetName=="barracks/target").moveElement(660,740);
 			Screen2.Find(x=>x.AssetName=="barracks/Defense").moveElement(1230,740);
-			Screen2.Find(x=>x.AssetName=="Cross-Screen/X").moveElement(1770,75);
+			Screen2.Find(x=>x.AssetName=="Cross-Screen/X").moveElement(1750,65);
 
 			foreach (GUIElement element in Attack) {
 				element.LoadContent (content,gameObjects);
@@ -118,7 +118,7 @@ namespace MASTopia
 			Attack.Find(x=>x.AssetName=="Attack/nija-pig").moveElement(940,300);
 			Attack.Find(x=>x.AssetName=="Attack/nucleair-snail").moveElement(1340,300);
 
-			Attack.Find(x=>x.AssetName=="Cross-Screen/X").moveElement(1770,75);
+			Attack.Find(x=>x.AssetName=="Cross-Screen/X").moveElement(1750,65);
 
 		}
 		public void Update(GameObjects gameObjects)

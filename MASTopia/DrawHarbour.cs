@@ -54,7 +54,7 @@ namespace MASTopia
 
 			harbour.Find (x => x.AssetName == "Boat/go-fishing").moveElement (150, 800);
 			harbour.Find (x => x.AssetName == "Cross-Screen/upgrade-small").moveElement (1610, 805);
-			harbour.Find (x => x.AssetName == "Cross-Screen/X").moveElement (1770, 75);
+			harbour.Find (x => x.AssetName == "Cross-Screen/X").moveElement (1750,65);
 
 		}
 		public void Update(GameObjects gameObjects)

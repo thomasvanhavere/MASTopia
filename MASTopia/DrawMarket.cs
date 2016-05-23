@@ -98,7 +98,7 @@ namespace MASTopia
 //			MarketScreen1.Find (x => x.AssetName == "Market/storage/grains-curve-l").moveElement (140, 884);
 //			MarketScreen1.Find (x => x.AssetName == "Market/storage/symbol grains").moveElement (160, 800);
 //			MarketScreen1.Find (x => x.AssetName == "Market/storage/grains-square").moveElement (150, 884);
-			MarketScreen1.Find (x => x.AssetName == "Cross-Screen/X").moveElement (1770, 75);
+			MarketScreen1.Find (x => x.AssetName == "Cross-Screen/X").moveElement (1750,65);
 
 
 			foreach (GUIElement element in MarketScreen2) {
@@ -108,7 +108,7 @@ namespace MASTopia
 			}
 			MarketScreen2.Find (x => x.AssetName == "Cross-Screen/Island-bg").PutBg ();
 			MarketScreen2.Find (x => x.AssetName == "Market/Buy/buy-sell-bg").moveElement(65,25);
-			MarketScreen2.Find (x => x.AssetName == "Cross-Screen/X").moveElement (1770, 75);
+			MarketScreen2.Find (x => x.AssetName == "Cross-Screen/X").moveElement (1750,65);
 			MarketScreen2.Find (x => x.AssetName == "Market/Buy/buy-button").moveElement (1575,780 );
 			MarketScreen2.Find (x => x.AssetName == "Market/Buy/sell-button").moveElement (1575,885 );
 
@@ -142,7 +142,7 @@ namespace MASTopia
 			}
 			MarketScreen3.Find (x => x.AssetName == "Cross-Screen/Island-bg").PutBg ();
 			MarketScreen3.Find (x => x.AssetName == "Market/upgrade-screen").moveElement(65,25);
-			MarketScreen3.Find (x => x.AssetName == "Cross-Screen/X").moveElement (1770, 75);
+			MarketScreen3.Find (x => x.AssetName == "Cross-Screen/X").moveElement (1750,65);
 			MarketScreen3.Find (x => x.AssetName == "Cross-Screen/upgrade").moveElement (830, 735);
 
 		}

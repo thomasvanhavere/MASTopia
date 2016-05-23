@@ -51,7 +51,7 @@ namespace MASTopia
 			waste.Find (x => x.AssetName == "WastePlant/wastePlant-bg").moveElement (65,25);
 
 			waste.Find (x => x.AssetName == "Cross-Screen/upgrade").moveElement (135, 750);
-			waste.Find (x => x.AssetName == "Cross-Screen/X").moveElement (1770, 75);
+			waste.Find (x => x.AssetName == "Cross-Screen/X").moveElement (1750,65);
 
 		}
 		public void Update(GameObjects gameObjects)

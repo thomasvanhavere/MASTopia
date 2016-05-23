@@ -58,7 +58,7 @@ namespace MASTopia
 			resto.Find (x => x.AssetName == "Resto/resto-bg").moveElement (65,25);
 
 			resto.Find (x => x.AssetName == "Cross-Screen/upgrade").moveElement (820, 780);
-			resto.Find (x => x.AssetName == "Cross-Screen/X").moveElement (1770, 75);
+			resto.Find (x => x.AssetName == "Cross-Screen/X").moveElement (1750,65);
 
 			resto.Find (x => x.AssetName == "Resto/down").moveElement (1735, 625);
 			resto.Find (x => x.AssetName == "Resto/up").moveElement (1735,260 );
