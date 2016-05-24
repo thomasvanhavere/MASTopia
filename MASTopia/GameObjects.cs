@@ -27,7 +27,8 @@ namespace MASTopia
 			get;
 			set;
 		}
-		public GraphicsDeviceManager Graphics {
+
+		public SpriteFont Font {
 			get;
 			set;
 		}

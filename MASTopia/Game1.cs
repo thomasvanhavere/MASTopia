@@ -1,11 +1,13 @@
-﻿using System;
+﻿using System.Collections.Generic;
 
 using Microsoft.Xna.Framework;
 using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Storage;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Input.Touch;
-
+using Microsoft.Xna.Framework.Content;
+using System.Linq;
+using System;
 namespace MASTopia
 {
 	/// <summary>
@@ -22,6 +24,7 @@ namespace MASTopia
 		Vector2 virtualScreen = new Vector2(1920f, 1080f);
 		Matrix Scale;
 
+
 		private MainMenu mainMenu = new MainMenu();
 		private GameView gameView = new GameView();
 		private DrawBarracks barrack = new DrawBarracks();
@@ -33,6 +36,7 @@ namespace MASTopia
 		private SettingsMenu settings = new SettingsMenu();
 		private DrawProfile profile = new DrawProfile();
 		private DrawFactions factions = new DrawFactions();
+
 		public Game1 ()
 		{
 			graphics = new GraphicsDeviceManager (this);
@@ -56,8 +60,9 @@ namespace MASTopia
 			gameObjects = new GameObjects();
 			CalculateGameBounds ();
 			spriteBatch = new SpriteBatch (GraphicsDevice);
-			gameObjects.Graphics = graphics;
+
 			mainMenu.LoadContent (Content,gameObjects);
+
 			gameView.LoadContent (Content, gameObjects);
 			barrack.LoadContent (Content, gameObjects);
 			harbour.LoadContent (Content, gameObjects);
@@ -68,6 +73,8 @@ namespace MASTopia
 			settings.LoadContent (Content, gameObjects);
 			profile.LoadContent (Content, gameObjects);
 			factions.LoadContent (Content, gameObjects);
+
+
 		}
 		public void CalculateGameBounds()
 		{
@@ -173,6 +180,18 @@ namespace MASTopia
 
 					}
 				}
+				if (gameView.State==MASTopia.GameView.GamePart.mainMenu) {
+					gameView.State = GameView.GamePart.main;
+					mainMenu.State = MainMenu.GameState.MainMenu;
+				}
+				if (gameView.State==MASTopia.GameView.GamePart.settings) {
+					settings.Update (gameObjects);
+					if (settings.State==SettingsMenu.Acties.Exit) {
+						settings.State = SettingsMenu.Acties.main;
+						gameView.State = GameView.GamePart.main;
+
+					}
+				}
 			}
 
 
@@ -218,9 +237,9 @@ namespace MASTopia
 		{
 			graphics.GraphicsDevice.Clear (Color.CornflowerBlue);
             
-			//TODO: Add your drawing code here
             
 			spriteBatch.Begin (SpriteSortMode.Immediate, null, null, null, null,null, Scale);
+
 			if (mainMenu.State==MainMenu.GameState.MainMenu) {
 				mainMenu.Draw(spriteBatch);
 
@@ -240,7 +259,6 @@ namespace MASTopia
 				if (gameView.State == MASTopia.GameView.GamePart.barracks) {
 					barrack.Draw (spriteBatch);
 				}
-
 				if (gameView.State==MASTopia.GameView.GamePart.harbour) {
 					harbour.Draw (spriteBatch);
 				}
@@ -261,6 +279,9 @@ namespace MASTopia
 				}
 				if (gameView.State==MASTopia.GameView.GamePart.faction) {
 					factions.Draw (spriteBatch);
+				}
+				if (gameView.State==MASTopia.GameView.GamePart.settings) {
+					settings.Draw (spriteBatch);
 				}
 			}
 

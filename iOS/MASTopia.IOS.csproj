@@ -162,6 +162,22 @@
     <BundleResource Include="Content\Factions\rhizome.png" />
     <BundleResource Include="Content\Factions\transhumania-screen.png" />
     <BundleResource Include="Content\Factions\transhumania.png" />
+    <BundleResource Include="Content\Resto\prepare-40points-orange.png" />
+    <BundleResource Include="Content\Resto\prepare-10points-orange.png" />
+    <BundleResource Include="Content\Resto\prepare-50points.png" />
+    <BundleResource Include="Content\Resto\prepare-10points-blue.png" />
+    <BundleResource Include="Content\Resto\prepare-40pints-blue.png" />
+    <BundleResource Include="Content\Resto\preapare-60points-blue.png" />
+    <BundleResource Include="Content\Resto\prepare-46points.png" />
+    <BundleResource Include="Content\Resto\prepare-10points-orange1.png" />
+    <BundleResource Include="Content\Back-Menu\close-button.png" />
+    <BundleResource Include="Content\Back-Menu\main-menu.png" />
+    <BundleResource Include="Content\Back-Menu\screen.png" />
+    <BundleResource Include="Content\Back-Menu\settings-button.png" />
+    <BundleResource Include="Content\barracks\Detail\bg-detail.png" />
+    <BundleResource Include="Content\barracks\Detail\buy.png" />
+    <BundleResource Include="Content\barracks\Detail\min.png" />
+    <BundleResource Include="Content\barracks\Detail\plus.png" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
@@ -274,6 +290,7 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Profile\profile-bg.png" />
+    <Content Include="Content\MySprite.spritefont" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Main-Game\" />

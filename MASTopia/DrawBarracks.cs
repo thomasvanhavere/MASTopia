@@ -20,6 +20,7 @@ namespace MASTopia
 			Attack,
 			Defense,
 			Target,
+			DetailBunny,
 			Exit
 		}
 
@@ -58,6 +59,8 @@ namespace MASTopia
 		List<GUIElement> Screen1 = new List<GUIElement>();
 		List<GUIElement> Screen2 = new List<GUIElement>();
 		List<GUIElement> Attack = new List<GUIElement>();
+		List<GUIElement> detailBunny = new List<GUIElement>();
+
 
 		public DrawBarracks ()
 		{
@@ -80,6 +83,14 @@ namespace MASTopia
 			Attack.Add (new GUIElement ("Attack/nija-pig"));
 			Attack.Add (new GUIElement ("Attack/nucleair-snail"));
 			Attack.Add (new GUIElement ("Cross-Screen/X"));
+		
+			detailBunny.Add (new GUIElement("Cross-Screen/Island-bg"));
+			detailBunny.Add (new GUIElement ("barracks/Detail/bg-detail"));
+			detailBunny.Add (new GUIElement ("barracks/Detail/buy"));
+			detailBunny.Add (new GUIElement ("barracks/Detail/min"));
+			detailBunny.Add (new GUIElement ("barracks/Detail/plus"));
+			detailBunny.Add (new GUIElement ("Cross-Screen/X"));
+
 		}
 
 		public void LoadContent(ContentManager content , GameObjects gameObjects)
@@ -112,13 +123,23 @@ namespace MASTopia
 				element.clickEvent += OnClick;
 			}
 			Attack.Find(x=>x.AssetName=="Cross-Screen/Island-bg").PutBg();
-			//Attack.Find(x=>x.AssetName=="Attack/attack-bg").PutBg;
 			Attack.Find(x=>x.AssetName=="Attack/evil-bunny").moveElement(140,200);
 			Attack.Find(x=>x.AssetName=="Attack/kamikazee-rats").moveElement(540,250);
 			Attack.Find(x=>x.AssetName=="Attack/nija-pig").moveElement(940,300);
 			Attack.Find(x=>x.AssetName=="Attack/nucleair-snail").moveElement(1340,300);
-
 			Attack.Find(x=>x.AssetName=="Cross-Screen/X").moveElement(1750,65);
+
+			foreach (GUIElement element in detailBunny) {
+				element.LoadContent (content,gameObjects);
+				element.clickEvent += OnClick;
+			}
+			detailBunny.Find(x=>x.AssetName=="Cross-Screen/Island-bg").PutBg();
+			detailBunny.Find(x=>x.AssetName=="barracks/Detail/buy").moveElement(1540,750);
+			detailBunny.Find(x=>x.AssetName=="barracks/Detail/min").moveElement(1420,910);
+			detailBunny.Find(x=>x.AssetName=="barracks/Detail/plus").moveElement(1420,750);
+
+			detailBunny.Find(x=>x.AssetName=="Cross-Screen/X").moveElement(1750,65);
+
 
 		}
 		public void Update(GameObjects gameObjects)
@@ -141,19 +162,23 @@ namespace MASTopia
 				foreach (GUIElement element in Attack) {
 					element.Update (gameObjects);
 				}
-
+				break;
+			case screens.DetailBunny:
+				foreach (GUIElement element in detailBunny) {
+					element.Update (gameObjects);
+				}
 				break;
 			default:
 				break;
 			}
-
-			if (gameObjects.touchInput.swippedLeft) {
-				screen = screens.Screen2;
+			if (screen == screens.Screen2 || screen == screens.Screen1) {	
+				if (gameObjects.touchInput.swippedLeft) {
+					screen = screens.Screen2;
+				}
+				if(gameObjects.touchInput.swippedRight){
+					screen = screens.Screen1;
+				}
 			}
-			if(gameObjects.touchInput.swippedRight){
-				screen = screens.Screen1;
-			}
-
 		}
 		public void Draw(SpriteBatch spriteBatch)
 		{			
@@ -175,6 +200,12 @@ namespace MASTopia
 				}
 
 				break;
+			case screens.DetailBunny:
+				foreach (GUIElement element in detailBunny) {
+					element.Draw (spriteBatch);
+				}
+
+				break;
 			default:
 				break;
 			}
@@ -187,6 +218,9 @@ namespace MASTopia
 			if (element== "Cross-Screen/X" && screen==screens.Attack) {
 				screen = screens.Screen2;
 				Console.WriteLine ("Exit x @ attack");
+			}
+			else if (element== "Cross-Screen/X" && screen==screens.DetailBunny) {
+				screen = screens.Attack;
 			}
 			else if (element== "Cross-Screen/X") {
 				screen = screens.Exit;
@@ -206,6 +240,9 @@ namespace MASTopia
 			}
 			if (element== "barracks/Defense") {
 				Console.WriteLine ("Defense");
+			}
+			if (element== "Attack/evil-bunny") {
+				screen = screens.DetailBunny;
 			}
 
 		}

@@ -33,27 +33,18 @@ namespace MASTopia
 		List<GUIElement>MarketScreen2 = new List<GUIElement>();
 		List<GUIElement>MarketScreen3 = new List<GUIElement>();
 		List<GUIElement>Buttons = new List<GUIElement>();
+		private SpriteFont font;
 
+		private int aGrain=0;
+		private int aFish=0;
+		private int aVege=0;
+		private int aMeat=0;
 
 		public DrawMarket ()
 		{
 			MarketScreen1.Add (new GUIElement ("Cross-Screen/Island-bg"));
 			MarketScreen1.Add (new GUIElement ("Market/storage-bg"));
 			MarketScreen1.Add (new GUIElement ("Cross-Screen/X"));
-			
-//			MarketScreen1.Add(new GUIElement ("Market/storage/grains-curve-l"));
-//			MarketScreen1.Add(new GUIElement ("Market/storage/grains-square"));
-//			MarketScreen1.Add(new GUIElement ("Market/storage/symbol grains"));
-//
-//			MarketScreen1.Add(new GUIElement ("Market/storage/vegetables-square"));
-//			MarketScreen1.Add(new GUIElement ("Market/storage/symbol vegetables"));
-//
-//			MarketScreen1.Add(new GUIElement ("Market/storage/fish-square"));
-//			MarketScreen1.Add(new GUIElement ("Market/storage/fish-symbol"));
-//
-//			MarketScreen1.Add(new GUIElement ("Market/storage/meat-square"));
-//			MarketScreen1.Add(new GUIElement ("Market/storage/meat-symbol"));
-
 
 			MarketScreen2.Add (new GUIElement ("Cross-Screen/Island-bg"));
 			MarketScreen2.Add (new GUIElement ("Market/Buy/buy-sell-bg"));
@@ -84,20 +75,19 @@ namespace MASTopia
 			MarketScreen3.Add (new GUIElement ("Cross-Screen/upgrade"));
 			MarketScreen3.Add (new GUIElement ("Cross-Screen/X"));
 
+
 		
 		}
 		public void LoadContent(ContentManager content , GameObjects gameObjects)
 		{
+			font = content.Load<SpriteFont> ("MyFont");
+
 			foreach (GUIElement element in MarketScreen1) {
 				element.LoadContent (content, gameObjects);
 				element.clickEvent += OnClick;
 			}
 			MarketScreen1.Find (x => x.AssetName == "Cross-Screen/Island-bg").PutBg ();
 			MarketScreen1.Find (x => x.AssetName == "Market/storage-bg").moveElement(65,25);
-
-//			MarketScreen1.Find (x => x.AssetName == "Market/storage/grains-curve-l").moveElement (140, 884);
-//			MarketScreen1.Find (x => x.AssetName == "Market/storage/symbol grains").moveElement (160, 800);
-//			MarketScreen1.Find (x => x.AssetName == "Market/storage/grains-square").moveElement (150, 884);
 			MarketScreen1.Find (x => x.AssetName == "Cross-Screen/X").moveElement (1750,65);
 
 
@@ -118,15 +108,18 @@ namespace MASTopia
 				element.LoadContent (content, gameObjects);
 				element.clickEvent += OnClick;
 			}
-			Buttons.Find (x => x.AssetName == "Market/Buy/plus-fish").moveElement (370,750 );
-			Buttons.Find (x => x.AssetName == "Market/Buy/plus-meat").moveElement (740,750 );
-			Buttons.Find (x => x.AssetName == "Market/Buy/plus-grain").moveElement (1110,750 );
-			Buttons.Find (x => x.AssetName == "Market/Buy/plus-veg").moveElement (1480,750 );
+			Buttons.Find (x => x.AssetName == "Market/Buy/plus-grain").moveElement (370,750 );
 
-			Buttons.Find (x => x.AssetName == "Market/Buy/minus-fish").moveElement (370,900 );
-			Buttons.Find (x => x.AssetName == "Market/Buy/minus-meat").moveElement (740,900 );
-			Buttons.Find (x => x.AssetName == "Market/Buy/minus-grain").moveElement (1110,900 );
-			Buttons.Find (x => x.AssetName == "Market/Buy/minus-veg").moveElement (1480,900 );
+			Buttons.Find (x => x.AssetName == "Market/Buy/plus-fish").moveElement (740,750 );
+
+			Buttons.Find (x => x.AssetName == "Market/Buy/plus-veg").moveElement (1110,750 );
+
+			Buttons.Find (x => x.AssetName == "Market/Buy/plus-meat").moveElement (1480,750 );
+
+			Buttons.Find (x => x.AssetName == "Market/Buy/minus-grain").moveElement (370,900 );
+			Buttons.Find (x => x.AssetName == "Market/Buy/minus-fish").moveElement (740,900 );
+			Buttons.Find (x => x.AssetName == "Market/Buy/minus-veg").moveElement (1110,900 );
+			Buttons.Find (x => x.AssetName == "Market/Buy/minus-meat").moveElement (1480,900 );
 
 			Buttons.ElementAt (8).moveElement (370, 815);
 			Buttons.ElementAt (9).moveElement (740, 815);
@@ -144,6 +137,7 @@ namespace MASTopia
 			MarketScreen3.Find (x => x.AssetName == "Market/upgrade-screen").moveElement(65,25);
 			MarketScreen3.Find (x => x.AssetName == "Cross-Screen/X").moveElement (1750,65);
 			MarketScreen3.Find (x => x.AssetName == "Cross-Screen/upgrade").moveElement (830, 735);
+
 
 		}
 		public void Update(GameObjects gameObjects)
@@ -170,22 +164,20 @@ namespace MASTopia
 			default:
 				break;
 			}
-			if (gameObjects.touchInput.swippedLeft) {
-				if (screen==Screens.Screen1) {
-					screen = Screens.Screen2;
+			if (screen == Screens.Screen1 || screen == Screens.Screen2 || screen == Screens.Screen3) {
+				if (gameObjects.touchInput.swippedLeft) {
+					if (screen == Screens.Screen1) {
+						screen = Screens.Screen2;
+					} else if (screen == Screens.Screen2) {
+						screen = Screens.Screen3;
+					}
 				}
-				else if(screen==Screens.Screen2)
-				{
-					screen = Screens.Screen3;
-				}
-			}
-			if (gameObjects.touchInput.swippedRight) {
-				if (screen==Screens.Screen3) {
-					screen = Screens.Screen2;
-				}
-				else if(screen==Screens.Screen2)
-				{
-					screen = Screens.Screen1;
+				if (gameObjects.touchInput.swippedRight) {
+					if (screen == Screens.Screen3) {
+						screen = Screens.Screen2;
+					} else if (screen == Screens.Screen2) {
+						screen = Screens.Screen1;
+					}
 				}
 			}
 		}
@@ -204,6 +196,12 @@ namespace MASTopia
 				foreach (GUIElement element in Buttons) {
 					element.Draw (spriteBatch);
 				}
+				spriteBatch.DrawString(font, aGrain.ToString(),new Vector2(385,818), Color.Black,0,new Vector2(0,0),3f,SpriteEffects.None,0f);
+				spriteBatch.DrawString(font, aFish.ToString(),new Vector2(755,818), Color.Black,0,new Vector2(0,0),3f,SpriteEffects.None,0f);
+				spriteBatch.DrawString(font, aVege.ToString(),new Vector2(1125,818), Color.Black,0,new Vector2(0,0),3f,SpriteEffects.None,0f);
+				spriteBatch.DrawString(font, aMeat.ToString(),new Vector2(1495,818), Color.Black,0,new Vector2(0,0),3f,SpriteEffects.None,0f);
+
+
 				break;
 			case Screens.Screen3:
 				foreach (GUIElement element in MarketScreen3) {
@@ -222,9 +220,7 @@ namespace MASTopia
 				screen = Screens.Exit;
 				Console.WriteLine ("Exit X @ market");
 			}
-			if (element=="Market/Buy/plus" ) {
-				Console.WriteLine ("Plus");
-			}
+
 			if (element =="Market/Buy/buy-button") {
 				Console.WriteLine ("Pressed Buy");
 			}
@@ -234,6 +230,47 @@ namespace MASTopia
 			if (element =="Cross-Screen/upgrade") {
 				Console.WriteLine ("Pressed upgrade @ Market");
 			}
+			if (element=="Market/Buy/plus-fish" ) {
+				if (aFish<100) {
+					aFish++;
+				}
+			}
+			if (element=="Market/Buy/plus-meat" ) {
+				if (aMeat<100) {
+					aMeat++;
+				}
+			}
+			if (element=="Market/Buy/plus-veg" ) {
+				if (aVege<100) {
+					aVege++;
+				}
+			}
+			if (element=="Market/Buy/plus-grain" ) {
+				if (aGrain<100) {
+					aGrain++;
+				}
+			}
+			if (element=="Market/Buy/minus-fish" ) {
+				if (aFish>0) {
+					aFish--;
+				}
+			}
+			if (element=="Market/Buy/minus-meat" ) {
+				if (aMeat>0) {
+					aMeat--;
+				}
+			}
+			if (element=="Market/Buy/minus-veg" ) {
+				if (aVege>0) {
+					aVege--;
+				}
+			}
+			if (element=="Market/Buy/minus-grain" ) {
+				if (aGrain>0) {
+					aGrain--;
+				}
+			}
+
 		}
 	}
 }

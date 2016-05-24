@@ -25,12 +25,17 @@ namespace MASTopia
 			resto,
 			farm,
 			Xp,
+			BackMenu,
+			mainMenu,
+			settings,
 			Monney,
 			barracks
 		}
 
 		private GamePart gamePart;
 		List<GUIElement> mainBuildings = new List<GUIElement>();
+		List<GUIElement> backMenu = new List<GUIElement>();
+
 		public GamePart State {
 			get
 			{
@@ -58,6 +63,11 @@ namespace MASTopia
 			mainBuildings.Add (new GUIElement ("Main-Game/farm"));
 			mainBuildings.Add (new GUIElement ("Main-Game/Foodtruck"));
 
+			backMenu.Add (new GUIElement ("Back-Menu/screen"));
+			backMenu.Add (new GUIElement ("Back-Menu/main-menu"));
+			backMenu.Add (new GUIElement ("Back-Menu/settings-button"));
+			backMenu.Add (new GUIElement ("Back-Menu/close-button"));
+
 		}
 		public void LoadContent(ContentManager content , GameObjects Obj)
 		{
@@ -66,7 +76,6 @@ namespace MASTopia
 				element.clickEvent += OnClick;
 			}
 			mainBuildings.Find (x => x.AssetName == "Main-Game/island").PutBg ();
-
 
 			mainBuildings.Find (x => x.AssetName == "Main-Game/money-button").moveElement (50, 50);
 			mainBuildings.Find (x => x.AssetName == "Main-Game/Xp-Level").moveElement  (350,50);
@@ -85,37 +94,66 @@ namespace MASTopia
 			mainBuildings.Find (x => x.AssetName == "Main-Game/farm").moveElement  (1250,390);
 			mainBuildings.Find (x => x.AssetName == "Main-Game/Foodtruck").moveElement  (840,480);
 
+			foreach (GUIElement element in backMenu) {
+				element.LoadContent (content,Obj);
+				element.clickEvent += OnClick;
+			}
+			backMenu.Find (x => x.AssetName == "Back-Menu/main-menu").moveElement  (680,380);
+			backMenu.Find (x => x.AssetName == "Back-Menu/settings-button").moveElement  (680,580);
+			backMenu.Find (x => x.AssetName == "Back-Menu/close-button").moveElement  (1743,280);
+
 
 		}
 		public void Update(GameObjects gameObjects)
 		{
+			
+
+			if (gamePart==GamePart.BackMenu) {
+				
+			}
+
 			switch (gamePart) {
 			case GamePart.main:
 				foreach (GUIElement element in mainBuildings) {
 					element.Update (gameObjects);
 				}
 				break;
+			case GamePart.BackMenu:
+				
+				foreach (GUIElement element in mainBuildings) {
+					element.Update (gameObjects);
+				}
+				foreach (GUIElement element in backMenu) {
+					element.Update (gameObjects);
+				}
+				break;
 			default:
 				break;
 			}
-
 		}
 
 
 		public void Draw(SpriteBatch spriteBatch)
 		{
 			
-
 			switch (gamePart) {
 			case GamePart.main:
 				foreach (GUIElement element in mainBuildings) {
 					element.Draw (spriteBatch);
 				}
 				break;
-			
+			case GamePart.BackMenu:
+				foreach (GUIElement element in mainBuildings) {
+					element.Draw (spriteBatch);
+				}
+				foreach (GUIElement element in backMenu) {
+					element.Draw (spriteBatch);
+				}
+				break;
 			default:
 				break;
 			}
+
 
 		}
 		public void OnClick(string element)
@@ -140,7 +178,7 @@ namespace MASTopia
 				gamePart = GamePart.waste;
 			}
 			if (element=="Main-Game/settings") {
-				gamePart = GamePart.faction;
+				gamePart = GamePart.BackMenu;
 				Console.WriteLine("clicked Settings");
 
 			}
@@ -156,7 +194,17 @@ namespace MASTopia
 			if (element=="Main-Game/farm") {
 				gamePart = GamePart.farm;
 			}
+			if (element=="Back-Menu/close-button") {
+				gamePart = GamePart.main;
+			}
+			if (element=="Back-Menu/main-menu") {
+				gamePart = GamePart.mainMenu;
+			}
+			if (element=="Back-Menu/settings-button") {
+				gamePart = GamePart.settings;
+			}
 		}
+
 	}
 }
 
