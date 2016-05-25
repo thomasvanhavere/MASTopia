@@ -46,7 +46,11 @@ namespace MASTopia
 				gamePart = value;
 			}
 		}
+		private SpriteFont font;
 
+		private int XP =0 ;
+		private int monney=0;
+		private int playerLevel = 0;
 		public GameView ()
 		{
 			mainBuildings.Add (new GUIElement ("Main-Game/island"));
@@ -71,6 +75,8 @@ namespace MASTopia
 		}
 		public void LoadContent(ContentManager content , GameObjects Obj)
 		{
+			font = content.Load<SpriteFont> ("MyFont");
+
 			foreach (GUIElement element in mainBuildings) {
 				element.LoadContent (content,Obj);
 				element.clickEvent += OnClick;
@@ -79,13 +85,13 @@ namespace MASTopia
 
 			mainBuildings.Find (x => x.AssetName == "Main-Game/money-button").moveElement (50, 50);
 			mainBuildings.Find (x => x.AssetName == "Main-Game/Xp-Level").moveElement  (350,50);
-			mainBuildings.Find (x => x.AssetName == "Main-Game/profile").moveElement  (1700,50);
+			mainBuildings.Find (x => x.AssetName == "Main-Game/settings").moveElement  (1700,50);
 
 			mainBuildings.Find (x => x.AssetName == "Main-Game/barracks").moveElement  (850,100);
 			mainBuildings.Find (x => x.AssetName == "Main-Game/Flag").moveElement  (450,220);
 			mainBuildings.Find (x => x.AssetName == "Main-Game/market").moveElement  (1075,330);
 
-			mainBuildings.Find (x => x.AssetName == "Main-Game/settings").moveElement  (1700,900);
+			mainBuildings.Find (x => x.AssetName == "Main-Game/profile").moveElement  (1700,900);
 			mainBuildings.Find (x => x.AssetName == "Main-Game/wastePlant").moveElement  (1100,580);
 
 			mainBuildings.Find (x => x.AssetName == "Main-Game/boat").moveElement  (200,750);
@@ -135,12 +141,12 @@ namespace MASTopia
 
 		public void Draw(SpriteBatch spriteBatch)
 		{
-			
 			switch (gamePart) {
 			case GamePart.main:
 				foreach (GUIElement element in mainBuildings) {
 					element.Draw (spriteBatch);
 				}
+
 				break;
 			case GamePart.BackMenu:
 				foreach (GUIElement element in mainBuildings) {
@@ -153,6 +159,9 @@ namespace MASTopia
 			default:
 				break;
 			}
+			spriteBatch.DrawString(font, XP.ToString(),new Vector2(550,55), Color.Black,0,new Vector2(0,0),3f,SpriteEffects.None,0f);
+			spriteBatch.DrawString(font, monney.ToString(),new Vector2(150,55), Color.Black,0,new Vector2(0,0),3f,SpriteEffects.None,0f);
+			spriteBatch.DrawString(font, playerLevel.ToString(),new Vector2(390,55), Color.Black,0,new Vector2(0,0),3f,SpriteEffects.None,0f);
 
 
 		}

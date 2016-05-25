@@ -32,6 +32,7 @@ namespace MASTopia
 		}
 		List<GUIElement> profile = new List<GUIElement>();
 
+		private SpriteFont font;
 
 		public DrawProfile ()
 		{
@@ -42,6 +43,8 @@ namespace MASTopia
 		}
 		public void LoadContent(ContentManager content , GameObjects gameObjects)
 		{
+			font = content.Load<SpriteFont> ("MyFont");
+
 			foreach (GUIElement element in profile) {
 				element.LoadContent (content, gameObjects);
 				element.clickEvent += OnClick;

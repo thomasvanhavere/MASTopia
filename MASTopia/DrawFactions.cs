@@ -72,9 +72,9 @@ namespace MASTopia
 
 			//faction.Find(x=>x.AssetName=="Cross-Screen/Island-bg").PutBg();
 			faction.Find(x=>x.AssetName=="Factions/factions bg").PutBg();
-			faction.Find(x=>x.AssetName=="Factions/augmentulitaria").moveElement(1240,180);
-			faction.Find(x=>x.AssetName=="Factions/rhizome").moveElement(750,105);
-			faction.Find(x=>x.AssetName=="Factions/transhumania").moveElement(295,180);
+			faction.Find(x=>x.AssetName=="Factions/augmentulitaria").moveElement(1310,240);
+			faction.Find(x=>x.AssetName=="Factions/rhizome").moveElement(820,165);
+			faction.Find(x=>x.AssetName=="Factions/transhumania").moveElement(265,240);
 			faction.Find(x=>x.AssetName=="Cross-Screen/X").moveElement(1750,65);
 
 			foreach (GUIElement element in Screen1) {

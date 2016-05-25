@@ -125,11 +125,6 @@
     <BundleResource Include="Content\Market\Buy-Sep\buy-vegetables-screen.png" />
     <BundleResource Include="Content\Market\Buy-Sep\over-scroll-bar.png" />
     <BundleResource Include="Content\Market\Buy-Sep\scroll-bar.png" />
-    <BundleResource Include="Content\Resto\down.png" />
-    <BundleResource Include="Content\Resto\prepare-b.png" />
-    <BundleResource Include="Content\Resto\prepare-r.png" />
-    <BundleResource Include="Content\Resto\resto-bg.png" />
-    <BundleResource Include="Content\Resto\up.png" />
     <BundleResource Include="Content\Main-Game\Foodtruck.png" />
     <BundleResource Include="Content\Farm\Place-tiles.png" />
     <BundleResource Include="Content\Farm\farm-bg.png" />
@@ -162,14 +157,6 @@
     <BundleResource Include="Content\Factions\rhizome.png" />
     <BundleResource Include="Content\Factions\transhumania-screen.png" />
     <BundleResource Include="Content\Factions\transhumania.png" />
-    <BundleResource Include="Content\Resto\prepare-40points-orange.png" />
-    <BundleResource Include="Content\Resto\prepare-10points-orange.png" />
-    <BundleResource Include="Content\Resto\prepare-50points.png" />
-    <BundleResource Include="Content\Resto\prepare-10points-blue.png" />
-    <BundleResource Include="Content\Resto\prepare-40pints-blue.png" />
-    <BundleResource Include="Content\Resto\preapare-60points-blue.png" />
-    <BundleResource Include="Content\Resto\prepare-46points.png" />
-    <BundleResource Include="Content\Resto\prepare-10points-orange1.png" />
     <BundleResource Include="Content\Back-Menu\close-button.png" />
     <BundleResource Include="Content\Back-Menu\main-menu.png" />
     <BundleResource Include="Content\Back-Menu\screen.png" />
@@ -291,6 +278,21 @@
     </Content>
     <Content Include="Content\Profile\profile-bg.png" />
     <Content Include="Content\MySprite.spritefont" />
+    <Content Include="Content\Resto\down.png" />
+    <Content Include="Content\Resto\prepare-b.png" />
+    <Content Include="Content\Resto\prepare-r.png" />
+    <Content Include="Content\Resto\resto-bg.png" />
+    <Content Include="Content\Resto\up.png" />
+    <Content Include="Content\Resto\prepare-40points-orange.png" />
+    <Content Include="Content\Resto\prepare-10points-orange.png" />
+    <Content Include="Content\Resto\prepare-50points.png" />
+    <Content Include="Content\Resto\prepare-10points-blue.png" />
+    <Content Include="Content\Resto\prepare-40pints-blue.png" />
+    <Content Include="Content\Resto\preapare-60points-blue.png" />
+    <Content Include="Content\Resto\prepare-46points.png" />
+    <Content Include="Content\Resto\prepare-10points-orange1.png" />
+    <Content Include="Content\Resto\bar-speed.png" />
+    <Content Include="Content\Resto\bar-upgrade.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Main-Game\" />
