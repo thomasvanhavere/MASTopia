@@ -192,12 +192,37 @@ namespace MASTopia
 
 					}
 				}
+				int time=0;
+				if ((int)gameTime.TotalGameTime.TotalSeconds>time) {
+						Console.WriteLine ((int)gameTime.TotalGameTime.TotalSeconds);
+					time = (int)gameTime.TotalGameTime.TotalSeconds + 1;
+				}
 			}
-
+			fillProp (gameTime);
 
 			base.Update (gameTime);
 		}
+		private void fillProp(GameTime gameTime)
+		{
+			if (gameTime.ElapsedGameTime.TotalMinutes%12==0)
+			{
+				gameObjects.Grains += farm.GrainTile;
+				gameObjects.Vegies += farm.VegieTile;
+				//Console.WriteLine (gameObjects.Grains);
 
+			}
+			if (gameTime.ElapsedGameTime.Ticks%24==0)
+			{
+				gameObjects.Meat += farm.MeatTile;
+				//Console.WriteLine (gameObjects.Meat);
+
+			}
+			if (gameTime.ElapsedGameTime.Ticks%120==0)
+			{
+				gameObjects.Fish += (harbour.ShipCapacity*harbour.AmountOfShips);
+				//Console.WriteLine (gameObjects.Fish);
+			}
+		}
 		private void GetTouchInput()
 		{
 			
@@ -237,7 +262,7 @@ namespace MASTopia
 		{
 			graphics.GraphicsDevice.Clear (Color.CornflowerBlue);
             
-            
+			gameObjects.gameTime = gameTime;
 			spriteBatch.Begin (SpriteSortMode.Immediate, null, null, null, null,null, Scale);
 
 			if (mainMenu.State==MainMenu.GameState.MainMenu) {
@@ -254,7 +279,7 @@ namespace MASTopia
 
 			}
 			if (mainMenu.State==MainMenu.GameState.inGame) {
-				gameView.Draw (spriteBatch);
+				gameView.Draw (spriteBatch,gameObjects);
 
 				if (gameView.State == MASTopia.GameView.GamePart.barracks) {
 					barrack.Draw (spriteBatch);

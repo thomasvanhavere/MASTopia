@@ -32,7 +32,30 @@ namespace MASTopia
 				acties=value;
 			}
 		}
+
+		private int meatTile=2;
+		private int vegieTile=2;
+		private int grainTile=2;
+
+		public int MeatTile
+		{
+			get { return meatTile; }
+			set { meatTile = value; }
+		}
+		public int VegieTile
+		{
+			get { return vegieTile; }
+			set { vegieTile = value; }
+		}
+		public int GrainTile
+		{
+			get { return grainTile; }
+			set { grainTile = value; }
+		}
+
 		List<GUIElement> farm = new List<GUIElement>();
+		public int FarmLevel { get; set; }
+
 		public DrawFarm ()
 		{
 			farm.Add (new GUIElement ("Cross-Screen/Island-bg"));
@@ -79,6 +102,16 @@ namespace MASTopia
 			if (element== "Farm/Place-tiles") {
 				Console.WriteLine ("Place tiles");
 			}
+		}
+		public void Upgradelvl(GameObjects Presource)
+		{
+			//=100*Level
+			if (Presource.Money >= (FarmLevel * 100))
+			{
+				FarmLevel++;
+				Presource.Money -= (FarmLevel * 100);
+			}
+
 		}
 	}
 }

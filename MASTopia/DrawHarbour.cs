@@ -31,6 +31,19 @@ namespace MASTopia
 				acties=value;
 			}
 		}
+		private int amountOfShips=1;
+		private int shipCapacity=15;
+		public int AmountOfShips
+		{
+			get { return amountOfShips; }
+			set { amountOfShips = value; }
+		}
+		public int ShipCapacity {
+			get { return shipCapacity; }
+			set { shipCapacity = value; }
+		}
+		public int HarbourLevel { get; set; }
+
 		List<GUIElement> harbour = new List<GUIElement>();
 
 		public DrawHarbour ()
@@ -82,6 +95,17 @@ namespace MASTopia
 			}
 			if (element== "Cross-Screen/upgrade-small") {
 				Console.WriteLine ("Upgrade @ Harbour");
+			}
+
+		}
+
+		public void Upgradelvl(GameObjects Presource)
+		{
+			//=90*Level
+			if (Presource.Money >= (HarbourLevel * 90))
+			{
+				HarbourLevel++;
+				Presource.Money -= (HarbourLevel * 90);
 			}
 
 		}

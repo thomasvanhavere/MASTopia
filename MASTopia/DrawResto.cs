@@ -51,22 +51,22 @@ namespace MASTopia
 			resto.Add (new GUIElement ("Cross-Screen/Island-bg"));
 			resto.Add (new GUIElement ("Resto/resto-bg"));
 
-			resto.Add (new GUIElement ("Cross-Screen/upgrade"));
+			resto.Add (new GUIElement ("Cross-Screen/upgrade-small"));
 			resto.Add (new GUIElement ("Cross-Screen/X"));
 
 			resto.Add (new GUIElement ("Resto/down"));
 			resto.Add (new GUIElement ("Resto/up"));
 			//links
 			resto.Add (new GUIElement ("Resto/prepare-46points")); //hotchpotch
-			resto.Add (new GUIElement ("Resto/prepare-60points-blue"));//fishpasta
-			resto.Add (new GUIElement ("Resto/prepare-40points-blue"));//herbcake
+			resto.Add (new GUIElement ("Resto/preapare-60points-blue"));//fishpasta
+			resto.Add (new GUIElement ("Resto/prepare-40pints-blue"));//herbcake
 			resto.Add (new GUIElement ("Resto/prepare-10points-blue"));//bbq
 
 			//rechts
-			resto.Add (new GUIElement ("Resto/preapare-50points"));//simmerTrout
+			resto.Add (new GUIElement ("Resto/prepare-50points"));//simmerTrout
 			resto.Add (new GUIElement ("Resto/prepare-10points-orange"));//friet
 			resto.Add (new GUIElement ("Resto/prepare-10points-orange1"));//calamares
-			resto.Add (new GUIElement ("Resto/preapare-50points"));//waffel
+			resto.Add (new GUIElement ("Resto/prepare-40points-orange"));//waffel
 
 			resto.Add (new GUIElement ("Resto/bar-speed"));
 			resto.Add (new GUIElement ("Resto/bar-upgrade"));
@@ -84,15 +84,22 @@ namespace MASTopia
 			resto.Find (x => x.AssetName == "Cross-Screen/Island-bg").PutBg ();
 			resto.Find (x => x.AssetName == "Resto/resto-bg").moveElement (65,25);
 
-			resto.Find (x => x.AssetName == "Cross-Screen/upgrade").moveElement (820, 780);
+			resto.Find (x => x.AssetName == "Cross-Screen/upgrade-small").moveElement (830, 820);
 			resto.Find (x => x.AssetName == "Cross-Screen/X").moveElement (1750,65);
 
 			resto.Find (x => x.AssetName == "Resto/down").moveElement (1735, 625);
 			resto.Find (x => x.AssetName == "Resto/up").moveElement (1735,260 );
+
 			resto.Find (x => x.AssetName == "Resto/prepare-46points").moveElement (645, 260);
+			resto.Find (x => x.AssetName == "Resto/preapare-60points-blue").moveElement (645, 380);
+			resto.Find (x => x.AssetName == "Resto/prepare-40pints-blue").moveElement (645, 500);
+			resto.Find (x => x.AssetName == "Resto/prepare-10points-blue").moveElement (645, 620);
 
+			resto.Find (x => x.AssetName == "Resto/prepare-50points").moveElement(1475, 260) ;
+			resto.Find (x => x.AssetName == "Resto/prepare-10points-orange").moveElement(1475, 380) ;
+			resto.Find (x => x.AssetName == "Resto/prepare-10points-orange1").moveElement(1475, 500) ;
+			resto.Find (x => x.AssetName == "Resto/prepare-40points-orange").moveElement(1475, 620) ;
 
-			resto.Find (x => x.AssetName == "Resto/preapare-50points").moveElement(1475, 260) ;
 
 			resto.Find (x => x.AssetName == "Resto/bar-speed").moveElement (198, 874);
 			resto.Find (x => x.AssetName == "Resto/bar-upgrade").moveElement (1138, 875);
@@ -120,7 +127,7 @@ namespace MASTopia
 			spriteBatch.DrawString(font, calamares.ToString(),new Vector2(1030,567), Color.White,0,new Vector2(0,0),1.3f,SpriteEffects.None,0f);
 			spriteBatch.DrawString(font, waffel.ToString(),new Vector2(1030,687), Color.White,0,new Vector2(0,0),1.3f,SpriteEffects.None,0f);
 
-			spriteBatch.DrawString(font, restolevel.ToString(),new Vector2(1030,90), Color.White,0,new Vector2(0,0),1.3f,SpriteEffects.None,0f);
+			spriteBatch.DrawString(font, restolevel.ToString(),new Vector2(1030,90), Color.White,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
 
 
 		}

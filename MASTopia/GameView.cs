@@ -48,9 +48,6 @@ namespace MASTopia
 		}
 		private SpriteFont font;
 
-		private int XP =0 ;
-		private int monney=0;
-		private int playerLevel = 0;
 		public GameView ()
 		{
 			mainBuildings.Add (new GUIElement ("Main-Game/island"));
@@ -139,7 +136,7 @@ namespace MASTopia
 		}
 
 
-		public void Draw(SpriteBatch spriteBatch)
+		public void Draw(SpriteBatch spriteBatch,GameObjects obj)
 		{
 			switch (gamePart) {
 			case GamePart.main:
@@ -159,9 +156,9 @@ namespace MASTopia
 			default:
 				break;
 			}
-			spriteBatch.DrawString(font, XP.ToString(),new Vector2(550,55), Color.Black,0,new Vector2(0,0),3f,SpriteEffects.None,0f);
-			spriteBatch.DrawString(font, monney.ToString(),new Vector2(150,55), Color.Black,0,new Vector2(0,0),3f,SpriteEffects.None,0f);
-			spriteBatch.DrawString(font, playerLevel.ToString(),new Vector2(390,55), Color.Black,0,new Vector2(0,0),3f,SpriteEffects.None,0f);
+			spriteBatch.DrawString(font, obj.XP.ToString()+" / "+obj.NextLevel.ToString(),new Vector2(480,55), Color.Black,0,new Vector2(0,0),3f,SpriteEffects.None,0f);
+			spriteBatch.DrawString(font, obj.Money.ToString(),new Vector2(150,55), Color.Black,0,new Vector2(0,0),3f,SpriteEffects.None,0f);
+			spriteBatch.DrawString(font, obj.PLayerLevel.ToString(),new Vector2(390,55), Color.Black,0,new Vector2(0,0),3f,SpriteEffects.None,0f);
 
 
 		}
