@@ -29,6 +29,17 @@ namespace MASTopia
 				screen=value;
 			}
 		}
+		private int storage = 480;
+		public int Storage {
+			get
+			{
+				return storage;
+			}
+			set{
+				storage=value;
+			}
+		}
+
 		List<GUIElement>MarketScreen1 = new List<GUIElement>();
 		List<GUIElement>MarketScreen2 = new List<GUIElement>();
 		List<GUIElement>MarketScreen3 = new List<GUIElement>();

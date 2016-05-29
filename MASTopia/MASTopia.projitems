@@ -25,5 +25,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)SettingsMenu.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DrawProfile.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)DrawFactions.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)BaseLogics.cs" />
   </ItemGroup>
 </Project>

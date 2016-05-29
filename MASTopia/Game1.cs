@@ -8,6 +8,9 @@ using Microsoft.Xna.Framework.Input.Touch;
 using Microsoft.Xna.Framework.Content;
 using System.Linq;
 using System;
+using System.Threading;
+
+
 namespace MASTopia
 {
 	/// <summary>
@@ -24,6 +27,8 @@ namespace MASTopia
 		Vector2 virtualScreen = new Vector2(1920f, 1080f);
 		Matrix Scale;
 
+		//Timer timer = new Timer (callback,"some state",TimeSpan.FromSeconds(1),TimeSpan.FromSeconds(1));
+
 
 		private MainMenu mainMenu = new MainMenu();
 		private GameView gameView = new GameView();
@@ -36,30 +41,33 @@ namespace MASTopia
 		private SettingsMenu settings = new SettingsMenu();
 		private DrawProfile profile = new DrawProfile();
 		private DrawFactions factions = new DrawFactions();
-
 		public Game1 ()
 		{
 			graphics = new GraphicsDeviceManager (this);
 			Content.RootDirectory = "Content";
 
 		}
+		private static void callback(object state)
+		{
+			Console.WriteLine("Called back with state = ");
 
-
+		}
 		protected override void Initialize ()
 		{
 			IsMouseVisible = true;  
 
-
+			
 			TouchPanel.EnabledGestures = GestureType.VerticalDrag | GestureType.Flick | GestureType.Tap; 
 
 			base.Initialize ();
-		}
-			
+		}			
 		protected override void LoadContent ()
 		{
 			gameObjects = new GameObjects();
 			CalculateGameBounds ();
 			spriteBatch = new SpriteBatch (GraphicsDevice);
+
+
 
 			mainMenu.LoadContent (Content,gameObjects);
 
@@ -76,6 +84,7 @@ namespace MASTopia
 
 
 		}
+	
 		public void CalculateGameBounds()
 		{
 			float widthScale = (float)GraphicsDevice.PresentationParameters.BackBufferWidth / virtualScreen.X; 
@@ -192,35 +201,39 @@ namespace MASTopia
 
 					}
 				}
-				int time=0;
-				if ((int)gameTime.TotalGameTime.TotalSeconds>time) {
-						Console.WriteLine ((int)gameTime.TotalGameTime.TotalSeconds);
-					time = (int)gameTime.TotalGameTime.TotalSeconds + 1;
-				}
+					
 			}
 			fillProp (gameTime);
 
-			base.Update (gameTime);
+			base.Update(gameTime);
 		}
 		private void fillProp(GameTime gameTime)
 		{
-			if (gameTime.ElapsedGameTime.TotalMinutes%12==0)
-			{
-				gameObjects.Grains += farm.GrainTile;
-				gameObjects.Vegies += farm.VegieTile;
-				//Console.WriteLine (gameObjects.Grains);
+			if (gameObjects.TotalRecource<=market.Storage) {
 
-			}
-			if (gameTime.ElapsedGameTime.Ticks%24==0)
-			{
-				gameObjects.Meat += farm.MeatTile;
-				//Console.WriteLine (gameObjects.Meat);
+				if (Math.Round(gameTime.TotalGameTime.TotalSeconds,2)%12==0)
+				{
+					gameObjects.Grains += farm.GrainTile;
+					gameObjects.Vegies += farm.VegieTile;
+					Console.WriteLine ("Grains");
+					Console.WriteLine (gameObjects.Grains);
 
-			}
-			if (gameTime.ElapsedGameTime.Ticks%120==0)
-			{
-				gameObjects.Fish += (harbour.ShipCapacity*harbour.AmountOfShips);
-				//Console.WriteLine (gameObjects.Fish);
+				}
+				if (Math.Round(gameTime.TotalGameTime.TotalSeconds,2)%24==0)
+				{
+					gameObjects.Meat += farm.MeatTile;
+					Console.WriteLine ("Meat");
+					Console.WriteLine (gameObjects.Meat);
+
+				}
+				if (Math.Round(gameTime.TotalGameTime.TotalSeconds,2)%120==0)
+				{
+					gameObjects.Fish += (harbour.ShipCapacity*harbour.AmountOfShips);
+					Console.WriteLine ("Fish");
+
+					Console.WriteLine (gameObjects.Fish);
+				}
+				gameObjects.TotalRecource = gameObjects.Grains+gameObjects.Fish+gameObjects.Meat+gameObjects.Vegies;
 			}
 		}
 		private void GetTouchInput()

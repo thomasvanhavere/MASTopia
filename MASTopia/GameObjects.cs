@@ -33,10 +33,10 @@ namespace MASTopia
 			set;
 		}
 
-		private int vegies;
-		private int meat;
-		private int grains;
-		private int fish;
+		private int vegies=100;
+		private int meat=100;
+		private int grains=100;
+		private int fish=100;
 		private int playerLevel = 0;
 
 		public int Vegies
@@ -82,7 +82,10 @@ namespace MASTopia
 			get;
 			set;
 		}
-
+		public int TotalRecource {
+			get;
+			set;
+		}
 		public void CheckLevel()
 		{
 			// y = 100(1 + 0.26) ^ x
