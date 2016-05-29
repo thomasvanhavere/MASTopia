@@ -5,6 +5,7 @@ using Microsoft.Xna.Framework.Graphics;
 using Microsoft.Xna.Framework.Storage;
 using Microsoft.Xna.Framework.Input;
 using Microsoft.Xna.Framework.Input.Touch;
+using System.Collections.Generic;
 
 namespace MASTopia
 {
@@ -83,6 +84,10 @@ namespace MASTopia
 			set;
 		}
 		public int TotalRecource {
+			get;
+			set;
+		}
+		public int waste {
 			get;
 			set;
 		}

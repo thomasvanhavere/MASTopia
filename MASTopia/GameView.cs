@@ -156,7 +156,7 @@ namespace MASTopia
 			default:
 				break;
 			}
-			spriteBatch.DrawString(font, obj.XP.ToString()+" / "+obj.NextLevel.ToString(),new Vector2(480,55), Color.Black,0,new Vector2(0,0),3f,SpriteEffects.None,0f);
+			spriteBatch.DrawString(font, obj.XP.ToString()+"/"+obj.NextLevel.ToString(),new Vector2(480,55), Color.Black,0,new Vector2(0,0),3f,SpriteEffects.None,0f);
 			spriteBatch.DrawString(font, obj.Money.ToString(),new Vector2(150,55), Color.Black,0,new Vector2(0,0),3f,SpriteEffects.None,0f);
 			spriteBatch.DrawString(font, obj.PLayerLevel.ToString(),new Vector2(390,55), Color.Black,0,new Vector2(0,0),3f,SpriteEffects.None,0f);
 

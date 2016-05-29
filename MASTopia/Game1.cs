@@ -10,7 +10,6 @@ using System.Linq;
 using System;
 using System.Threading;
 
-
 namespace MASTopia
 {
 	/// <summary>
@@ -41,6 +40,7 @@ namespace MASTopia
 		private SettingsMenu settings = new SettingsMenu();
 		private DrawProfile profile = new DrawProfile();
 		private DrawFactions factions = new DrawFactions();
+		private BaseLogics baselogics = new BaseLogics();
 		public Game1 ()
 		{
 			graphics = new GraphicsDeviceManager (this);
@@ -203,39 +203,11 @@ namespace MASTopia
 				}
 					
 			}
-			fillProp (gameTime);
-
+			baselogics.fillProp(gameTime,farm,harbour,gameObjects, market);
+			baselogics.update (gameTime, resto, gameObjects);
 			base.Update(gameTime);
 		}
-		private void fillProp(GameTime gameTime)
-		{
-			if (gameObjects.TotalRecource<=market.Storage) {
 
-				if (Math.Round(gameTime.TotalGameTime.TotalSeconds,2)%12==0)
-				{
-					gameObjects.Grains += farm.GrainTile;
-					gameObjects.Vegies += farm.VegieTile;
-					Console.WriteLine ("Grains");
-					Console.WriteLine (gameObjects.Grains);
-
-				}
-				if (Math.Round(gameTime.TotalGameTime.TotalSeconds,2)%24==0)
-				{
-					gameObjects.Meat += farm.MeatTile;
-					Console.WriteLine ("Meat");
-					Console.WriteLine (gameObjects.Meat);
-
-				}
-				if (Math.Round(gameTime.TotalGameTime.TotalSeconds,2)%120==0)
-				{
-					gameObjects.Fish += (harbour.ShipCapacity*harbour.AmountOfShips);
-					Console.WriteLine ("Fish");
-
-					Console.WriteLine (gameObjects.Fish);
-				}
-				gameObjects.TotalRecource = gameObjects.Grains+gameObjects.Fish+gameObjects.Meat+gameObjects.Vegies;
-			}
-		}
 		private void GetTouchInput()
 		{
 			
