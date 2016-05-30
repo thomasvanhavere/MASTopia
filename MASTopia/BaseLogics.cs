@@ -53,24 +53,16 @@ namespace MASTopia
 		public void update (GameTime gameTime, DrawResto resto, GameObjects obj)
 		{
 			int index = 0;
-		//	bool r = false;
-			//Console.WriteLine(gameTime.TotalGameTime.TotalSeconds);
 			foreach (BaseFood f in resto.food) {
 				if (f.endTick<(int)gameTime.TotalGameTime.TotalSeconds) {
 					obj.Money += f.Money;
 					obj.XP += f.Experience;
 					obj.waste += f.Waste;
 					index = resto.food.IndexOf (f);
-					//r = true;
 					resto.food.RemoveAt(index);
-					//Console.WriteLine ("it should work");
 					return;
 				}
 			}
-//			if (r) {
-//				resto.food.RemoveAt(index);
-//				r= false;
-//			}
 		}
 	}
 }

@@ -206,10 +206,11 @@ namespace MASTopia
 				foreach (GUIElement element in Screen1) {
 					element.Draw (spriteBatch);
 				}
-				spriteBatch.DrawString(font, "Amount of Troops : 129",new Vector2(245,842), Color.White,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
-				spriteBatch.DrawString(font, "speed : 20 min",new Vector2(245,907), Color.White,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
-				spriteBatch.DrawString(font, "Amount of Troops : 159",new Vector2(1207,842), Color.White,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
-				spriteBatch.DrawString(font,"Speed : 15 min",new Vector2(1207,907), Color.White,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
+				spriteBatch.DrawString(font, "Amount of Troops : 129",new Vector2(250,842), Color.White,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
+				spriteBatch.DrawString(font, "speed : 20 min",new Vector2(250,907), Color.White,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
+				spriteBatch.DrawString(font, "Amount of Troops : 159",new Vector2(1215,842), Color.White,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
+				spriteBatch.DrawString(font,"Speed : 15 min",new Vector2(1215,907), Color.White,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
+				spriteBatch.DrawString(font, ((barrackLevel+1)*200).ToString(),new Vector2(1020,950), Color.White,0,new Vector2(0,0),3f,SpriteEffects.None,0f);
 
 				break;
 			case screens.Screen2:

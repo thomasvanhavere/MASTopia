@@ -169,6 +169,10 @@
     <BundleResource Include="Content\barracks\bar-nexttroops.png" />
     <BundleResource Include="Content\barracks\bar-speed.png" />
     <BundleResource Include="Content\barracks\bar-troops.png" />
+    <BundleResource Include="Content\Boat\bar-cap.png" />
+    <BundleResource Include="Content\Boat\bar-nextcap.png" />
+    <BundleResource Include="Content\Boat\bar-nextspeed.png" />
+    <BundleResource Include="Content\Boat\bar-speed.png" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
