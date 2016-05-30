@@ -150,13 +150,27 @@
     <BundleResource Include="Content\settings\settings-bg.png" />
     <BundleResource Include="Content\settings\sound-off.png" />
     <BundleResource Include="Content\settings\sound-on.png" />
-    <BundleResource Include="Content\Factions\augmentulitaria-screen.png" />
-    <BundleResource Include="Content\Factions\augmentulitaria.png" />
-    <BundleResource Include="Content\Factions\factions bg.png" />
-    <BundleResource Include="Content\Factions\rhizome-screen.png" />
-    <BundleResource Include="Content\Factions\rhizome.png" />
-    <BundleResource Include="Content\Factions\transhumania-screen.png" />
-    <BundleResource Include="Content\Factions\transhumania.png" />
+    <BundleResource Include="Content\Factions\augmentulitaria-screen.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="Content\Factions\augmentulitaria.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="Content\Factions\factions bg.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="Content\Factions\rhizome-screen.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="Content\Factions\rhizome.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="Content\Factions\transhumania-screen.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </BundleResource>
+    <BundleResource Include="Content\Factions\transhumania.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </BundleResource>
     <BundleResource Include="Content\Back-Menu\close-button.png" />
     <BundleResource Include="Content\Back-Menu\main-menu.png" />
     <BundleResource Include="Content\Back-Menu\screen.png" />
@@ -173,6 +187,8 @@
     <BundleResource Include="Content\Boat\bar-nextcap.png" />
     <BundleResource Include="Content\Boat\bar-nextspeed.png" />
     <BundleResource Include="Content\Boat\bar-speed.png" />
+    <BundleResource Include="Content\Farm\bar-level.png" />
+    <BundleResource Include="Content\Farm\bar-speed.png" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
