@@ -71,7 +71,11 @@ namespace MASTopia
 			spriteBatch.Draw (GUITexture, GUIRect, Color.White);
 
 		}
+		public void Draw(SpriteBatch spriteBatch, Rectangle pos)
+		{
+			spriteBatch.Draw (GUITexture,pos, Color.White);
 
+		}
 
 		public void Center(int height, int width)
 		{
@@ -91,6 +95,12 @@ namespace MASTopia
 			int scale = (guiTexture.Width / X);
 			GUIRect = new Rectangle (GUIRect.X , GUIRect.Y , (scale*Clvl), GUIRect.Height);
 
+		}
+		public Rectangle returnRect(int Clvl, int X)
+		{
+			int scale = (guiTexture.Width / X);
+			GUIRect = new Rectangle (GUIRect.X , GUIRect.Y , (scale*Clvl), GUIRect.Height);
+			return GUIRect;
 		}
 	}
 }

@@ -274,7 +274,7 @@ namespace MASTopia
 					harbour.Draw (spriteBatch);
 				}
 				if (gameView.State==MASTopia.GameView.GamePart.market) {
-					market.Draw (spriteBatch);
+					market.Draw (spriteBatch,gameObjects);
 				}
 				if (gameView.State==MASTopia.GameView.GamePart.resto) {
 					resto.Draw (spriteBatch);

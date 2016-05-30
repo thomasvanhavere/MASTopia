@@ -29,7 +29,7 @@ namespace MASTopia
 				screen=value;
 			}
 		}
-		private int storage = 480;
+		private int storage = 400;
 		public int Storage {
 			get
 			{
@@ -39,6 +39,12 @@ namespace MASTopia
 				storage=value;
 			}
 		}
+		public int Marketlvl {
+			get;
+			set;
+		}
+
+
 
 		List<GUIElement>MarketScreen1 = new List<GUIElement>();
 		List<GUIElement>MarketScreen2 = new List<GUIElement>();
@@ -56,6 +62,19 @@ namespace MASTopia
 			MarketScreen1.Add (new GUIElement ("Cross-Screen/Island-bg"));
 			MarketScreen1.Add (new GUIElement ("Market/storage-bg"));
 			MarketScreen1.Add (new GUIElement ("Cross-Screen/X"));
+
+			MarketScreen1.Add (new GUIElement ("Market/storage/Bar-grains"));
+			MarketScreen1.Add (new GUIElement ("Market/storage/symbol grains"));
+
+			MarketScreen1.Add (new GUIElement ("Market/storage/Bar-vegie"));
+			MarketScreen1.Add (new GUIElement ("Market/storage/symbol vegetables"));
+
+			MarketScreen1.Add (new GUIElement ("Market/storage/Bar-fish"));
+			MarketScreen1.Add (new GUIElement ("Market/storage/fish-symbol"));
+
+			MarketScreen1.Add (new GUIElement ("Market/storage/Bar-meat"));
+			MarketScreen1.Add (new GUIElement ("Market/storage/meat-symbol"));
+
 
 			MarketScreen2.Add (new GUIElement ("Cross-Screen/Island-bg"));
 			MarketScreen2.Add (new GUIElement ("Market/Buy/buy-sell-bg"));
@@ -100,6 +119,7 @@ namespace MASTopia
 			MarketScreen1.Find (x => x.AssetName == "Cross-Screen/Island-bg").PutBg ();
 			MarketScreen1.Find (x => x.AssetName == "Market/storage-bg").moveElement(65,25);
 			MarketScreen1.Find (x => x.AssetName == "Cross-Screen/X").moveElement (1750,65);
+
 
 
 			foreach (GUIElement element in MarketScreen2) {
@@ -155,6 +175,7 @@ namespace MASTopia
 		{	
 			switch (screen) {
 			case Screens.Screen1:
+
 				foreach (GUIElement element in MarketScreen1) {
 					element.Update (gameObjects);
 				}
@@ -192,12 +213,75 @@ namespace MASTopia
 				}
 			}
 		}
-		public void Draw(SpriteBatch spriteBatch)
+		public void Draw(SpriteBatch spriteBatch , GameObjects obj)
 		{
+			int x=0;
 			switch (screen) {
 			case Screens.Screen1:
+
+
 				foreach (GUIElement element in MarketScreen1) {
-					element.Draw (spriteBatch);
+					if (element.AssetName == "Market/storage/Bar-grains" || element.AssetName == "Market/storage/Bar-vegie" || element.AssetName == "Market/storage/Bar-fish" || element.AssetName == "Market/storage/Bar-meat"||
+						element.AssetName == "Market/storage/symbol grains"||element.AssetName == "Market/storage/symbol vegetables"||element.AssetName == "Market/storage/fish-symbol"||element.AssetName == "Market/storage/meat-symbol") {
+					
+						if (element.AssetName == "Market/storage/Bar-grains") {
+							Rectangle rect = element.returnRect (obj.Grains, storage);
+							rect.X = 140;
+							rect.Y = 883;
+							element.Draw (spriteBatch, rect);
+							x = 140+rect.Width;
+						}
+						if (element.AssetName == "Market/storage/symbol grains") { //symbol
+							Rectangle rect = element.guiRect;
+							rect.X = x;
+							rect.Y = 800;
+							element.Draw (spriteBatch, rect);
+						}
+						if (element.AssetName == "Market/storage/Bar-vegie") {
+							Rectangle rect = element.returnRect (obj.Vegies, storage);
+							rect.X = x;
+							rect.Y = 883;
+							element.Draw (spriteBatch, rect);
+							x += rect.Width;
+
+						}
+						if (element.AssetName == "Market/storage/symbol vegetables") {//symbol
+							Rectangle rect = element.guiRect;
+							rect.X = x;
+							rect.Y = 800;
+							element.Draw (spriteBatch, rect);
+						}
+						if (element.AssetName == "Market/storage/Bar-fish") {
+							Rectangle rect = element.returnRect (obj.Fish, storage);
+							rect.X = x;
+							rect.Y = 883;
+							element.Draw (spriteBatch, rect);
+							x += rect.Width;
+						}
+						if (element.AssetName == "Market/storage/fish-symbol") {//symbol
+							Rectangle rect = element.guiRect;
+							rect.X = x;
+							rect.Y = 800;
+							element.Draw (spriteBatch, rect);
+						}
+						if (element.AssetName == "Market/storage/Bar-meat") {
+							Rectangle rect = element.returnRect (obj.Meat, storage);
+							rect.X = x;
+							rect.Y = 883;
+							element.Draw (spriteBatch, rect);
+							x += rect.Width;
+						}
+						if (element.AssetName == "Market/storage/meat-symbol") {//symbol
+							Rectangle rect = element.guiRect;
+							rect.X = x;
+							rect.Y = 800;
+							element.Draw (spriteBatch, rect);
+						}
+					} else {
+						element.Draw (spriteBatch);
+
+					}
+
 				}
 				break;
 			case Screens.Screen2:
@@ -280,6 +364,17 @@ namespace MASTopia
 				if (aGrain>0) {
 					aGrain--;
 				}
+			}
+
+		}
+		public void Upgradelvl(GameObjects Presource)
+		{
+			//=90*Level
+			if (Presource.Money >= (Marketlvl * 90))
+			{
+				Marketlvl++;
+				Presource.Money -= (Marketlvl * 90);
+				storage = (int)(400 * Math.Pow ((1 + 0.26), Marketlvl));
 			}
 
 		}

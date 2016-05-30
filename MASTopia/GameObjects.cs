@@ -34,10 +34,10 @@ namespace MASTopia
 			set;
 		}
 
-		private int vegies=100;
-		private int meat=100;
-		private int grains=100;
-		private int fish=100;
+		private int vegies=50;
+		private int meat=50;
+		private int grains=50;
+		private int fish=50;
 		private int playerLevel = 0;
 
 		public int Vegies

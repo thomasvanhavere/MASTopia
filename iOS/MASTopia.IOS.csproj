@@ -189,6 +189,10 @@
     <BundleResource Include="Content\Boat\bar-speed.png" />
     <BundleResource Include="Content\Farm\bar-level.png" />
     <BundleResource Include="Content\Farm\bar-speed.png" />
+    <BundleResource Include="Content\Market\storage\Bar-fish.png" />
+    <BundleResource Include="Content\Market\storage\Bar-vegie.png" />
+    <BundleResource Include="Content\Market\storage\Bar-meat.png" />
+    <BundleResource Include="Content\Market\storage\Bar-grains.png" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
@@ -271,22 +275,10 @@
     <Content Include="Content\Cross-Screen\Island-bg.png" />
     <Content Include="Content\Cross-Screen\upgrade-small.png" />
     <Content Include="Content\Market\storage\bar.png" />
-    <Content Include="Content\Market\storage\fish-curve-l.png" />
-    <Content Include="Content\Market\storage\fish-curve-r.png" />
-    <Content Include="Content\Market\storage\fish-square.png" />
     <Content Include="Content\Market\storage\fish-symbol.png" />
-    <Content Include="Content\Market\storage\grains-curve-l.png" />
-    <Content Include="Content\Market\storage\grains-curve-r.png" />
-    <Content Include="Content\Market\storage\grains-square.png" />
-    <Content Include="Content\Market\storage\meat-curve-l.png" />
-    <Content Include="Content\Market\storage\meat-curver.png" />
-    <Content Include="Content\Market\storage\meat-square.png" />
     <Content Include="Content\Market\storage\meat-symbol.png" />
     <Content Include="Content\Market\storage\symbol grains.png" />
     <Content Include="Content\Market\storage\symbol vegetables.png" />
-    <Content Include="Content\Market\storage\vegetables-curve-l.png" />
-    <Content Include="Content\Market\storage\vegetables-curve-r.png" />
-    <Content Include="Content\Market\storage\vegetables-square.png" />
     <Content Include="Content\Attack\attack-bg.png" />
     <Content Include="Content\Attack\evil-bunny.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
