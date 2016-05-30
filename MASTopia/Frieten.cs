@@ -34,11 +34,14 @@ namespace MASTopia
 			set { totalResource = value; }
 		}
 		public override int endTick { get; set; }
-
+		public override double Time {
+			get;
+			set;
+		}
 		public Frieten(int restoLevel, GameObjects obj,int next)
 		{
 			//Tijd =(SOM(resources)/2)*2,25
-			double Time = ((totalResource / 2) * (2.25 - (restoLevel * 0.15))) + 1;
+			 Time = ((totalResource / 2) * (2.25 - (restoLevel * 0.15))) + 1;
 			if (next>(int)obj.gameTime.TotalGameTime.TotalSeconds) {
 				this.endTick = next+ (int)TimeSpan.FromSeconds(Time).TotalSeconds+1;
 

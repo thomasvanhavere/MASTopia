@@ -12,10 +12,17 @@ namespace MASTopia
 	public class GUIElement
 	{
 		private Texture2D GUITexture;
+		public Texture2D guiTexture {
+			get{ return GUITexture;}
+			set{ GUITexture=value; }
+		}
 
 		private Rectangle GUIRect;
+		public Rectangle guiRect {
+			get{ return GUIRect;}
+			set{ GUIRect=value; }
+		}
 
-		private Vector2 position;
 
 		private string assetName;
 		public int Counter {
@@ -65,15 +72,7 @@ namespace MASTopia
 
 		}
 
-		public void Draw(SpriteBatch spriteBatch , float scale)
-		{
-			position = new Vector2(GUIRect.X,GUIRect.Y);
 
-			spriteBatch.Draw(GUITexture, position, null, Color.White, 0f, 
-				Vector2.Zero, scale, SpriteEffects.None, 0f);
-			
-			GUIRect = new Rectangle(0,0,(int)(GUITexture.Width*scale),(int)(GUITexture.Height*scale));
-		}
 		public void Center(int height, int width)
 		{
 			GUIRect = new Rectangle ((width / 2) - (this.GUITexture.Width / 2), (height / 2) - (this.GUITexture.Height / 2), this.GUITexture.Width, this.GUITexture.Height);
@@ -86,6 +85,12 @@ namespace MASTopia
 		public void PutBg()
 		{
 			GUIRect = new Rectangle (0, 0, this.GUITexture.Width, this.GUITexture.Height);
+		}
+		public void drawParial(int Clvl, int X)
+		{
+			int scale = (guiTexture.Width / X);
+			GUIRect = new Rectangle (GUIRect.X , GUIRect.Y , (scale*Clvl), GUIRect.Height);
+
 		}
 	}
 }

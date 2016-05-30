@@ -205,6 +205,7 @@ namespace MASTopia
 			}
 			baselogics.fillProp(gameTime,farm,harbour,gameObjects, market);
 			baselogics.update (gameTime, resto, gameObjects);
+			gameObjects.CheckLevelPlayer ();
 			base.Update(gameTime);
 		}
 

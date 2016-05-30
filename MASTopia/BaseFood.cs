@@ -31,7 +31,10 @@ namespace MASTopia
 			get;
 			set;
 		}
-
+		public abstract double Time {
+			get;
+			set;
+		}
 		public abstract int endTick { get; set; }
 
 	}

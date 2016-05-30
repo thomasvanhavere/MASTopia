@@ -165,6 +165,10 @@
     <BundleResource Include="Content\barracks\Detail\buy.png" />
     <BundleResource Include="Content\barracks\Detail\min.png" />
     <BundleResource Include="Content\barracks\Detail\plus.png" />
+    <BundleResource Include="Content\barracks\bar-nextspeed.png" />
+    <BundleResource Include="Content\barracks\bar-nexttroops.png" />
+    <BundleResource Include="Content\barracks\bar-speed.png" />
+    <BundleResource Include="Content\barracks\bar-troops.png" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />

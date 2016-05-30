@@ -53,6 +53,9 @@ namespace MASTopia
 		List<GUIElement> resto = new List<GUIElement>();
 		public List<BaseFood> food = new List<BaseFood>();
 
+		int next = 0;
+
+
 		private SpriteFont font;
 
 
@@ -120,6 +123,14 @@ namespace MASTopia
 		{			
 			foreach (GUIElement element in resto) {
 				element.Update (gameObjects);
+				if (element.AssetName=="Resto/bar-speed") {
+					if (food.Count != 0) {
+						element.drawParial ( (int)(food.ElementAt (0).endTick-gameObjects.gameTime.TotalGameTime.TotalSeconds),(int)food.ElementAt(0).Time);
+					}
+				}
+				if (element.AssetName=="Resto/bar-upgrade") {
+					element.drawParial ((RestoLevel+1),16);
+				}
 			}
 			obj = gameObjects;
 
@@ -140,12 +151,16 @@ namespace MASTopia
 			spriteBatch.DrawString(font, waffel.ToString(),new Vector2(1030,687), Color.White,0,new Vector2(0,0),1.3f,SpriteEffects.None,0f);
 
 			spriteBatch.DrawString(font, restolevel.ToString(),new Vector2(1030,90), Color.White,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
+			spriteBatch.DrawString(font, ((RestoLevel+1)*130).ToString(),new Vector2(1020,950), Color.White,0,new Vector2(0,0),3f,SpriteEffects.None,0f);
+			if (food.Count!=0) {
+				spriteBatch.DrawString(font, "Time : "+((int)(food.ElementAt (0).endTick-obj.gameTime.TotalGameTime.TotalSeconds)).ToString(),new Vector2(220,880), Color.White,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
 
+			}
+			spriteBatch.DrawString(font, "Level : "+RestoLevel.ToString(),new Vector2(1170,880), Color.White,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
 
 		}
 		public void OnClick(string element)
 		{
-			int next = 0;
 			if (food.Count !=0) {
 				next = food.ElementAt (food.Count-1).endTick;
 			}
@@ -204,6 +219,9 @@ namespace MASTopia
 					food.Add(new Waffels(RestoLevel, obj,next));
 
 				}
+			}
+			if (element== "Cross-Screen/upgrade-small") {//waffel
+				Upgradelvl(obj);
 			}
 				
 		}

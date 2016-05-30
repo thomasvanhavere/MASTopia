@@ -91,7 +91,7 @@ namespace MASTopia
 			get;
 			set;
 		}
-		public void CheckLevel()
+		public void CheckLevelPlayer()
 		{
 			// y = 100(1 + 0.26) ^ x
 

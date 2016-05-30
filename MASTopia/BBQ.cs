@@ -34,14 +34,17 @@ namespace MASTopia
 			set { totalResource = value; }
 		}
 
-
+		public override double Time {
+			get;
+			set;
+		}
 		public override int endTick { get; set; }
 
 		public BBQ(int restoLevel, GameObjects obj,int next)
 		{
 			//Tijd =(SOM(resources)/2)*2,25
 
-			double Time = ((totalResource / 2) * (2.25 - (restoLevel * 0.15))) + 1;
+			 Time = ((totalResource / 2) * (2.25 - (restoLevel * 0.15))) + 1;
 			if (next>(int)obj.gameTime.TotalGameTime.TotalSeconds) {
 				this.endTick = next+ (int)TimeSpan.FromSeconds(Time).TotalSeconds+1;
 

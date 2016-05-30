@@ -54,13 +54,21 @@ namespace MASTopia
 				acties=value;
 			}
 		}
-	
+		public int barrackLevel {
+			get;
+			set;
+		}
+		public int troops {
+			get;
+			set;
+		}
 
 		List<GUIElement> Screen1 = new List<GUIElement>();
 		List<GUIElement> Screen2 = new List<GUIElement>();
 		List<GUIElement> Attack = new List<GUIElement>();
 		List<GUIElement> detailBunny = new List<GUIElement>();
 
+		private SpriteFont font;
 
 		public DrawBarracks ()
 		{
@@ -68,6 +76,11 @@ namespace MASTopia
 			Screen1.Add (new GUIElement ("barracks/barrack-bg"));
 			Screen1.Add (new GUIElement ("Cross-Screen/upgrade"));
 			Screen1.Add (new GUIElement ("Cross-Screen/X"));
+
+			Screen1.Add (new GUIElement ("barracks/bar-nextspeed"));
+			Screen1.Add (new GUIElement ("barracks/bar-nexttroops"));
+			Screen1.Add (new GUIElement ("barracks/bar-troops"));
+			Screen1.Add (new GUIElement ("barracks/bar-speed"));
 
 			Screen2.Add (new GUIElement ("Cross-Screen/Island-bg"));
 			Screen2.Add (new GUIElement ("barracks/barracks-bg2"));
@@ -95,6 +108,8 @@ namespace MASTopia
 
 		public void LoadContent(ContentManager content , GameObjects gameObjects)
 		{
+			font = content.Load<SpriteFont> ("MyFont");
+
 			foreach (GUIElement element in Screen1) {
 				element.LoadContent (content,gameObjects);
 				element.clickEvent += OnClick;
@@ -104,6 +119,10 @@ namespace MASTopia
 			Screen1.Find(x=>x.AssetName=="Cross-Screen/upgrade").moveElement(835,750);
 			Screen1.Find(x=>x.AssetName=="Cross-Screen/X").moveElement(1750,65);
 
+			Screen1.Find(x=>x.AssetName=="barracks/bar-troops").moveElement(238,837);
+			Screen1.Find(x=>x.AssetName=="barracks/bar-speed").moveElement(238,904);
+			Screen1.Find(x=>x.AssetName=="barracks/bar-nexttroops").moveElement(1205,837);
+			Screen1.Find(x=>x.AssetName=="barracks/bar-nextspeed").moveElement(1205,904);
 
 			foreach (GUIElement element in Screen2) {
 				element.LoadContent (content,gameObjects);
@@ -187,6 +206,11 @@ namespace MASTopia
 				foreach (GUIElement element in Screen1) {
 					element.Draw (spriteBatch);
 				}
+				spriteBatch.DrawString(font, "Amount of Troops : 129",new Vector2(245,842), Color.White,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
+				spriteBatch.DrawString(font, "speed : 20 min",new Vector2(245,907), Color.White,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
+				spriteBatch.DrawString(font, "Amount of Troops : 159",new Vector2(1207,842), Color.White,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
+				spriteBatch.DrawString(font,"Speed : 15 min",new Vector2(1207,907), Color.White,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
+
 				break;
 			case screens.Screen2:
 				foreach (GUIElement element in Screen2) {
@@ -209,6 +233,7 @@ namespace MASTopia
 			default:
 				break;
 			}
+			spriteBatch.DrawString(font, barrackLevel.ToString(),new Vector2(1030,90), Color.White,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
 
 		}
 
