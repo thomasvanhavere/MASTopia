@@ -97,12 +97,10 @@
     <None Include="packages.config" />
     <None Include="Content\Market\.DS_Store" />
     <None Include="Content\Market\Buy\.DS_Store" />
-    <None Include="Content\Market\storage\.DS_Store" />
     <None Include="Entitlements.plist" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="GameThumbnail.png" />
-    <BundleResource Include="Resources\Icon.png" />
     <BundleResource Include="Content\Main-Game\Flag.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </BundleResource>
@@ -189,10 +187,6 @@
     <BundleResource Include="Content\Boat\bar-speed.png" />
     <BundleResource Include="Content\Farm\bar-level.png" />
     <BundleResource Include="Content\Farm\bar-speed.png" />
-    <BundleResource Include="Content\Market\storage\Bar-fish.png" />
-    <BundleResource Include="Content\Market\storage\Bar-vegie.png" />
-    <BundleResource Include="Content\Market\storage\Bar-meat.png" />
-    <BundleResource Include="Content\Market\storage\Bar-grains.png" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
@@ -274,11 +268,6 @@
     </Content>
     <Content Include="Content\Cross-Screen\Island-bg.png" />
     <Content Include="Content\Cross-Screen\upgrade-small.png" />
-    <Content Include="Content\Market\storage\bar.png" />
-    <Content Include="Content\Market\storage\fish-symbol.png" />
-    <Content Include="Content\Market\storage\meat-symbol.png" />
-    <Content Include="Content\Market\storage\symbol grains.png" />
-    <Content Include="Content\Market\storage\symbol vegetables.png" />
     <Content Include="Content\Attack\attack-bg.png" />
     <Content Include="Content\Attack\evil-bunny.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -309,11 +298,20 @@
     <Content Include="Content\Resto\prepare-10points-orange1.png" />
     <Content Include="Content\Resto\bar-speed.png" />
     <Content Include="Content\Resto\bar-upgrade.png" />
+    <Content Include="Content\storage\Bar-fish.png" />
+    <Content Include="Content\storage\Bar-meat.png" />
+    <Content Include="Content\storage\Bar-vegie.png" />
+    <Content Include="Content\storage\fish-sym.png" />
+    <Content Include="Content\storage\grains_bar.png" />
+    <Content Include="Content\storage\grain-sym.png" />
+    <Content Include="Content\storage\meat-sym.png" />
+    <Content Include="Content\storage\vege-sym.png" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Main-Game\" />
     <Folder Include="Content\Main-Menu\" />
     <Folder Include="Content\Boat\" />
+    <Folder Include="Content\storage\" />
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Contents.json" />

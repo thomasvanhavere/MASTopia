@@ -63,17 +63,17 @@ namespace MASTopia
 			MarketScreen1.Add (new GUIElement ("Market/storage-bg"));
 			MarketScreen1.Add (new GUIElement ("Cross-Screen/X"));
 
-			MarketScreen1.Add (new GUIElement ("Market/storage/Bar-grains"));
-			MarketScreen1.Add (new GUIElement ("Market/storage/symbol grains"));
+			MarketScreen1.Add (new GUIElement ("storage/grains_bar"));
+			MarketScreen1.Add (new GUIElement ("storage/grain-sym"));
 
-			MarketScreen1.Add (new GUIElement ("Market/storage/Bar-vegie"));
-			MarketScreen1.Add (new GUIElement ("Market/storage/symbol vegetables"));
+			MarketScreen1.Add (new GUIElement ("storage/Bar-vegie"));
+			MarketScreen1.Add (new GUIElement ("storage/vege-sym"));
 
-			MarketScreen1.Add (new GUIElement ("Market/storage/Bar-fish"));
-			MarketScreen1.Add (new GUIElement ("Market/storage/fish-symbol"));
+			MarketScreen1.Add (new GUIElement ("storage/Bar-fish"));
+			MarketScreen1.Add (new GUIElement ("storage/fish-sym"));
 
-			MarketScreen1.Add (new GUIElement ("Market/storage/Bar-meat"));
-			MarketScreen1.Add (new GUIElement ("Market/storage/meat-symbol"));
+			MarketScreen1.Add (new GUIElement ("storage/Bar-meat"));
+			MarketScreen1.Add (new GUIElement ("storage/meat-sym"));
 
 
 			MarketScreen2.Add (new GUIElement ("Cross-Screen/Island-bg"));
@@ -221,23 +221,25 @@ namespace MASTopia
 
 
 				foreach (GUIElement element in MarketScreen1) {
-					if (element.AssetName == "Market/storage/Bar-grains" || element.AssetName == "Market/storage/Bar-vegie" || element.AssetName == "Market/storage/Bar-fish" || element.AssetName == "Market/storage/Bar-meat"||
-						element.AssetName == "Market/storage/symbol grains"||element.AssetName == "Market/storage/symbol vegetables"||element.AssetName == "Market/storage/fish-symbol"||element.AssetName == "Market/storage/meat-symbol") {
+					if (element.AssetName == "storage/grains_bar" || element.AssetName == "storage/Bar-vegie" || element.AssetName == "storage/Bar-fish" || element.AssetName == "storage/Bar-meat"||
+						element.AssetName == "storage/grain-sym"||element.AssetName == "storage/vege-sym"||element.AssetName == "storage/fish-sym"||element.AssetName == "storage/meat-sym") {
 					
-						if (element.AssetName == "Market/storage/Bar-grains") {
+						if (element.AssetName == "storage/grains_bar") {
 							Rectangle rect = element.returnRect (obj.Grains, storage);
 							rect.X = 140;
 							rect.Y = 883;
 							element.Draw (spriteBatch, rect);
 							x = 140+rect.Width;
 						}
-						if (element.AssetName == "Market/storage/symbol grains") { //symbol
+						if (element.AssetName == "storage/grain-sym") { //symbol
 							Rectangle rect = element.guiRect;
 							rect.X = x;
-							rect.Y = 800;
+							rect.Y = 760;
 							element.Draw (spriteBatch, rect);
+							spriteBatch.DrawString(font, obj.Grains.ToString(),new Vector2(rect.X-20,770), Color.Black,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
+
 						}
-						if (element.AssetName == "Market/storage/Bar-vegie") {
+						if (element.AssetName == "storage/Bar-vegie") {
 							Rectangle rect = element.returnRect (obj.Vegies, storage);
 							rect.X = x;
 							rect.Y = 883;
@@ -245,37 +247,43 @@ namespace MASTopia
 							x += rect.Width;
 
 						}
-						if (element.AssetName == "Market/storage/symbol vegetables") {//symbol
+						if (element.AssetName == "storage/vege-sym") {//symbol
 							Rectangle rect = element.guiRect;
 							rect.X = x;
-							rect.Y = 800;
+							rect.Y = 760;
 							element.Draw (spriteBatch, rect);
+							spriteBatch.DrawString(font, obj.Vegies.ToString(),new Vector2(rect.X-20,770), Color.Black,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
+
 						}
-						if (element.AssetName == "Market/storage/Bar-fish") {
+						if (element.AssetName == "storage/Bar-fish") {
 							Rectangle rect = element.returnRect (obj.Fish, storage);
 							rect.X = x;
 							rect.Y = 883;
 							element.Draw (spriteBatch, rect);
 							x += rect.Width;
 						}
-						if (element.AssetName == "Market/storage/fish-symbol") {//symbol
+						if (element.AssetName == "storage/fish-sym") {//symbol
 							Rectangle rect = element.guiRect;
 							rect.X = x;
-							rect.Y = 800;
+							rect.Y = 760;
 							element.Draw (spriteBatch, rect);
+							spriteBatch.DrawString(font, obj.Fish.ToString(),new Vector2(rect.X-20,770), Color.Black,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
+
 						}
-						if (element.AssetName == "Market/storage/Bar-meat") {
+						if (element.AssetName == "storage/Bar-meat") {
 							Rectangle rect = element.returnRect (obj.Meat, storage);
 							rect.X = x;
 							rect.Y = 883;
 							element.Draw (spriteBatch, rect);
 							x += rect.Width;
 						}
-						if (element.AssetName == "Market/storage/meat-symbol") {//symbol
+						if (element.AssetName == "storage/meat-sym") {//symbol
 							Rectangle rect = element.guiRect;
 							rect.X = x;
-							rect.Y = 800;
+							rect.Y = 760;
 							element.Draw (spriteBatch, rect);
+							spriteBatch.DrawString(font, obj.Meat.ToString(),new Vector2(rect.X-20,770), Color.Black,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
+
 						}
 					} else {
 						element.Draw (spriteBatch);

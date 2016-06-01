@@ -5,9 +5,7 @@
 	<key>CFBundleDisplayName</key>
 	<string>MASTopia</string>
 	<key>CFBundleIconFiles</key>
-	<array>
-		<string>Icon</string>
-	</array>
+	<array/>
 	<key>CFBundleIdentifier</key>
 	<string>project.MonoGame.MASTopia.iOS</string>
 	<key>MinimumOSVersion</key>
