@@ -187,6 +187,9 @@
     <BundleResource Include="Content\Boat\bar-speed.png" />
     <BundleResource Include="Content\Farm\bar-level.png" />
     <BundleResource Include="Content\Farm\bar-speed.png" />
+    <BundleResource Include="Resources\Icon.png" />
+    <BundleResource Include="Resources\Icon%402x.png" />
+    <BundleResource Include="Resources\Icon-60%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
