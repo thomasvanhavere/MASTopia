@@ -91,6 +91,15 @@ namespace MASTopia
 			get;
 			set;
 		}
+
+		public int Chemwaste {
+			get;
+			set;
+		}
+		public int amountTiles {
+			get;
+			set;
+		}
 		public void CheckLevelPlayer()
 		{
 			// y = 100(1 + 0.26) ^ x
@@ -101,6 +110,7 @@ namespace MASTopia
 				playerLevel++;
 				double next = (100 * Math.Pow((double)(1 + 0.26), (double)playerLevel));
 				nextLevel += (int)next;
+
 
 
 			}

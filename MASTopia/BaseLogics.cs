@@ -29,25 +29,42 @@ namespace MASTopia
 				{
 					gameObjects.Grains += farm.GrainTile;
 					gameObjects.Vegies += farm.VegieTile;
-					Console.WriteLine ("Grains");
-					Console.WriteLine (gameObjects.Grains);
 
 				}
 				if (Math.Round(gameTime.TotalGameTime.TotalSeconds,2)%24==0)
 				{
 					gameObjects.Meat += farm.MeatTile;
-					Console.WriteLine ("Meat");
-					Console.WriteLine (gameObjects.Meat);
-
+				}
+				if (Math.Round(gameTime.TotalGameTime.TotalSeconds,2)%60==0)
+				{
+					gameObjects.Chemwaste += (int)((1 / 5) * (farm.GrainTile * 5));
+					gameObjects.Chemwaste += (int)((1 / 5) * (farm.VegieTile * 5));
+					gameObjects.Chemwaste += (int)((1 / 5) * (farm.MeatTile * 5));
 				}
 				if (Math.Round(gameTime.TotalGameTime.TotalSeconds,2)%120==0)
 				{
 					gameObjects.Fish += (harbour.ShipCapacity*harbour.AmountOfShips);
-					Console.WriteLine ("Fish");
-
-					Console.WriteLine (gameObjects.Fish);
+					gameObjects.Chemwaste += (int)(1 / 5) * (harbour.ShipCapacity*harbour.AmountOfShips);
+					gameObjects.waste -= gameObjects.amountTiles;
 				}
 				gameObjects.TotalRecource = gameObjects.Grains+gameObjects.Fish+gameObjects.Meat+gameObjects.Vegies;
+			} else {
+				if (Math.Round(gameTime.TotalGameTime.TotalSeconds,2)%12==0)
+				{
+					gameObjects.waste += farm.GrainTile;
+					gameObjects.waste += farm.VegieTile;
+
+				}
+				if (Math.Round(gameTime.TotalGameTime.TotalSeconds,2)%24==0)
+				{
+					gameObjects.waste += farm.MeatTile;
+
+				}
+				if (Math.Round(gameTime.TotalGameTime.TotalSeconds,2)%120==0)
+				{
+					gameObjects.waste += (harbour.ShipCapacity*harbour.AmountOfShips);
+
+				}
 			}
 		}
 		public void update (GameTime gameTime, DrawResto resto, GameObjects obj)

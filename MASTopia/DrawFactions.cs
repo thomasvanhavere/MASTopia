@@ -105,6 +105,11 @@ namespace MASTopia
 		{
 
 			switch (acties) {
+			case Acties.main:
+				foreach (GUIElement element in faction) {
+					element.Update (gameObjects);
+				}
+				break;
 			case Acties.Screen1:
 				foreach (GUIElement element in Screen1) {
 					element.Update (gameObjects);
@@ -122,11 +127,7 @@ namespace MASTopia
 					element.Update (gameObjects);
 				}
 				break;
-			case Acties.main:
-				foreach (GUIElement element in faction) {
-					element.Update (gameObjects);
-				}
-				break;
+			
 			default:
 				break;
 			}
@@ -135,6 +136,12 @@ namespace MASTopia
 		public void Draw(SpriteBatch spriteBatch)
 		{			
 			switch (acties) {
+			case Acties.main:
+				foreach (GUIElement element in faction) {
+					element.Draw (spriteBatch);
+				}
+
+				break;
 			case Acties.Screen1:
 				foreach (GUIElement element in Screen1) {
 					element.Draw (spriteBatch);
@@ -152,12 +159,7 @@ namespace MASTopia
 				}
 
 				break;
-			case Acties.main:
-				foreach (GUIElement element in faction) {
-					element.Draw (spriteBatch);
-				}
-
-				break;
+			
 			default:
 				break;
 			}

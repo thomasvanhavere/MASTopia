@@ -18,6 +18,7 @@ namespace MASTopia
 			main,
 			Upgrade,
 			Tiles,
+			error,
 			Exit
 
 		}
@@ -60,9 +61,12 @@ namespace MASTopia
 		List<GUIElement> farm = new List<GUIElement>();
 		public int FarmLevel { get; set; }
 		private SpriteFont font;
+		private Drawerror error;
 
 		public DrawFarm ()
 		{
+			error = new Drawerror ();
+
 			farm.Add (new GUIElement ("Cross-Screen/Island-bg"));
 			farm.Add (new GUIElement ("Farm/farm-bg"));
 			farm.Add (new GUIElement ("Farm/Place-tiles"));
@@ -88,6 +92,8 @@ namespace MASTopia
 
 			farm.Find (x => x.AssetName == "Farm/bar-speed").moveElement (458, 844);
 			farm.Find (x => x.AssetName == "Farm/bar-level").moveElement (1026, 849);
+			error.LoadContent (content,gameObjects);
+			gameObjects.amountTiles = totalTiles;
 
 
 		}
@@ -100,6 +106,11 @@ namespace MASTopia
 				acties = Acties.main;
 				Upgradelvl (gameObjects);
 			}
+			if (acties == Acties.error) {
+				error.Update (gameObjects);
+			}
+			gameObjects.amountTiles = totalTiles;
+
 		}
 		public void Draw(SpriteBatch spriteBatch)
 		{
@@ -111,21 +122,27 @@ namespace MASTopia
 				if (element.AssetName=="Farm/bar-level") {
 					element.drawParial (tottiles+3,51);
 				}
+
 			}
 
-			spriteBatch.DrawString(font, "Tiles: " + tottiles.ToString() ,new Vector2(464,848), Color.White,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
-			spriteBatch.DrawString(font, "Tiles: "+ (tottiles+3).ToString() ,new Vector2(1034,848), Color.White,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
+			spriteBatch.DrawString(font, "Tiles: " + tottiles.ToString() ,new Vector2(464,848), Color.Black,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
+			spriteBatch.DrawString(font, "Tiles: "+ (tottiles+3).ToString() ,new Vector2(1034,848), Color.Black,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
 
-
-			spriteBatch.DrawString(font, FarmLevel.ToString(),new Vector2(1030,90), Color.White,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
+			spriteBatch.DrawString(font, FarmLevel.ToString(),new Vector2(1020,110), Color.White,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
 			spriteBatch.DrawString(font, ((FarmLevel+1)*90).ToString(),new Vector2(370,950), Color.White,0,new Vector2(0,0),3f,SpriteEffects.None,0f);
 
+			if (acties == Acties.error) {
+				error.Draw (spriteBatch, Drawerror.Acties.farm);
+			}
 
 
 		}
 		public void OnClick(string element)
 		{
-			if (element== "Cross-Screen/X") {
+			if (element== "Cross-Screen/X" && acties==Acties.error) {
+				acties = Acties.main;
+			}
+			else if (element== "Cross-Screen/X") {
 				acties = Acties.Exit;
 				Console.WriteLine ("Exit x");
 			}
@@ -140,16 +157,17 @@ namespace MASTopia
 		public void Upgradelvl(GameObjects Presource)
 		{
 			//=100*Level
-			if (Presource.Money >= (FarmLevel * 100))
+			if (Presource.Money >= ((FarmLevel+1) * 100))
 			{
 				FarmLevel++;
-				Presource.Money -= (FarmLevel * 100);
+				Presource.Money -= ((FarmLevel+1) * 100);
 				tottiles += 3;
 				meatTile++;
 				vegieTile++;
 				grainTile++;
+			} else {
+				acties = Acties.error;
 			}
-
 		}
 	}
 }

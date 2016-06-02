@@ -67,7 +67,8 @@ namespace MASTopia
 			CalculateGameBounds ();
 			spriteBatch = new SpriteBatch (GraphicsDevice);
 
-
+			gameObjects.waste = 50;
+			gameObjects.Chemwaste = 20;
 
 			mainMenu.LoadContent (Content,gameObjects);
 

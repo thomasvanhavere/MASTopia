@@ -354,7 +354,7 @@ namespace MASTopia
 
 				spriteBatch.DrawString(font, "Current "+ totalrecourc.ToString()+"/"+storage.ToString(),new Vector2(174,898), Color.Black,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
 				spriteBatch.DrawString(font, "next Level: "+(Marketlvl+2).ToString(),new Vector2(1237,898), Color.Black,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
-				spriteBatch.DrawString(font, ((Marketlvl+1)*80).ToString(),new Vector2(1020,950), Color.White,0,new Vector2(0,0),3f,SpriteEffects.None,0f);
+				spriteBatch.DrawString(font, ((Marketlvl+1)*80).ToString(),new Vector2(1080,950), Color.White,0,new Vector2(0,0),3f,SpriteEffects.None,0f);
 
 				break;
 			default:

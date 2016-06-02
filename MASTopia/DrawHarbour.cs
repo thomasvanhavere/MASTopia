@@ -17,6 +17,7 @@ namespace MASTopia
 			main,
 			Upgrade,
 			GoFish,
+			error,
 			Exit
 
 		}
@@ -43,12 +44,15 @@ namespace MASTopia
 			set { shipCapacity = value; }
 		}
 		public int HarbourLevel { get; set; }
+		private Drawerror error;
 
 		List<GUIElement> harbour = new List<GUIElement>();
 		private SpriteFont font;
 
 		public DrawHarbour ()
 		{
+			error = new Drawerror ();
+
 			harbour.Add (new GUIElement ("Cross-Screen/Island-bg"));
 			harbour.Add (new GUIElement ("Boat/boat-screen"));
 			harbour.Add (new GUIElement ("Boat/go-fishing"));
@@ -78,6 +82,7 @@ namespace MASTopia
 			harbour.Find (x => x.AssetName == "Boat/bar-cap").moveElement(407,910);
 			harbour.Find (x => x.AssetName == "Boat/bar-nextspeed").moveElement(1011,842);
 			harbour.Find (x => x.AssetName == "Boat/bar-nextcap").moveElement(1011,910);
+			error.LoadContent (content,gameObjects);
 
 
 		}
@@ -89,6 +94,9 @@ namespace MASTopia
 			if (acties==Acties.Upgrade) {
 				acties = Acties.main;
 				Upgradelvl (gameObjects);
+			}
+			if (acties == Acties.error) {
+				error.Update (gameObjects);
 			}
 			//Console.WriteLine ("Update harbour");
 		}
@@ -109,6 +117,9 @@ namespace MASTopia
 					element.drawParial (shipCapacity+2,45);
 				}
 				}
+			if (acties == Acties.error) {
+				error.Draw (spriteBatch, Drawerror.Acties.harbour);
+			}
 
 			spriteBatch.DrawString(font, "Speed: "+ (120/shipCapacity).ToString()+" Per Min" ,new Vector2(415,838), Color.White,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
 			spriteBatch.DrawString(font, "Speed: "+ (120/(shipCapacity+2)).ToString()+"Per Min" ,new Vector2(1020,838), Color.White,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
@@ -122,7 +133,10 @@ namespace MASTopia
 		}
 		public void OnClick(string element)
 		{
-			if (element== "Cross-Screen/X") {
+			if (element== "Cross-Screen/X" && acties==Acties.error) {
+				acties = Acties.main;
+			}
+			else if (element== "Cross-Screen/X") {
 				acties = Acties.Exit;
 				Console.WriteLine ("Exit x");
 			}
@@ -144,6 +158,9 @@ namespace MASTopia
 				HarbourLevel++;
 				Presource.Money -= ((HarbourLevel+1) * 90);
 				shipCapacity += 2;
+			} else {
+				acties = Acties.error;
+
 			}
 
 		}
