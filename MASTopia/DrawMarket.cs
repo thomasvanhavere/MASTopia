@@ -19,6 +19,17 @@ namespace MASTopia
 			Screen3,
 			Exit
 		}
+
+		public enum Acties
+		{
+			main,
+			upgrade,
+			error
+
+
+		}
+		private Acties acties;
+
 		private Screens screen;
 		public Screens scherm {
 			get
@@ -50,15 +61,19 @@ namespace MASTopia
 		List<GUIElement>MarketScreen2 = new List<GUIElement>();
 		List<GUIElement>MarketScreen3 = new List<GUIElement>();
 		List<GUIElement>Buttons = new List<GUIElement>();
-		private SpriteFont font;
 
+		private SpriteFont font;
+		private int totalrecourc;
 		private int aGrain=0;
 		private int aFish=0;
 		private int aVege=0;
 		private int aMeat=0;
+		private Drawerror error;
 
 		public DrawMarket ()
 		{
+			error = new Drawerror ();
+
 			MarketScreen1.Add (new GUIElement ("Cross-Screen/Island-bg"));
 			MarketScreen1.Add (new GUIElement ("Market/storage-bg"));
 			MarketScreen1.Add (new GUIElement ("Cross-Screen/X"));
@@ -105,6 +120,8 @@ namespace MASTopia
 			MarketScreen3.Add (new GUIElement ("Cross-Screen/upgrade"));
 			MarketScreen3.Add (new GUIElement ("Cross-Screen/X"));
 
+			MarketScreen3.Add (new GUIElement ("Market/bar"));
+			MarketScreen3.Add (new GUIElement ("Market/bar-next"));
 
 		
 		}
@@ -170,6 +187,11 @@ namespace MASTopia
 			MarketScreen3.Find (x => x.AssetName == "Cross-Screen/upgrade").moveElement (830, 735);
 
 
+			MarketScreen3.Find (x => x.AssetName == "Market/bar").moveElement(169,895);
+			MarketScreen3.Find (x => x.AssetName == "Market/bar-next").moveElement(1233,895);
+
+			error.LoadContent (content,gameObjects);
+
 		}
 		public void Update(GameObjects gameObjects)
 		{	
@@ -191,6 +213,21 @@ namespace MASTopia
 				case Screens.Screen3:
 				foreach (GUIElement element in MarketScreen3) {
 					element.Update (gameObjects);
+					if (element.AssetName=="Market/bar") {
+						element.drawParial (gameObjects.TotalRecource, storage);
+						totalrecourc = gameObjects.TotalRecource;
+
+					}
+					if (element.AssetName=="Market/bar-next") {
+						element.drawParial (Marketlvl+1,16);
+					}
+
+				}
+				if (acties==Acties.upgrade) {
+					Upgradelvl (gameObjects);
+				}
+				if (acties == Acties.error) {
+					error.Update (gameObjects);
 				}
 				break;
 			default:
@@ -310,6 +347,15 @@ namespace MASTopia
 				foreach (GUIElement element in MarketScreen3) {
 					element.Draw (spriteBatch);
 				}
+				if (acties == Acties.error) {
+					error.Draw (spriteBatch, Drawerror.Acties.market);
+				}
+			
+
+				spriteBatch.DrawString(font, "Current "+ totalrecourc.ToString()+"/"+storage.ToString(),new Vector2(174,898), Color.Black,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
+				spriteBatch.DrawString(font, "next Level: "+(Marketlvl+2).ToString(),new Vector2(1237,898), Color.Black,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
+				spriteBatch.DrawString(font, ((Marketlvl+1)*80).ToString(),new Vector2(1020,950), Color.White,0,new Vector2(0,0),3f,SpriteEffects.None,0f);
+
 				break;
 			default:
 				break;
@@ -319,7 +365,10 @@ namespace MASTopia
 		}
 		public void OnClick(string element)
 		{
-			if (element== "Cross-Screen/X") {
+			if (element== "Cross-Screen/X" && acties==Acties.error) {
+				acties = Acties.main;
+			}
+			else if (element== "Cross-Screen/X") {
 				screen = Screens.Exit;
 				Console.WriteLine ("Exit X @ market");
 			}
@@ -331,7 +380,7 @@ namespace MASTopia
 				Console.WriteLine ("Pressed sell");
 			}
 			if (element =="Cross-Screen/upgrade") {
-				Console.WriteLine ("Pressed upgrade @ Market");
+				acties = Acties.upgrade;
 			}
 			if (element=="Market/Buy/plus-fish" ) {
 				if (aFish<100) {
@@ -378,11 +427,15 @@ namespace MASTopia
 		public void Upgradelvl(GameObjects Presource)
 		{
 			//=90*Level
-			if (Presource.Money >= (Marketlvl * 90))
+			if (Presource.Money >= (Marketlvl+1 * 90))
 			{
 				Marketlvl++;
-				Presource.Money -= (Marketlvl * 90);
+				Presource.Money -= ((Marketlvl+1) * 80);
 				storage = (int)(400 * Math.Pow ((1 + 0.26), Marketlvl));
+			} 
+			else {
+				acties = Acties.error;
+
 			}
 
 		}

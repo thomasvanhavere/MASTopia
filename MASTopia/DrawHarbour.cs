@@ -139,10 +139,10 @@ namespace MASTopia
 		public void Upgradelvl(GameObjects Presource)
 		{
 			//=90*Level
-			if (Presource.Money >= (HarbourLevel * 90))
+			if (Presource.Money >= ((HarbourLevel+1) * 90))
 			{
 				HarbourLevel++;
-				Presource.Money -= (HarbourLevel * 90);
+				Presource.Money -= ((HarbourLevel+1) * 90);
 				shipCapacity += 2;
 			}
 

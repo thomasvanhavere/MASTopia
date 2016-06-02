@@ -168,6 +168,7 @@ namespace MASTopia
 			case screens.Screen1:
 				foreach (GUIElement element in Screen1) {
 					element.Update (gameObjects);
+
 				}
 				break;
 
@@ -205,6 +206,7 @@ namespace MASTopia
 			case screens.Screen1:
 				foreach (GUIElement element in Screen1) {
 					element.Draw (spriteBatch);
+
 				}
 				spriteBatch.DrawString(font, "Amount of Troops : 129",new Vector2(250,842), Color.White,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
 				spriteBatch.DrawString(font, "speed : 20 min",new Vector2(250,907), Color.White,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);

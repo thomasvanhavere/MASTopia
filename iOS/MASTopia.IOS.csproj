@@ -190,6 +190,13 @@
     <BundleResource Include="Resources\Icon.png" />
     <BundleResource Include="Resources\Icon%402x.png" />
     <BundleResource Include="Resources\Icon-60%402x.png" />
+    <BundleResource Include="Content\error\farm-error-money.png" />
+    <BundleResource Include="Content\error\harbor-error-money.png" />
+    <BundleResource Include="Content\error\market-error-money.png" />
+    <BundleResource Include="Content\error\restaurant-error-money.png" />
+    <BundleResource Include="Content\error\waste-error-money.png" />
+    <BundleResource Include="Content\Market\bar-next.png" />
+    <BundleResource Include="Content\Market\bar.png" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />

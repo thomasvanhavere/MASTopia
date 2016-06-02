@@ -40,7 +40,6 @@ namespace MASTopia
 
 		public DrawFactions ()
 		{
-		//	faction.Add (new GUIElement ("Cross-Screen/Island-bg"));
 			faction.Add (new GUIElement ("Factions/factions bg"));
 			faction.Add (new GUIElement ("Factions/augmentulitaria"));
 			faction.Add (new GUIElement ("Factions/rhizome"));
@@ -48,17 +47,14 @@ namespace MASTopia
 			faction.Add (new GUIElement ("Cross-Screen/X"));
 
 
-			//Screen1.Add (new GUIElement ("Cross-Screen/Island-bg"));
 			Screen1.Add (new GUIElement ("Factions/factions bg"));
 			Screen1.Add (new GUIElement ("Factions/augmentulitaria-screen"));
 			Screen1.Add (new GUIElement ("Cross-Screen/X"));
 
-			//Screen2.Add (new GUIElement ("Cross-Screen/Island-bg"));
 			Screen2.Add (new GUIElement ("Factions/factions bg"));
 			Screen2.Add (new GUIElement ("Factions/rhizome-screen"));
 			Screen2.Add (new GUIElement ("Cross-Screen/X"));
 
-		//	Screen3.Add (new GUIElement ("Cross-Screen/Island-bg"));
 			Screen3.Add (new GUIElement ("Factions/factions bg"));
 			Screen3.Add (new GUIElement ("Factions/transhumania-screen"));
 			Screen3.Add (new GUIElement ("Cross-Screen/X"));
@@ -70,11 +66,10 @@ namespace MASTopia
 				element.clickEvent += OnClick;
 			}
 
-			//faction.Find(x=>x.AssetName=="Cross-Screen/Island-bg").PutBg();
 			faction.Find(x=>x.AssetName=="Factions/factions bg").PutBg();
-			faction.Find(x=>x.AssetName=="Factions/augmentulitaria").moveElement(1310,240);
-			faction.Find(x=>x.AssetName=="Factions/rhizome").moveElement(820,165);
-			faction.Find(x=>x.AssetName=="Factions/transhumania").moveElement(265,240);
+			faction.Find(x=>x.AssetName=="Factions/augmentulitaria").moveElement(845,170);
+			faction.Find(x=>x.AssetName=="Factions/rhizome").moveElement(1330,250);
+			faction.Find(x=>x.AssetName=="Factions/transhumania").moveElement(410,250);
 			faction.Find(x=>x.AssetName=="Cross-Screen/X").moveElement(1750,65);
 
 			foreach (GUIElement element in Screen1) {
@@ -82,30 +77,27 @@ namespace MASTopia
 				element.clickEvent += OnClick;
 			}
 
-			//Screen1.Find(x=>x.AssetName=="Cross-Screen/Island-bg").PutBg();
 			Screen1.Find(x=>x.AssetName=="Factions/factions bg").PutBg();
 			Screen1.Find(x=>x.AssetName=="Factions/augmentulitaria-screen").PutBg();
-			Screen1.Find(x=>x.AssetName=="Cross-Screen/X").moveElement(1750,65);
+			Screen1.Find(x=>x.AssetName=="Cross-Screen/X").moveElement(1710,220);
 
 			foreach (GUIElement element in Screen2) {
 				element.LoadContent (content,gameObjects);
 				element.clickEvent += OnClick;
 			}
 
-			//Screen2.Find(x=>x.AssetName=="Cross-Screen/Island-bg").PutBg();
 			Screen2.Find(x=>x.AssetName=="Factions/factions bg").PutBg();
 			Screen2.Find(x=>x.AssetName=="Factions/rhizome-screen").PutBg();
-			Screen2.Find(x=>x.AssetName=="Cross-Screen/X").moveElement(1750,65);
+			Screen2.Find(x=>x.AssetName=="Cross-Screen/X").moveElement(1710,220);
 
 			foreach (GUIElement element in Screen3) {
 				element.LoadContent (content,gameObjects);
 				element.clickEvent += OnClick;
 			}
 
-			//Screen3.Find(x=>x.AssetName=="Cross-Screen/Island-bg").PutBg();
 			Screen3.Find(x=>x.AssetName=="Factions/factions bg").PutBg();
 			Screen3.Find(x=>x.AssetName=="Factions/transhumania-screen").PutBg();
-			Screen3.Find(x=>x.AssetName=="Cross-Screen/X").moveElement(1750,65);
+			Screen3.Find(x=>x.AssetName=="Cross-Screen/X").moveElement(1710,220);
 
 
 		}

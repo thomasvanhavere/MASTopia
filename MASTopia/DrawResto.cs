@@ -17,6 +17,7 @@ namespace MASTopia
 			main,
 			Upgrade,
 			GoFish,
+			error,
 			Exit
 
 		}
@@ -53,6 +54,7 @@ namespace MASTopia
 		List<GUIElement> resto = new List<GUIElement>();
 		public List<BaseFood> food = new List<BaseFood>();
 
+		private Drawerror error;
 		int next = 0;
 
 
@@ -61,6 +63,7 @@ namespace MASTopia
 
 		public DrawResto ()
 		{
+			error = new Drawerror ();
 			resto.Add (new GUIElement ("Cross-Screen/Island-bg"));
 			resto.Add (new GUIElement ("Resto/resto-bg"));
 
@@ -116,7 +119,7 @@ namespace MASTopia
 
 			resto.Find (x => x.AssetName == "Resto/bar-speed").moveElement (198, 874);
 			resto.Find (x => x.AssetName == "Resto/bar-upgrade").moveElement (1138, 875);
-
+			error.LoadContent (content,gameObjects);
 
 		}
 		public void Update(GameObjects gameObjects)
@@ -130,6 +133,9 @@ namespace MASTopia
 				}
 				if (element.AssetName=="Resto/bar-upgrade") {
 					element.drawParial ((RestoLevel+1),16);
+				}
+				if (acties == Acties.error) {
+					error.Update (gameObjects);
 				}
 			}
 			obj = gameObjects;
@@ -150,14 +156,18 @@ namespace MASTopia
 			spriteBatch.DrawString(font, calamares.ToString(),new Vector2(1030,567), Color.White,0,new Vector2(0,0),1.3f,SpriteEffects.None,0f);
 			spriteBatch.DrawString(font, waffel.ToString(),new Vector2(1030,687), Color.White,0,new Vector2(0,0),1.3f,SpriteEffects.None,0f);
 
-			spriteBatch.DrawString(font, restolevel.ToString(),new Vector2(1030,90), Color.White,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
-			spriteBatch.DrawString(font, ((RestoLevel+1)*130).ToString(),new Vector2(1020,950), Color.White,0,new Vector2(0,0),3f,SpriteEffects.None,0f);
+			spriteBatch.DrawString(font, RestoLevel.ToString(),new Vector2(1030,90), Color.White,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
+			spriteBatch.DrawString(font, ((RestoLevel+1)*130).ToString(),new Vector2(1020,950), Color.Black,0,new Vector2(0,0),3f,SpriteEffects.None,0f);
 			if (food.Count!=0) {
-				spriteBatch.DrawString(font, "Time : "+((int)(food.ElementAt (0).endTick-obj.gameTime.TotalGameTime.TotalSeconds)).ToString(),new Vector2(220,880), Color.White,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
+				spriteBatch.DrawString(font, "Time : "+((int)(food.ElementAt (0).endTick-obj.gameTime.TotalGameTime.TotalSeconds)).ToString(),new Vector2(220,880), Color.Black,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
 
 			}
-			spriteBatch.DrawString(font, "Level : "+RestoLevel.ToString(),new Vector2(1170,880), Color.White,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
+			spriteBatch.DrawString(font, "Level : "+RestoLevel.ToString(),new Vector2(1170,880), Color.Black,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
+			spriteBatch.DrawString(font, "Pending: "+food.Count.ToString(),new Vector2(210,940), Color.Black,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
 
+			if (acties == Acties.error) {
+				error.Draw (spriteBatch, Drawerror.Acties.resto);
+			}
 		}
 		public void OnClick(string element)
 		{
@@ -165,73 +175,84 @@ namespace MASTopia
 				next = food.ElementAt (food.Count-1).endTick;
 			}
 				
-			if (element== "Cross-Screen/X") {
-				acties = Acties.Exit;
-				Console.WriteLine ("Exit x");
-			}
-			if (element== "Resto/prepare-46points") {//hotchpotch
-				if (obj.Grains>=5 && obj.Vegies>=8&&obj.Meat>=10) {
-					food.Add(new HotchPotch(RestoLevel,obj,next));
-					Console.WriteLine ("//hotchpotch");
+			try {
+				if (element== "Cross-Screen/X" && acties==Acties.error) {
+					acties = Acties.main;
 				}
-			}
-			if (element== "Resto/preapare-60points-blue") {//fishpasta
-				if ((obj.Fish >= 15) && (obj.Vegies >= 5) && (obj.Grains >= 10)) {
-					food.Add(new FishPasta(RestoLevel,obj,next));
-					Console.WriteLine ("//fishpasta");
+				else if (element== "Cross-Screen/X") {
+					acties = Acties.Exit;
+					Console.WriteLine ("Exit x");
+				}
 
+				if (element== "Resto/prepare-46points") {//hotchpotch
+					if (obj.Grains>=5 && obj.Vegies>=8&&obj.Meat>=10) {
+						food.Add(new HotchPotch(RestoLevel,obj,next));
+						Console.WriteLine ("//hotchpotch");
+					}
 				}
-			}
-			if (element== "Resto/prepare-40pints-blue") {//herbcake
-				if ((obj.Vegies >= 10) && (obj.Grains >= 10)) {
-					Console.WriteLine ("//herbcake");
-					food.Add (new HerbCake (RestoLevel, obj,next));
-				}
-			}
-			if (element== "Resto/prepare-10points-blue") {//bbq
-				if (obj.Meat >= 5) {
-					Console.WriteLine ("//bbq");
-					food.Add (new BBQ (RestoLevel, obj,next));
-				}
-			}
-			if (element== "Resto/prepare-50points") {//simmerTrout
-				if ((obj.Fish >= 15) && (obj.Vegies >= 10)) {
-					Console.WriteLine ("simmerTrout x");
-					food.Add(new SimmerTrout(RestoLevel, obj,next));
-				}
-			}
-			if (element== "Resto/prepare-10points-orange") {//friet
-				if (obj.Vegies>=5) {
-					Console.WriteLine ("friet x");
-					food.Add(new Frieten(RestoLevel, obj,next));
+				if (element== "Resto/preapare-60points-blue") {//fishpasta
+					if ((obj.Fish >= 15) && (obj.Vegies >= 5) && (obj.Grains >= 10)) {
+						food.Add(new FishPasta(RestoLevel,obj,next));
+						Console.WriteLine ("//fishpasta");
 
+					}
 				}
-			}
-			if (element== "Resto/prepare-10points-orange1") {//calamares
-				if (obj.Fish>=5) {
-					Console.WriteLine ("calamares x");
-					food.Add(new Calamares(RestoLevel, obj,next));
+				if (element== "Resto/prepare-40pints-blue") {//herbcake
+					if ((obj.Vegies >= 10) && (obj.Grains >= 10)) {
+						Console.WriteLine ("//herbcake");
+						food.Add (new HerbCake (RestoLevel, obj,next));
+					}
 				}
-			}
-			if (element== "Resto/prepare-40points-orange") {//waffel
-				if (obj.Grains>=5) {
-					Console.WriteLine ("waffel x");
-					food.Add(new Waffels(RestoLevel, obj,next));
+				if (element== "Resto/prepare-10points-blue") {//bbq
+					if (obj.Meat >= 5) {
+						Console.WriteLine ("//bbq");
+						food.Add (new BBQ (RestoLevel, obj,next));
+					}
+				}
+				if (element== "Resto/prepare-50points") {//simmerTrout
+					if ((obj.Fish >= 15) && (obj.Vegies >= 10)) {
+						Console.WriteLine ("simmerTrout x");
+						food.Add(new SimmerTrout(RestoLevel, obj,next));
+					}
+				}
+				if (element== "Resto/prepare-10points-orange") {//friet
+					if (obj.Vegies>=5) {
+						Console.WriteLine ("friet x");
+						food.Add(new Frieten(RestoLevel, obj,next));
 
+					}
 				}
+				if (element== "Resto/prepare-10points-orange1") {//calamares
+					if (obj.Fish>=5) {
+						Console.WriteLine ("calamares x");
+						food.Add(new Calamares(RestoLevel, obj,next));
+					}
+				}
+				if (element== "Resto/prepare-40points-orange") {//waffel
+					if (obj.Grains>=5) {
+						Console.WriteLine ("waffel x");
+						food.Add(new Waffels(RestoLevel, obj,next));
+
+					}
+				}
+				if (element== "Cross-Screen/upgrade-small") {//waffel
+					Upgradelvl(obj);
+				}
+			} catch (Exception ex) {
+				Console.WriteLine (ex);
 			}
-			if (element== "Cross-Screen/upgrade-small") {//waffel
-				Upgradelvl(obj);
-			}
+
 				
 		}
 		public void Upgradelvl(GameObjects Presource)
 		{
 			//=130*Level
-			if (Presource.Money>=(RestoLevel*130))
+			if (Presource.Money>=((RestoLevel+1)*130))
 			{
 				RestoLevel++;
-				Presource.Money -= (RestoLevel * 130);
+				Presource.Money -= ((RestoLevel+1) * 130);
+			} else {
+				acties = Acties.error;
 			}
 		}
 
