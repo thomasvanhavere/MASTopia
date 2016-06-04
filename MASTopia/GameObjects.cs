@@ -79,6 +79,24 @@ namespace MASTopia
 			set { nextLevel = value; }
 		}
 
+		public bool cluster1 {
+			get;
+			set;
+		}
+		public bool cluster2 {
+			get;
+			set;
+		}
+		public bool cluster3 {
+			get;
+			set;
+		}
+		public bool cluster4 {
+			get;
+			set;
+		}
+
+
 		public GameTime gameTime {
 			get;
 			set;

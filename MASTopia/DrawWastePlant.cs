@@ -17,11 +17,12 @@ namespace MASTopia
 			main,
 			Upgrade,
 			error,
+			vraag,
 			Exit
 
 		}
 		private Acties acties;
-
+		private Acties vragen;
 		public Acties State {
 			get
 			{
@@ -48,6 +49,7 @@ namespace MASTopia
 		List<GUIElement> waste = new List<GUIElement>();
 		private Drawerror error;
 		private SpriteFont font;
+		private question4 quest = new question4();
 
 		public DrawWastePlant ()
 		{
@@ -73,7 +75,12 @@ namespace MASTopia
 		{
 			font = content.Load<SpriteFont> ("MyFont");
 			error.LoadContent (content,gameObjects);
+			quest.LoadContent (content, gameObjects);
+			if (quest.Vraag1==false) {
+				vragen = Acties.vraag;
+				gameObjects.cluster4 = false;
 
+			}
 			foreach (GUIElement element in waste) {
 				element.LoadContent (content, gameObjects);
 				element.clickEvent += OnClick;
@@ -99,70 +106,91 @@ namespace MASTopia
 		}
 		public void Update(GameObjects gameObjects)
 		{		
-			maxBio= (80*gameObjects.amountTiles);
-			maxChem = (70 * gameObjects.amountTiles);
-			foreach (GUIElement element in waste) {
-				element.Update (gameObjects);
-				if (element.AssetName=="WastePlant/bar-bio") {
-					element.drawParial (gameObjects.waste,maxBio);
+			switch (vragen) {
+			case Acties.vraag:
+				quest.Update (gameObjects);
+				if (quest.Vraag1) {
+					vragen = Acties.main;
+					gameObjects.cluster4 = true;
 				}
-				if (element.AssetName=="WastePlant/bar-chem") {
-					element.drawParial (gameObjects.Chemwaste,(70*gameObjects.amountTiles));
-				}
-				if (element.AssetName=="WastePlant/bar-cap") {
-					element.drawParial (gameObjects.Chemwaste+gameObjects.waste,(maxBio+maxChem));
-				}
-				if (element.AssetName=="WastePlant/bar-nextcap") {
-					element.drawParial (gameObjects.Chemwaste+gameObjects.waste,(maxBio+160+maxChem+160));
-				}
-				if (element.AssetName=="WastePlant/bar-ratio") {
-					element.drawParial (gameObjects.Chemwaste,gameObjects.waste);
-				}
-				if (element.AssetName=="WastePlant/bar-nextratio") {
-					element.drawParial (gameObjects.Chemwaste,gameObjects.waste);
-				}
+				break;
+			case Acties.main:
+				maxBio= (80*gameObjects.amountTiles);
+				maxChem = (70 * gameObjects.amountTiles);
+				foreach (GUIElement element in waste) {
+					element.Update (gameObjects);
+					if (element.AssetName=="WastePlant/bar-bio") {
+						element.drawParial (gameObjects.waste,maxBio);
+					}
+					if (element.AssetName=="WastePlant/bar-chem") {
+						element.drawParial (gameObjects.Chemwaste,(70*gameObjects.amountTiles));
+					}
+					if (element.AssetName=="WastePlant/bar-cap") {
+						element.drawParial (gameObjects.Chemwaste+gameObjects.waste,(maxBio+maxChem));
+					}
+					if (element.AssetName=="WastePlant/bar-nextcap") {
+						element.drawParial (gameObjects.Chemwaste+gameObjects.waste,(maxBio+160+maxChem+160));
+					}
+					if (element.AssetName=="WastePlant/bar-ratio") {
+						element.drawParial (gameObjects.Chemwaste,gameObjects.waste);
+					}
+					if (element.AssetName=="WastePlant/bar-nextratio") {
+						element.drawParial (gameObjects.Chemwaste,gameObjects.waste);
+					}
 
-				if (element.AssetName=="WastePlant/bar-speed") {
-					element.drawParial (wastelevel+1,16);
+					if (element.AssetName=="WastePlant/bar-speed") {
+						element.drawParial (wastelevel+1,16);
+					}
+					if (element.AssetName=="WastePlant/bar-nextspeed") {
+						element.drawParial (wastelevel+2,16);
+					}
 				}
-				if (element.AssetName=="WastePlant/bar-nextspeed") {
-					element.drawParial (wastelevel+2,16);
+				if (acties==Acties.Upgrade) {
+					acties = Acties.main;
+					Upgradelvl (gameObjects);
 				}
+				if (acties == Acties.error) {
+					error.Update (gameObjects);
+				}
+				Chemwaste = gameObjects.Chemwaste;
+				Biowaste = gameObjects.waste;
+				break;
+			default:
+				break;
 			}
-			if (acties==Acties.Upgrade) {
-				acties = Acties.main;
-				Upgradelvl (gameObjects);
-			}
-			if (acties == Acties.error) {
-				error.Update (gameObjects);
-			}
-			Chemwaste = gameObjects.Chemwaste;
-			Biowaste = gameObjects.waste;
+		
 		}
 		public void Draw(SpriteBatch spriteBatch)
 		{
-			foreach (GUIElement element in waste) {
-				element.Draw (spriteBatch);
-			}
-			spriteBatch.DrawString(font, (80*(wastelevel+1)).ToString(),new Vector2(360,950), Color.Black,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
-			spriteBatch.DrawString(font, wastelevel.ToString(),new Vector2(1000,84), Color.White,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
+			switch (vragen) {
+			case Acties.vraag:
+				quest.Draw (spriteBatch);
+				break;
+			case Acties.main:
+				foreach (GUIElement element in waste) {
+					element.Draw (spriteBatch);
+				}
+				spriteBatch.DrawString(font, (80*(wastelevel+1)).ToString(),new Vector2(360,950), Color.Black,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
+				spriteBatch.DrawString(font, wastelevel.ToString(),new Vector2(1000,84), Color.White,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
 
-			spriteBatch.DrawString(font, "Biochemical W.: "+Biowaste.ToString() ,new Vector2(128,595), Color.Black,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
-			spriteBatch.DrawString(font, "Chemical W.: " +Chemwaste.ToString() ,new Vector2(1231,595), Color.Black,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
-
-
-			spriteBatch.DrawString(font, "Speed: " +((wastelevel+1)*100).ToString()+"L/H" ,new Vector2(575,740), Color.Black,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
-			spriteBatch.DrawString(font, "Capacity: " +(Biowaste+Chemwaste).ToString()+"/"+(maxBio+maxChem).ToString(),new Vector2(575,826), Color.Black,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
-			spriteBatch.DrawString(font, "BW/CW: "+ (Biowaste).ToString()+"/"+(Chemwaste).ToString() ,new Vector2(575,907), Color.Black,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
-
-			spriteBatch.DrawString(font, "Speed: " +((wastelevel+2)*100).ToString()+"L/H",new Vector2(1275,740), Color.Black,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
-			spriteBatch.DrawString(font, "Capacity: "+(Biowaste+Chemwaste).ToString()+"/"+(maxBio+maxChem+320).ToString() ,new Vector2(1275,826), Color.Black,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
-			spriteBatch.DrawString(font, "CW/BW:"+ Chemwaste.ToString()+ "/" +Biowaste.ToString()  ,new Vector2(1275,907), Color.Black,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
+				spriteBatch.DrawString(font, "Biochemical W.: "+Biowaste.ToString() ,new Vector2(128,595), Color.Black,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
+				spriteBatch.DrawString(font, "Chemical W.: " +Chemwaste.ToString() ,new Vector2(1231,595), Color.Black,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
 
 
+				spriteBatch.DrawString(font, "Speed: " +((wastelevel+1)*100).ToString()+"L/H" ,new Vector2(575,740), Color.Black,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
+				spriteBatch.DrawString(font, "Capacity: " +(Biowaste+Chemwaste).ToString()+"/"+(maxBio+maxChem).ToString(),new Vector2(575,826), Color.Black,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
+				spriteBatch.DrawString(font, "BW/CW: "+ (Biowaste).ToString()+"/"+(Chemwaste).ToString() ,new Vector2(575,907), Color.Black,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
 
-			if (acties == Acties.error) {
-				error.Draw (spriteBatch, Drawerror.Acties.waste);
+				spriteBatch.DrawString(font, "Speed: " +((wastelevel+2)*100).ToString()+"L/H",new Vector2(1275,740), Color.Black,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
+				spriteBatch.DrawString(font, "Capacity: "+(Biowaste+Chemwaste).ToString()+"/"+(maxBio+maxChem+320).ToString() ,new Vector2(1275,826), Color.Black,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
+				spriteBatch.DrawString(font, "CW/BW:"+ Chemwaste.ToString()+ "/" +Biowaste.ToString()  ,new Vector2(1275,907), Color.Black,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
+
+				if (acties == Acties.error) {
+					error.Draw (spriteBatch, Drawerror.Acties.waste);
+				}
+				break;
+			default:
+				break;
 			}
 		}
 		public void OnClick(string element)

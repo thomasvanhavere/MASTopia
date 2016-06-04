@@ -13,21 +13,11 @@ namespace MASTopia
 {
 	public class Questions
 	{
-		public enum Acties
-		{
-			harbour,
-			farm,
-			market,
-			resto,
-			faction,
-			exit
-
-		}
+		
 		private bool wrong4 = false;
 		private bool wrong2 = false;
 		private bool wrong3 = false;
 
-		private Acties acties;
 
 		public enum Screen {
 			Cluster_1I,
@@ -40,79 +30,59 @@ namespace MASTopia
 			set{vraag1 = value;}
 		}
 		private Screen screens = Screen.Cluster_1I;
-		public Acties State {
-			get
-			{
-				return acties;
-			}
-			set{
-				acties=value;
-			}
-		}
 
-		List<GUIElement> question1 = new List<GUIElement>();
-		List<GUIElement> intro1 = new List<GUIElement>();
-		List<GUIElement> end1 = new List<GUIElement>();
+
+		List<GUIElement> question = new List<GUIElement>();
+		List<GUIElement> intro = new List<GUIElement>();
+		List<GUIElement> end = new List<GUIElement>();
 
 
 		public Questions ()
 		{
-			question1.Add (new GUIElement ("Cross-Screen/Island-bg"));
-			question1.Add (new GUIElement ("cluster1/cluster1-questions"));
+			question.Add (new GUIElement ("Cross-Screen/Island-bg"));
+			question.Add (new GUIElement ("cluster1/cluster1-questions"));
 
-			question1.Add (new GUIElement ("cluster1/answer1"));
-			question1.Add (new GUIElement ("cluster1/answer1-right"));
-			question1.Add (new GUIElement ("cluster1/answer2"));
-			question1.Add (new GUIElement ("cluster1/answer2-wrong"));
-			question1.Add (new GUIElement ("cluster1/answer3"));
-			question1.Add (new GUIElement ("cluster1/answer3-wrong"));
-			question1.Add (new GUIElement ("cluster1/answer4"));
-			question1.Add (new GUIElement ("cluster1/answer4-wrong"));
+			question.Add (new GUIElement ("cluster1/answer1"));
+			question.Add (new GUIElement ("cluster1/answer1-right"));
+			question.Add (new GUIElement ("cluster1/answer2"));
+			question.Add (new GUIElement ("cluster1/answer2-wrong"));
+			question.Add (new GUIElement ("cluster1/answer3"));
+			question.Add (new GUIElement ("cluster1/answer3-wrong"));
+			question.Add (new GUIElement ("cluster1/answer4"));
+			question.Add (new GUIElement ("cluster1/answer4-wrong"));
 
-			end1.Add (new GUIElement ("Cross-Screen/Island-bg"));
+			end.Add (new GUIElement ("Cross-Screen/Island-bg"));
+			end.Add (new GUIElement ("cluster1/congratulations"));
+			intro.Add (new GUIElement ("Cross-Screen/Island-bg"));
 
-			end1.Add (new GUIElement ("cluster1/congratulations"));
-			intro1.Add (new GUIElement ("Cross-Screen/Island-bg"));
-
-			intro1.Add (new GUIElement ("cluster1/sailor"));
-
-//			question4.Add (new GUIElement ("cluster4/answer1"));
-//			question4.Add (new GUIElement ("cluster4/answer1-right"));
-//			question4.Add (new GUIElement ("cluster4/answer2"));
-//			question4.Add (new GUIElement ("cluster4/answer2-wrong"));
-//			question4.Add (new GUIElement ("cluster4/answer3"));
-//			question4.Add (new GUIElement ("cluster4/answer3-wrong"));
-//			question4.Add (new GUIElement ("cluster4/answer4"));
-//			question4.Add (new GUIElement ("cluster4/answer4-wrong"));
-
+			intro.Add (new GUIElement ("cluster1/sailor"));
 		}
 		public void LoadContent(ContentManager content , GameObjects gameObjects)
 		{
-			foreach (GUIElement element in intro1) {
-				element.LoadContent (content, gameObjects);
-				element.clickEvent += OnClick;
-			}
-			intro1.Find (x => x.AssetName == "cluster1/sailor").PutBg ();
-
-			foreach (GUIElement element in question1) {
+			foreach (GUIElement element in intro) {
 				element.LoadContent (content, gameObjects);
 				element.clickEvent += OnClick;
 			}
 
-			question1.Find (x => x.AssetName == "cluster1/answer1").moveElement (930,405);
-			question1.Find (x => x.AssetName == "cluster1/answer1-right").moveElement (930,405);
-			question1.Find (x => x.AssetName == "cluster1/answer2").moveElement (930,535);
-			question1.Find (x => x.AssetName == "cluster1/answer2-wrong").moveElement (930,535);
-			question1.Find (x => x.AssetName == "cluster1/answer3").moveElement(930,665);
-			question1.Find (x => x.AssetName == "cluster1/answer3-wrong").moveElement(930,665);
-			question1.Find (x => x.AssetName == "cluster1/answer4").moveElement (930,800);
-			question1.Find (x => x.AssetName == "cluster1/answer4-wrong").moveElement(930,800);
-
-			foreach (GUIElement element in end1) {
+			foreach (GUIElement element in question) {
 				element.LoadContent (content, gameObjects);
 				element.clickEvent += OnClick;
 			}
-			end1.Find (x => x.AssetName == "cluster1/congratulations").PutBg ();
+
+			question.Find (x => x.AssetName == "cluster1/answer1").moveElement (930,405);
+			question.Find (x => x.AssetName == "cluster1/answer1-right").moveElement (930,405);
+			question.Find (x => x.AssetName == "cluster1/answer2").moveElement (930,535);
+			question.Find (x => x.AssetName == "cluster1/answer2-wrong").moveElement (930,535);
+			question.Find (x => x.AssetName == "cluster1/answer3").moveElement(930,665);
+			question.Find (x => x.AssetName == "cluster1/answer3-wrong").moveElement(930,665);
+			question.Find (x => x.AssetName == "cluster1/answer4").moveElement (930,800);
+			question.Find (x => x.AssetName == "cluster1/answer4-wrong").moveElement(930,800);
+
+			foreach (GUIElement element in end) {
+				element.LoadContent (content, gameObjects);
+				element.clickEvent += OnClick;
+			}
+			end.Find (x => x.AssetName == "cluster1/congratulations").PutBg ();
 
 		}
 
@@ -120,17 +90,17 @@ namespace MASTopia
 		{			
 			switch (screens) {
 			case Screen.Cluster_1I:
-				foreach (GUIElement element in intro1) {
+				foreach (GUIElement element in intro) {
 					element.Update (gameObjects);
 				}
 				break;
 			case Screen.Cluster_1Q:
-				foreach (GUIElement element in question1) {
+				foreach (GUIElement element in question) {
 					element.Update (gameObjects);
 				}
 				break;
 			case Screen.Cluster_1E:
-				foreach (GUIElement element in end1) {
+				foreach (GUIElement element in end) {
 					element.Update (gameObjects);
 				}
 				break;
@@ -151,12 +121,12 @@ namespace MASTopia
 		{
 			switch (screens) {
 			case Screen.Cluster_1I:
-				foreach (GUIElement element in intro1) {
+				foreach (GUIElement element in intro) {
 					element.Draw (spriteBatch);
 				}
 				break;
 			case Screen.Cluster_1Q:
-				foreach (GUIElement element in question1) {
+				foreach (GUIElement element in question) {
 					if (element.AssetName=="Cross-Screen/Island-bg"||element.AssetName=="cluster1/cluster1-questions"||element.AssetName=="cluster1/answer1") {
 						element.Draw (spriteBatch);
 					}
@@ -185,7 +155,7 @@ namespace MASTopia
 				}
 				break;
 			case Screen.Cluster_1E:
-				foreach (GUIElement element in end1) {
+				foreach (GUIElement element in end) {
 					element.Draw (spriteBatch);
 				}
 				break;

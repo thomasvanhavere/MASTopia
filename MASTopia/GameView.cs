@@ -17,6 +17,7 @@ namespace MASTopia
 		public enum GamePart
 		{
 			main,
+			welcome,
 			faction,
 			market,
 			waste,
@@ -50,6 +51,7 @@ namespace MASTopia
 
 		public GameView ()
 		{
+			mainBuildings.Add (new GUIElement ("Cross-Screen/welcome-screen"));
 			mainBuildings.Add (new GUIElement ("Main-Game/island"));
 			mainBuildings.Add (new GUIElement ("Main-Game/barracks"));
 			mainBuildings.Add (new GUIElement ("Main-Game/Flag"));
@@ -73,6 +75,7 @@ namespace MASTopia
 		public void LoadContent(ContentManager content , GameObjects Obj)
 		{
 			font = content.Load<SpriteFont> ("MyFont");
+
 
 			foreach (GUIElement element in mainBuildings) {
 				element.LoadContent (content,Obj);
@@ -109,16 +112,27 @@ namespace MASTopia
 		}
 		public void Update(GameObjects gameObjects)
 		{
-			
-
-			if (gamePart==GamePart.BackMenu) {
-				
-			}
-
 			switch (gamePart) {
 			case GamePart.main:
 				foreach (GUIElement element in mainBuildings) {
-					element.Update (gameObjects);
+					if (element.AssetName=="Main-Game/Flag"||element.AssetName=="Main-Game/farm"||
+						element.AssetName=="Main-Game/Foodtruck"||element.AssetName=="Main-Game/market"||element.AssetName=="Main-Game/wastePlant") {
+						if (element.AssetName=="Main-Game/market"&&gameObjects.cluster1) {
+							element.Update (gameObjects);
+						}
+						if (element.AssetName=="Main-Game/Foodtruck"&&gameObjects.cluster2) {
+							element.Update (gameObjects);
+						}
+						if (element.AssetName=="Main-Game/wastePlant"&&gameObjects.cluster3) {
+							element.Update (gameObjects);
+						}
+						if ((element.AssetName=="Main-Game/farm"||element.AssetName=="Main-Game/Flag")&&gameObjects.cluster4) {
+							element.Update (gameObjects);
+						}
+					} else {
+						element.Update (gameObjects);
+
+					}
 				}
 				break;
 			case GamePart.BackMenu:
@@ -141,7 +155,27 @@ namespace MASTopia
 			switch (gamePart) {
 			case GamePart.main:
 				foreach (GUIElement element in mainBuildings) {
-					element.Draw (spriteBatch);
+					if (element.AssetName=="Main-Game/Flag"||element.AssetName=="Main-Game/farm"||
+						element.AssetName=="Main-Game/Foodtruck"||element.AssetName=="Main-Game/market"||element.AssetName=="Main-Game/wastePlant") {
+						if (element.AssetName=="Main-Game/market"&&obj.cluster1) {
+							element.Draw (spriteBatch);
+
+						}
+						if (element.AssetName=="Main-Game/Foodtruck"&&obj.cluster2) {
+							element.Draw (spriteBatch);
+						}
+						if (element.AssetName=="Main-Game/wastePlant"&&obj.cluster3) {
+							element.Draw (spriteBatch);
+						}
+						if ((element.AssetName=="Main-Game/farm"||element.AssetName=="Main-Game/Flag")&&obj.cluster4) {
+							element.Draw (spriteBatch);
+						}
+
+
+					} else {
+						element.Draw (spriteBatch);
+
+					}
 				}
 
 				break;
@@ -164,6 +198,9 @@ namespace MASTopia
 		}
 		public void OnClick(string element)
 		{
+			if (element=="Cross-Screen/welcome-screen") {
+				//welcome = false;
+			}
 			if (element=="Main-Game/market") {
 				gamePart = GamePart.market;
 

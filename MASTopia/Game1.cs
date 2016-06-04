@@ -88,13 +88,27 @@ namespace MASTopia
 	
 		public void CalculateGameBounds()
 		{
+
+			#if __ANDROID__
+			float widthScale = (float)GraphicsDevice.PresentationParameters.BackBufferWidth / virtualScreen.Y; 
+			float heightScale = (float)GraphicsDevice.PresentationParameters.BackBufferHeight / virtualScreen.X;
+
+			gameObjects.gameBoundY = (int)(virtualScreen.Y * widthScale);
+			gameObjects.gameBoundX = (int)(virtualScreen.X * heightScale);
+			gameObjects.WidthScale = widthScale;
+			gameObjects.HeightScale = heightScale;
+			Scale = Matrix.CreateScale(widthScale,heightScale,1);
+			#else
 			float widthScale = (float)GraphicsDevice.PresentationParameters.BackBufferWidth / virtualScreen.X; 
 			float heightScale = (float)GraphicsDevice.PresentationParameters.BackBufferHeight / virtualScreen.Y;
+
 			gameObjects.gameBoundY = (int)(virtualScreen.X * widthScale);
 			gameObjects.gameBoundX = (int)(virtualScreen.Y * heightScale);
 			gameObjects.WidthScale = widthScale;
 			gameObjects.HeightScale = heightScale;
 			Scale = Matrix.CreateScale(widthScale,heightScale,1);
+			#endif
+
 
 		}
 

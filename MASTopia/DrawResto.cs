@@ -17,12 +17,13 @@ namespace MASTopia
 			main,
 			Upgrade,
 			GoFish,
+			vraag,
 			error,
 			Exit
 
 		}
 		private Acties acties;
-
+		private Acties vragen;
 		public Acties State {
 			get
 			{
@@ -59,7 +60,7 @@ namespace MASTopia
 
 		private SpriteFont font;
 
-
+		private question3 quest = new question3();
 		public DrawResto ()
 		{
 			error = new Drawerror ();
@@ -91,7 +92,12 @@ namespace MASTopia
 		public void LoadContent(ContentManager content , GameObjects gameObjects)
 		{
 			font = content.Load<SpriteFont> ("MyFont");
+			quest.LoadContent (content, gameObjects);
+			if (quest.Vraag1==false) {
+				vragen = Acties.vraag;
+				gameObjects.cluster3 = false;
 
+			}
 			foreach (GUIElement element in resto) {
 				element.LoadContent (content, gameObjects);
 				element.clickEvent += OnClick;
@@ -123,50 +129,75 @@ namespace MASTopia
 		}
 		public void Update(GameObjects gameObjects)
 		{			
-			foreach (GUIElement element in resto) {
-				element.Update (gameObjects);
-				if (element.AssetName=="Resto/bar-speed") {
-					if (food.Count != 0) {
-						element.drawParial ( (int)(food.ElementAt (0).endTick-gameObjects.gameTime.TotalGameTime.TotalSeconds),(int)food.ElementAt(0).Time);
+			switch (vragen) {
+			case Acties.vraag:
+				quest.Update (gameObjects);
+				if (quest.Vraag1) {
+					vragen = Acties.main;
+					gameObjects.cluster3 = true;
+				}
+				break;
+			case Acties.main:
+				foreach (GUIElement element in resto) {
+					element.Update (gameObjects);
+					if (element.AssetName=="Resto/bar-speed") {
+						if (food.Count != 0) {
+							element.drawParial ( (int)(food.ElementAt (0).endTick-gameObjects.gameTime.TotalGameTime.TotalSeconds),(int)food.ElementAt(0).Time);
+						}
+					}
+					if (element.AssetName=="Resto/bar-upgrade") {
+						element.drawParial ((RestoLevel+1),16);
+					}
+					if (acties == Acties.error) {
+						error.Update (gameObjects);
 					}
 				}
-				if (element.AssetName=="Resto/bar-upgrade") {
-					element.drawParial ((RestoLevel+1),16);
-				}
-				if (acties == Acties.error) {
-					error.Update (gameObjects);
-				}
+				obj = gameObjects;
+				break;
+			default:
+				break;
 			}
-			obj = gameObjects;
+
 
 		}
 		public void Draw(SpriteBatch spriteBatch)
 		{
-			foreach (GUIElement element in resto) {
-				element.Draw (spriteBatch);
+			switch (vragen) {
+			case Acties.vraag:
+				quest.Draw (spriteBatch);
+				break;
+			case Acties.main:
+				foreach (GUIElement element in resto) {
+					element.Draw (spriteBatch);
+				}
+				spriteBatch.DrawString(font, hotchpotch.ToString(),new Vector2(213,317), Color.White,0,new Vector2(0,0),1.3f,SpriteEffects.None,0f);
+				spriteBatch.DrawString(font, fishpasta.ToString(),new Vector2(213,447), Color.White,0,new Vector2(0,0),1.3f,SpriteEffects.None,0f);
+				spriteBatch.DrawString(font, herbcake.ToString(),new Vector2(213,567), Color.White,0,new Vector2(0,0),1.3f,SpriteEffects.None,0f);
+				spriteBatch.DrawString(font, bbq.ToString(),new Vector2(213,687), Color.White,0,new Vector2(0,0),1.3f,SpriteEffects.None,0f);
+
+				spriteBatch.DrawString(font, simmerTrout.ToString(),new Vector2(1030,317), Color.White,0,new Vector2(0,0),1.3f,SpriteEffects.None,0f);
+				spriteBatch.DrawString(font, friet.ToString(),new Vector2(1030,447), Color.White,0,new Vector2(0,0),1.3f,SpriteEffects.None,0f);
+				spriteBatch.DrawString(font, calamares.ToString(),new Vector2(1030,567), Color.White,0,new Vector2(0,0),1.3f,SpriteEffects.None,0f);
+				spriteBatch.DrawString(font, waffel.ToString(),new Vector2(1030,687), Color.White,0,new Vector2(0,0),1.3f,SpriteEffects.None,0f);
+
+				spriteBatch.DrawString(font, RestoLevel.ToString(),new Vector2(1030,90), Color.White,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
+				spriteBatch.DrawString(font, ((RestoLevel+1)*130).ToString(),new Vector2(1020,950), Color.White,0,new Vector2(0,0),3f,SpriteEffects.None,0f);
+				if (food.Count!=0) {
+					spriteBatch.DrawString(font, "Time : "+((int)(food.ElementAt (0).endTick-obj.gameTime.TotalGameTime.TotalSeconds)).ToString(),new Vector2(220,880), Color.Black,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
+
+				}
+				spriteBatch.DrawString(font, "Level : "+RestoLevel.ToString(),new Vector2(1170,880), Color.Black,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
+				spriteBatch.DrawString(font, "Pending: "+food.Count.ToString(),new Vector2(210,940), Color.Black,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
+
+				if (acties == Acties.error) {
+					error.Draw (spriteBatch, Drawerror.Acties.resto);
+				}
+				break;
+			default:
+				break;
 			}
-			spriteBatch.DrawString(font, hotchpotch.ToString(),new Vector2(213,317), Color.White,0,new Vector2(0,0),1.3f,SpriteEffects.None,0f);
-			spriteBatch.DrawString(font, fishpasta.ToString(),new Vector2(213,447), Color.White,0,new Vector2(0,0),1.3f,SpriteEffects.None,0f);
-			spriteBatch.DrawString(font, herbcake.ToString(),new Vector2(213,567), Color.White,0,new Vector2(0,0),1.3f,SpriteEffects.None,0f);
-			spriteBatch.DrawString(font, bbq.ToString(),new Vector2(213,687), Color.White,0,new Vector2(0,0),1.3f,SpriteEffects.None,0f);
 
-			spriteBatch.DrawString(font, simmerTrout.ToString(),new Vector2(1030,317), Color.White,0,new Vector2(0,0),1.3f,SpriteEffects.None,0f);
-			spriteBatch.DrawString(font, friet.ToString(),new Vector2(1030,447), Color.White,0,new Vector2(0,0),1.3f,SpriteEffects.None,0f);
-			spriteBatch.DrawString(font, calamares.ToString(),new Vector2(1030,567), Color.White,0,new Vector2(0,0),1.3f,SpriteEffects.None,0f);
-			spriteBatch.DrawString(font, waffel.ToString(),new Vector2(1030,687), Color.White,0,new Vector2(0,0),1.3f,SpriteEffects.None,0f);
 
-			spriteBatch.DrawString(font, RestoLevel.ToString(),new Vector2(1030,90), Color.White,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
-			spriteBatch.DrawString(font, ((RestoLevel+1)*130).ToString(),new Vector2(1020,950), Color.White,0,new Vector2(0,0),3f,SpriteEffects.None,0f);
-			if (food.Count!=0) {
-				spriteBatch.DrawString(font, "Time : "+((int)(food.ElementAt (0).endTick-obj.gameTime.TotalGameTime.TotalSeconds)).ToString(),new Vector2(220,880), Color.Black,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
-
-			}
-			spriteBatch.DrawString(font, "Level : "+RestoLevel.ToString(),new Vector2(1170,880), Color.Black,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
-			spriteBatch.DrawString(font, "Pending: "+food.Count.ToString(),new Vector2(210,940), Color.Black,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
-
-			if (acties == Acties.error) {
-				error.Draw (spriteBatch, Drawerror.Acties.resto);
-			}
 		}
 		public void OnClick(string element)
 		{

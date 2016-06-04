@@ -67,11 +67,593 @@
   </ItemGroup>
   <ItemGroup>
     <AndroidAsset Include="Assets\AboutAssets.txt" />
-  </ItemGroup>
-  <ItemGroup>
-    <MonoGameContentReference Include="Assets\Content\Content.mgcb" />
+    <AndroidAsset Include="..\iOS\Content\MyFont.xnb">
+      <Link>Assets\Content\MyFont.xnb</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Attack\attack-bg.png">
+      <Link>Assets\Content\Attack\attack-bg.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Attack\evil-bunny.png">
+      <Link>Assets\Content\Attack\evil-bunny.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Attack\kamikazee-rats.png">
+      <Link>Assets\Content\Attack\kamikazee-rats.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Attack\nija-pig.png">
+      <Link>Assets\Content\Attack\nija-pig.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Attack\nucleair-snail.png">
+      <Link>Assets\Content\Attack\nucleair-snail.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Back-Menu\close-button.png">
+      <Link>Assets\Content\Back-Menu\close-button.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Back-Menu\main-menu.png">
+      <Link>Assets\Content\Back-Menu\main-menu.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Back-Menu\screen.png">
+      <Link>Assets\Content\Back-Menu\screen.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Back-Menu\settings-button.png">
+      <Link>Assets\Content\Back-Menu\settings-button.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Boat\bar-cap.png">
+      <Link>Assets\Content\Boat\bar-cap.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Boat\bar-nextcap.png">
+      <Link>Assets\Content\Boat\bar-nextcap.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Boat\bar-nextspeed.png">
+      <Link>Assets\Content\Boat\bar-nextspeed.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Boat\bar-speed.png">
+      <Link>Assets\Content\Boat\bar-speed.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Boat\boat-screen.png">
+      <Link>Assets\Content\Boat\boat-screen.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Boat\go-fishing.png">
+      <Link>Assets\Content\Boat\go-fishing.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Cross-Screen\Island-bg.png">
+      <Link>Assets\Content\Cross-Screen\Island-bg.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Cross-Screen\X.png">
+      <Link>Assets\Content\Cross-Screen\X.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Cross-Screen\X1.png">
+      <Link>Assets\Content\Cross-Screen\X1.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Cross-Screen\X2.png">
+      <Link>Assets\Content\Cross-Screen\X2.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Cross-Screen\upgrade-small.png">
+      <Link>Assets\Content\Cross-Screen\upgrade-small.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Cross-Screen\upgrade.png">
+      <Link>Assets\Content\Cross-Screen\upgrade.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Cross-Screen\welcome-screen.png">
+      <Link>Assets\Content\Cross-Screen\welcome-screen.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Factions\X-g.png">
+      <Link>Assets\Content\Factions\X-g.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Factions\augmentulitaria-screen.png">
+      <Link>Assets\Content\Factions\augmentulitaria-screen.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Factions\augmentulitaria.png">
+      <Link>Assets\Content\Factions\augmentulitaria.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Factions\factions bg.png">
+      <Link>Assets\Content\Factions\factions bg.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Factions\rhizome-screen.png">
+      <Link>Assets\Content\Factions\rhizome-screen.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Factions\rhizome.png">
+      <Link>Assets\Content\Factions\rhizome.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Factions\transhumania-screen.png">
+      <Link>Assets\Content\Factions\transhumania-screen.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Factions\transhumania.png">
+      <Link>Assets\Content\Factions\transhumania.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Farm\Place-tiles.png">
+      <Link>Assets\Content\Farm\Place-tiles.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Farm\bar-level.png">
+      <Link>Assets\Content\Farm\bar-level.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Farm\bar-speed.png">
+      <Link>Assets\Content\Farm\bar-speed.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Farm\farm-bg.png">
+      <Link>Assets\Content\Farm\farm-bg.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Main-Game\Flag.png">
+      <Link>Assets\Content\Main-Game\Flag.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Main-Game\Foodtruck.png">
+      <Link>Assets\Content\Main-Game\Foodtruck.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Main-Game\Xp-Level.png">
+      <Link>Assets\Content\Main-Game\Xp-Level.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Main-Game\barracks.png">
+      <Link>Assets\Content\Main-Game\barracks.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Main-Game\boat.png">
+      <Link>Assets\Content\Main-Game\boat.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Main-Game\farm.png">
+      <Link>Assets\Content\Main-Game\farm.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Main-Game\grounds.png">
+      <Link>Assets\Content\Main-Game\grounds.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Main-Game\island.png">
+      <Link>Assets\Content\Main-Game\island.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Main-Game\market.png">
+      <Link>Assets\Content\Main-Game\market.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Main-Game\money-button.png">
+      <Link>Assets\Content\Main-Game\money-button.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Main-Game\profile.png">
+      <Link>Assets\Content\Main-Game\profile.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Main-Game\settings.png">
+      <Link>Assets\Content\Main-Game\settings.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Main-Game\wastePlant.png">
+      <Link>Assets\Content\Main-Game\wastePlant.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Main-Menu\Background.png">
+      <Link>Assets\Content\Main-Menu\Background.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Main-Menu\MAS-background.png">
+      <Link>Assets\Content\Main-Menu\MAS-background.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Main-Menu\Settings.png">
+      <Link>Assets\Content\Main-Menu\Settings.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Main-Menu\done.png">
+      <Link>Assets\Content\Main-Menu\done.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Main-Menu\leaderboard.png">
+      <Link>Assets\Content\Main-Menu\leaderboard.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Main-Menu\play.png">
+      <Link>Assets\Content\Main-Menu\play.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Market\bar-next.png">
+      <Link>Assets\Content\Market\bar-next.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Market\bar.png">
+      <Link>Assets\Content\Market\bar.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Market\storage-bg.png">
+      <Link>Assets\Content\Market\storage-bg.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Market\upgrade-screen.png">
+      <Link>Assets\Content\Market\upgrade-screen.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Market\Buy\buy-button.png">
+      <Link>Assets\Content\Market\Buy\buy-button.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Market\Buy\buy-sell-bg.png">
+      <Link>Assets\Content\Market\Buy\buy-sell-bg.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Market\Buy\dial-button.png">
+      <Link>Assets\Content\Market\Buy\dial-button.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Market\Buy\minus-fish.png">
+      <Link>Assets\Content\Market\Buy\minus-fish.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Market\Buy\minus-grain.png">
+      <Link>Assets\Content\Market\Buy\minus-grain.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Market\Buy\minus-meat.png">
+      <Link>Assets\Content\Market\Buy\minus-meat.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Market\Buy\minus-veg.png">
+      <Link>Assets\Content\Market\Buy\minus-veg.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Market\Buy\plus-fish.png">
+      <Link>Assets\Content\Market\Buy\plus-fish.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Market\Buy\plus-grain.png">
+      <Link>Assets\Content\Market\Buy\plus-grain.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Market\Buy\plus-meat.png">
+      <Link>Assets\Content\Market\Buy\plus-meat.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Market\Buy\plus-veg.png">
+      <Link>Assets\Content\Market\Buy\plus-veg.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Market\Buy\sell-button.png">
+      <Link>Assets\Content\Market\Buy\sell-button.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Market\Buy-Sep\button-fish.png">
+      <Link>Assets\Content\Market\Buy-Sep\button-fish.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Market\Buy-Sep\button-grains.png">
+      <Link>Assets\Content\Market\Buy-Sep\button-grains.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Market\Buy-Sep\button-meat.png">
+      <Link>Assets\Content\Market\Buy-Sep\button-meat.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Market\Buy-Sep\button-vegetables.png">
+      <Link>Assets\Content\Market\Buy-Sep\button-vegetables.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Market\Buy-Sep\buy-fish-screen.png">
+      <Link>Assets\Content\Market\Buy-Sep\buy-fish-screen.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Market\Buy-Sep\buy-grains-screen.png">
+      <Link>Assets\Content\Market\Buy-Sep\buy-grains-screen.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Market\Buy-Sep\buy-meat-screen.png">
+      <Link>Assets\Content\Market\Buy-Sep\buy-meat-screen.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Market\Buy-Sep\buy-vegetables-screen.png">
+      <Link>Assets\Content\Market\Buy-Sep\buy-vegetables-screen.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Market\Buy-Sep\over-scroll-bar.png">
+      <Link>Assets\Content\Market\Buy-Sep\over-scroll-bar.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Market\Buy-Sep\scroll-bar.png">
+      <Link>Assets\Content\Market\Buy-Sep\scroll-bar.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Profile\profile-bg.png">
+      <Link>Assets\Content\Profile\profile-bg.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Resto\bar-speed.png">
+      <Link>Assets\Content\Resto\bar-speed.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Resto\bar-upgrade.png">
+      <Link>Assets\Content\Resto\bar-upgrade.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Resto\down.png">
+      <Link>Assets\Content\Resto\down.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Resto\preapare-60points-blue.png">
+      <Link>Assets\Content\Resto\preapare-60points-blue.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Resto\prepare-10points-blue.png">
+      <Link>Assets\Content\Resto\prepare-10points-blue.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Resto\prepare-10points-orange.png">
+      <Link>Assets\Content\Resto\prepare-10points-orange.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Resto\prepare-10points-orange1.png">
+      <Link>Assets\Content\Resto\prepare-10points-orange1.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Resto\prepare-40pints-blue.png">
+      <Link>Assets\Content\Resto\prepare-40pints-blue.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Resto\prepare-40points-orange.png">
+      <Link>Assets\Content\Resto\prepare-40points-orange.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Resto\prepare-46points.png">
+      <Link>Assets\Content\Resto\prepare-46points.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Resto\prepare-50points.png">
+      <Link>Assets\Content\Resto\prepare-50points.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Resto\prepare-b.png">
+      <Link>Assets\Content\Resto\prepare-b.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Resto\prepare-r.png">
+      <Link>Assets\Content\Resto\prepare-r.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Resto\resto-bg.png">
+      <Link>Assets\Content\Resto\resto-bg.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Resto\up.png">
+      <Link>Assets\Content\Resto\up.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\WastePlant\bar-bio.png">
+      <Link>Assets\Content\WastePlant\bar-bio.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\WastePlant\bar-cap.png">
+      <Link>Assets\Content\WastePlant\bar-cap.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\WastePlant\bar-chem.png">
+      <Link>Assets\Content\WastePlant\bar-chem.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\WastePlant\bar-nextcap.png">
+      <Link>Assets\Content\WastePlant\bar-nextcap.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\WastePlant\bar-nextratio.png">
+      <Link>Assets\Content\WastePlant\bar-nextratio.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\WastePlant\bar-nextspeed.png">
+      <Link>Assets\Content\WastePlant\bar-nextspeed.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\WastePlant\bar-ratio.png">
+      <Link>Assets\Content\WastePlant\bar-ratio.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\WastePlant\bar-speed.png">
+      <Link>Assets\Content\WastePlant\bar-speed.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\WastePlant\wastePlant-bg.png">
+      <Link>Assets\Content\WastePlant\wastePlant-bg.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\barracks\Background-upgrade-bar.png">
+      <Link>Assets\Content\barracks\Background-upgrade-bar.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\barracks\Defense.png">
+      <Link>Assets\Content\barracks\Defense.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\barracks\attack.png">
+      <Link>Assets\Content\barracks\attack.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\barracks\bar-nextspeed.png">
+      <Link>Assets\Content\barracks\bar-nextspeed.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\barracks\bar-nexttroops.png">
+      <Link>Assets\Content\barracks\bar-nexttroops.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\barracks\bar-speed.png">
+      <Link>Assets\Content\barracks\bar-speed.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\barracks\bar-troops.png">
+      <Link>Assets\Content\barracks\bar-troops.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\barracks\barrack-bg.png">
+      <Link>Assets\Content\barracks\barrack-bg.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\barracks\barracks-bg2.png">
+      <Link>Assets\Content\barracks\barracks-bg2.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\barracks\target.png">
+      <Link>Assets\Content\barracks\target.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\barracks\Detail\bg-detail.png">
+      <Link>Assets\Content\barracks\Detail\bg-detail.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\barracks\Detail\buy.png">
+      <Link>Assets\Content\barracks\Detail\buy.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\barracks\Detail\min.png">
+      <Link>Assets\Content\barracks\Detail\min.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\barracks\Detail\plus.png">
+      <Link>Assets\Content\barracks\Detail\plus.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster1\answer1-right.png">
+      <Link>Assets\Content\cluster1\answer1-right.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster1\answer1.png">
+      <Link>Assets\Content\cluster1\answer1.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster1\answer2-wrong.png">
+      <Link>Assets\Content\cluster1\answer2-wrong.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster1\answer2.png">
+      <Link>Assets\Content\cluster1\answer2.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster1\answer3-wrong.png">
+      <Link>Assets\Content\cluster1\answer3-wrong.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster1\answer3.png">
+      <Link>Assets\Content\cluster1\answer3.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster1\answer4-wrong.png">
+      <Link>Assets\Content\cluster1\answer4-wrong.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster1\answer4.png">
+      <Link>Assets\Content\cluster1\answer4.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster1\cluster1-questions.png">
+      <Link>Assets\Content\cluster1\cluster1-questions.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster1\congratulations.png">
+      <Link>Assets\Content\cluster1\congratulations.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster1\sailor.png">
+      <Link>Assets\Content\cluster1\sailor.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster2\Start-market.png">
+      <Link>Assets\Content\cluster2\Start-market.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster2\button1-wrong.png">
+      <Link>Assets\Content\cluster2\button1-wrong.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster2\button1.png">
+      <Link>Assets\Content\cluster2\button1.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster2\button2-wrong.png">
+      <Link>Assets\Content\cluster2\button2-wrong.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster2\button2.png">
+      <Link>Assets\Content\cluster2\button2.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster2\button3-right.png">
+      <Link>Assets\Content\cluster2\button3-right.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster2\button3.png">
+      <Link>Assets\Content\cluster2\button3.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster2\button4-wrong.png">
+      <Link>Assets\Content\cluster2\button4-wrong.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster2\button4.png">
+      <Link>Assets\Content\cluster2\button4.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster2\congratulations-market.png">
+      <Link>Assets\Content\cluster2\congratulations-market.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster2\questions-market.png">
+      <Link>Assets\Content\cluster2\questions-market.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster3\button1.png">
+      <Link>Assets\Content\cluster3\button1.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster3\button1right.png">
+      <Link>Assets\Content\cluster3\button1right.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster3\button2.png">
+      <Link>Assets\Content\cluster3\button2.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster3\button2wrong.png">
+      <Link>Assets\Content\cluster3\button2wrong.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster3\button3.png">
+      <Link>Assets\Content\cluster3\button3.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster3\button3wrong.png">
+      <Link>Assets\Content\cluster3\button3wrong.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster3\button4.png">
+      <Link>Assets\Content\cluster3\button4.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster3\button4wrong.png">
+      <Link>Assets\Content\cluster3\button4wrong.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster3\congratulations_restaurant.png">
+      <Link>Assets\Content\cluster3\congratulations_restaurant.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster3\intro.png">
+      <Link>Assets\Content\cluster3\intro.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster3\questions_restaurant1.png">
+      <Link>Assets\Content\cluster3\questions_restaurant1.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster4\answer1-wrong.png">
+      <Link>Assets\Content\cluster4\answer1-wrong.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster4\answer1.png">
+      <Link>Assets\Content\cluster4\answer1.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster4\answer2-right.png">
+      <Link>Assets\Content\cluster4\answer2-right.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster4\answer2.png">
+      <Link>Assets\Content\cluster4\answer2.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster4\answer3-wrong.png">
+      <Link>Assets\Content\cluster4\answer3-wrong.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster4\answer3.png">
+      <Link>Assets\Content\cluster4\answer3.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster4\answer4-wrong.png">
+      <Link>Assets\Content\cluster4\answer4-wrong.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster4\answer4.png">
+      <Link>Assets\Content\cluster4\answer4.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster4\congratulations-screen.png">
+      <Link>Assets\Content\cluster4\congratulations-screen.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster4\moleman.png">
+      <Link>Assets\Content\cluster4\moleman.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster4\questions-waste.png">
+      <Link>Assets\Content\cluster4\questions-waste.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster5\augmentuliria-screen.png">
+      <Link>Assets\Content\cluster5\augmentuliria-screen.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster5\augmentulitaria-button.png">
+      <Link>Assets\Content\cluster5\augmentulitaria-button.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster5\choose-faction1.gif">
+      <Link>Assets\Content\cluster5\choose-faction1.gif</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster5\join-faction-button.gif">
+      <Link>Assets\Content\cluster5\join-faction-button.gif</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster5\rhizome-button.png">
+      <Link>Assets\Content\cluster5\rhizome-button.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster5\rhizome-screen.gif">
+      <Link>Assets\Content\cluster5\rhizome-screen.gif</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster5\rhizome-screen.png">
+      <Link>Assets\Content\cluster5\rhizome-screen.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster5\transhumania-button.gif">
+      <Link>Assets\Content\cluster5\transhumania-button.gif</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster5\transhumania-screen.png">
+      <Link>Assets\Content\cluster5\transhumania-screen.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\error\farm-error-money.png">
+      <Link>Assets\Content\error\farm-error-money.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\error\harbor-error-money.png">
+      <Link>Assets\Content\error\harbor-error-money.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\error\market-error-money.png">
+      <Link>Assets\Content\error\market-error-money.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\error\restaurant-error-money.png">
+      <Link>Assets\Content\error\restaurant-error-money.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\error\waste-error-money.png">
+      <Link>Assets\Content\error\waste-error-money.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\settings\contact.png">
+      <Link>Assets\Content\settings\contact.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\settings\english.png">
+      <Link>Assets\Content\settings\english.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\settings\facebook.png">
+      <Link>Assets\Content\settings\facebook.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\settings\music-off.png">
+      <Link>Assets\Content\settings\music-off.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\settings\music-on.png">
+      <Link>Assets\Content\settings\music-on.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\settings\nederlands.png">
+      <Link>Assets\Content\settings\nederlands.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\settings\settings-bg.png">
+      <Link>Assets\Content\settings\settings-bg.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\settings\sound-off.png">
+      <Link>Assets\Content\settings\sound-off.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\settings\sound-on.png">
+      <Link>Assets\Content\settings\sound-on.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\storage\Bar-fish.png">
+      <Link>Assets\Content\storage\Bar-fish.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\storage\Bar-meat.png">
+      <Link>Assets\Content\storage\Bar-meat.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\storage\Bar-vegie.png">
+      <Link>Assets\Content\storage\Bar-vegie.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\storage\fish-sym.png">
+      <Link>Assets\Content\storage\fish-sym.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\storage\grain-sym.png">
+      <Link>Assets\Content\storage\grain-sym.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\storage\grains_bar.png">
+      <Link>Assets\Content\storage\grains_bar.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\storage\meat-sym.png">
+      <Link>Assets\Content\storage\meat-sym.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\storage\vege-sym.png">
+      <Link>Assets\Content\storage\vege-sym.png</Link>
+    </AndroidAsset>
   </ItemGroup>
   <Import Project="..\MASTopia\MASTopia.projitems" Label="Shared" Condition="Exists('..\MASTopia\MASTopia.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
+  <ItemGroup>
+    <MonoGameContentReference Include="Assets\Content.mgcb" />
+  </ItemGroup>
 </Project>

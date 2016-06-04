@@ -24,12 +24,13 @@ namespace MASTopia
 		{
 			main,
 			upgrade,
+			vraag,
 			error
 
 
 		}
 		private Acties acties;
-
+		private Acties vragen;
 		private Screens screen;
 		public Screens scherm {
 			get
@@ -61,7 +62,7 @@ namespace MASTopia
 		List<GUIElement>MarketScreen2 = new List<GUIElement>();
 		List<GUIElement>MarketScreen3 = new List<GUIElement>();
 		List<GUIElement>Buttons = new List<GUIElement>();
-
+		private Question2 quest = new Question2();
 		private SpriteFont font;
 		private int totalrecourc;
 		private int aGrain=0;
@@ -128,7 +129,12 @@ namespace MASTopia
 		public void LoadContent(ContentManager content , GameObjects gameObjects)
 		{
 			font = content.Load<SpriteFont> ("MyFont");
+			quest.LoadContent (content, gameObjects);
+			if (quest.Vraag1==false) {
+				vragen = Acties.vraag;
+				gameObjects.cluster1 = false;
 
+			}
 			foreach (GUIElement element in MarketScreen1) {
 				element.LoadContent (content, gameObjects);
 				element.clickEvent += OnClick;
@@ -195,166 +201,192 @@ namespace MASTopia
 		}
 		public void Update(GameObjects gameObjects)
 		{	
-			switch (screen) {
-			case Screens.Screen1:
+			switch (vragen) {
+			case Acties.vraag:
+				quest.Update (gameObjects);
+				if (quest.Vraag1) {
+					vragen = Acties.main;
+					screen = Screens.Screen1;
+					gameObjects.cluster2 = true;
+				}
+				break;
+			case Acties.main:
+				switch (screen) {
+				case Screens.Screen1:
 
-				foreach (GUIElement element in MarketScreen1) {
-					element.Update (gameObjects);
-				}
-				break;
-			case Screens.Screen2:
-				foreach (GUIElement element in MarketScreen2) {
-					element.Update (gameObjects);
-				}
-				foreach (GUIElement element in Buttons) {
-					element.Update (gameObjects);
-				}
-				break;
+					foreach (GUIElement element in MarketScreen1) {
+						element.Update (gameObjects);
+					}
+					break;
+				case Screens.Screen2:
+					foreach (GUIElement element in MarketScreen2) {
+						element.Update (gameObjects);
+					}
+					foreach (GUIElement element in Buttons) {
+						element.Update (gameObjects);
+					}
+					break;
 				case Screens.Screen3:
-				foreach (GUIElement element in MarketScreen3) {
-					element.Update (gameObjects);
-					if (element.AssetName=="Market/bar") {
-						element.drawParial (gameObjects.TotalRecource, storage);
-						totalrecourc = gameObjects.TotalRecource;
+					foreach (GUIElement element in MarketScreen3) {
+						element.Update (gameObjects);
+						if (element.AssetName=="Market/bar") {
+							element.drawParial (gameObjects.TotalRecource, storage);
+							totalrecourc = gameObjects.TotalRecource;
+
+						}
+						if (element.AssetName=="Market/bar-next") {
+							element.drawParial (Marketlvl+1,16);
+						}
 
 					}
-					if (element.AssetName=="Market/bar-next") {
-						element.drawParial (Marketlvl+1,16);
+					if (acties==Acties.upgrade) {
+						Upgradelvl (gameObjects);
 					}
-
+					if (acties == Acties.error) {
+						error.Update (gameObjects);
+					}
+					break;
+				default:
+					break;
 				}
-				if (acties==Acties.upgrade) {
-					Upgradelvl (gameObjects);
-				}
-				if (acties == Acties.error) {
-					error.Update (gameObjects);
+				if (screen == Screens.Screen1 || screen == Screens.Screen2 || screen == Screens.Screen3) {
+					if (gameObjects.touchInput.swippedLeft) {
+						if (screen == Screens.Screen1) {
+							screen = Screens.Screen2;
+						} else if (screen == Screens.Screen2) {
+							screen = Screens.Screen3;
+						}
+					}
+					if (gameObjects.touchInput.swippedRight) {
+						if (screen == Screens.Screen3) {
+							screen = Screens.Screen2;
+						} else if (screen == Screens.Screen2) {
+							screen = Screens.Screen1;
+						}
+					}
 				}
 				break;
 			default:
 				break;
 			}
-			if (screen == Screens.Screen1 || screen == Screens.Screen2 || screen == Screens.Screen3) {
-				if (gameObjects.touchInput.swippedLeft) {
-					if (screen == Screens.Screen1) {
-						screen = Screens.Screen2;
-					} else if (screen == Screens.Screen2) {
-						screen = Screens.Screen3;
-					}
-				}
-				if (gameObjects.touchInput.swippedRight) {
-					if (screen == Screens.Screen3) {
-						screen = Screens.Screen2;
-					} else if (screen == Screens.Screen2) {
-						screen = Screens.Screen1;
-					}
-				}
-			}
+
+
+
+
 		}
 		public void Draw(SpriteBatch spriteBatch , GameObjects obj)
 		{
 			int x=0;
-			switch (screen) {
-			case Screens.Screen1:
+			switch (vragen) {
+			case Acties.vraag:
+				quest.Draw (spriteBatch);
+				break;
+			case Acties.main:
+				switch (screen) {
+				case Screens.Screen1:
+					foreach (GUIElement element in MarketScreen1) {
+						if (element.AssetName == "storage/grains_bar" || element.AssetName == "storage/Bar-vegie" || element.AssetName == "storage/Bar-fish" || element.AssetName == "storage/Bar-meat"||
+							element.AssetName == "storage/grain-sym"||element.AssetName == "storage/vege-sym"||element.AssetName == "storage/fish-sym"||element.AssetName == "storage/meat-sym") {
 
+							if (element.AssetName == "storage/grains_bar") {
+								Rectangle rect = element.returnRect (obj.Grains, storage);
+								rect.X = 140;
+								rect.Y = 883;
+								element.Draw (spriteBatch, rect);
+								x = 140+rect.Width;
+							}
+							if (element.AssetName == "storage/grain-sym") { //symbol
+								Rectangle rect = element.guiRect;
+								rect.X = x;
+								rect.Y = 760;
+								element.Draw (spriteBatch, rect);
+								spriteBatch.DrawString(font, obj.Grains.ToString(),new Vector2(rect.X-20,770), Color.Black,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
 
-				foreach (GUIElement element in MarketScreen1) {
-					if (element.AssetName == "storage/grains_bar" || element.AssetName == "storage/Bar-vegie" || element.AssetName == "storage/Bar-fish" || element.AssetName == "storage/Bar-meat"||
-						element.AssetName == "storage/grain-sym"||element.AssetName == "storage/vege-sym"||element.AssetName == "storage/fish-sym"||element.AssetName == "storage/meat-sym") {
-					
-						if (element.AssetName == "storage/grains_bar") {
-							Rectangle rect = element.returnRect (obj.Grains, storage);
-							rect.X = 140;
-							rect.Y = 883;
-							element.Draw (spriteBatch, rect);
-							x = 140+rect.Width;
-						}
-						if (element.AssetName == "storage/grain-sym") { //symbol
-							Rectangle rect = element.guiRect;
-							rect.X = x;
-							rect.Y = 760;
-							element.Draw (spriteBatch, rect);
-							spriteBatch.DrawString(font, obj.Grains.ToString(),new Vector2(rect.X-20,770), Color.Black,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
+							}
+							if (element.AssetName == "storage/Bar-vegie") {
+								Rectangle rect = element.returnRect (obj.Vegies, storage);
+								rect.X = x;
+								rect.Y = 883;
+								element.Draw (spriteBatch, rect);
+								x += rect.Width;
+
+							}
+							if (element.AssetName == "storage/vege-sym") {//symbol
+								Rectangle rect = element.guiRect;
+								rect.X = x;
+								rect.Y = 760;
+								element.Draw (spriteBatch, rect);
+								spriteBatch.DrawString(font, obj.Vegies.ToString(),new Vector2(rect.X-20,770), Color.Black,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
+
+							}
+							if (element.AssetName == "storage/Bar-fish") {
+								Rectangle rect = element.returnRect (obj.Fish, storage);
+								rect.X = x;
+								rect.Y = 883;
+								element.Draw (spriteBatch, rect);
+								x += rect.Width;
+							}
+							if (element.AssetName == "storage/fish-sym") {//symbol
+								Rectangle rect = element.guiRect;
+								rect.X = x;
+								rect.Y = 760;
+								element.Draw (spriteBatch, rect);
+								spriteBatch.DrawString(font, obj.Fish.ToString(),new Vector2(rect.X-20,770), Color.Black,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
+
+							}
+							if (element.AssetName == "storage/Bar-meat") {
+								Rectangle rect = element.returnRect (obj.Meat, storage);
+								rect.X = x;
+								rect.Y = 883;
+								element.Draw (spriteBatch, rect);
+								x += rect.Width;
+							}
+							if (element.AssetName == "storage/meat-sym") {//symbol
+								Rectangle rect = element.guiRect;
+								rect.X = x;
+								rect.Y = 760;
+								element.Draw (spriteBatch, rect);
+								spriteBatch.DrawString(font, obj.Meat.ToString(),new Vector2(rect.X-20,770), Color.Black,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
+
+							}
+						} else {
+							element.Draw (spriteBatch);
 
 						}
-						if (element.AssetName == "storage/Bar-vegie") {
-							Rectangle rect = element.returnRect (obj.Vegies, storage);
-							rect.X = x;
-							rect.Y = 883;
-							element.Draw (spriteBatch, rect);
-							x += rect.Width;
-
-						}
-						if (element.AssetName == "storage/vege-sym") {//symbol
-							Rectangle rect = element.guiRect;
-							rect.X = x;
-							rect.Y = 760;
-							element.Draw (spriteBatch, rect);
-							spriteBatch.DrawString(font, obj.Vegies.ToString(),new Vector2(rect.X-20,770), Color.Black,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
-
-						}
-						if (element.AssetName == "storage/Bar-fish") {
-							Rectangle rect = element.returnRect (obj.Fish, storage);
-							rect.X = x;
-							rect.Y = 883;
-							element.Draw (spriteBatch, rect);
-							x += rect.Width;
-						}
-						if (element.AssetName == "storage/fish-sym") {//symbol
-							Rectangle rect = element.guiRect;
-							rect.X = x;
-							rect.Y = 760;
-							element.Draw (spriteBatch, rect);
-							spriteBatch.DrawString(font, obj.Fish.ToString(),new Vector2(rect.X-20,770), Color.Black,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
-
-						}
-						if (element.AssetName == "storage/Bar-meat") {
-							Rectangle rect = element.returnRect (obj.Meat, storage);
-							rect.X = x;
-							rect.Y = 883;
-							element.Draw (spriteBatch, rect);
-							x += rect.Width;
-						}
-						if (element.AssetName == "storage/meat-sym") {//symbol
-							Rectangle rect = element.guiRect;
-							rect.X = x;
-							rect.Y = 760;
-							element.Draw (spriteBatch, rect);
-							spriteBatch.DrawString(font, obj.Meat.ToString(),new Vector2(rect.X-20,770), Color.Black,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
-
-						}
-					} else {
-						element.Draw (spriteBatch);
 
 					}
-
-				}
-				break;
-			case Screens.Screen2:
-				foreach (GUIElement element in MarketScreen2) {
-					element.Draw (spriteBatch);
-				}
-				foreach (GUIElement element in Buttons) {
-					element.Draw (spriteBatch);
-				}
-				spriteBatch.DrawString(font, aGrain.ToString(),new Vector2(385,818), Color.Black,0,new Vector2(0,0),3f,SpriteEffects.None,0f);
-				spriteBatch.DrawString(font, aFish.ToString(),new Vector2(755,818), Color.Black,0,new Vector2(0,0),3f,SpriteEffects.None,0f);
-				spriteBatch.DrawString(font, aVege.ToString(),new Vector2(1125,818), Color.Black,0,new Vector2(0,0),3f,SpriteEffects.None,0f);
-				spriteBatch.DrawString(font, aMeat.ToString(),new Vector2(1495,818), Color.Black,0,new Vector2(0,0),3f,SpriteEffects.None,0f);
+					break;
+				case Screens.Screen2:
+					foreach (GUIElement element in MarketScreen2) {
+						element.Draw (spriteBatch);
+					}
+					foreach (GUIElement element in Buttons) {
+						element.Draw (spriteBatch);
+					}
+					spriteBatch.DrawString(font, aGrain.ToString(),new Vector2(385,818), Color.Black,0,new Vector2(0,0),3f,SpriteEffects.None,0f);
+					spriteBatch.DrawString(font, aFish.ToString(),new Vector2(755,818), Color.Black,0,new Vector2(0,0),3f,SpriteEffects.None,0f);
+					spriteBatch.DrawString(font, aVege.ToString(),new Vector2(1125,818), Color.Black,0,new Vector2(0,0),3f,SpriteEffects.None,0f);
+					spriteBatch.DrawString(font, aMeat.ToString(),new Vector2(1495,818), Color.Black,0,new Vector2(0,0),3f,SpriteEffects.None,0f);
 
 
-				break;
-			case Screens.Screen3:
-				foreach (GUIElement element in MarketScreen3) {
-					element.Draw (spriteBatch);
-				}
-				if (acties == Acties.error) {
-					error.Draw (spriteBatch, Drawerror.Acties.market);
-				}
-			
+					break;
+				case Screens.Screen3:
+					foreach (GUIElement element in MarketScreen3) {
+						element.Draw (spriteBatch);
+					}
+					if (acties == Acties.error) {
+						error.Draw (spriteBatch, Drawerror.Acties.market);
+					}
 
-				spriteBatch.DrawString(font, "Current "+ totalrecourc.ToString()+"/"+storage.ToString(),new Vector2(174,898), Color.Black,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
-				spriteBatch.DrawString(font, "next Level: "+(Marketlvl+2).ToString(),new Vector2(1237,898), Color.Black,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
-				spriteBatch.DrawString(font, ((Marketlvl+1)*80).ToString(),new Vector2(1080,950), Color.White,0,new Vector2(0,0),3f,SpriteEffects.None,0f);
+
+					spriteBatch.DrawString(font, "Current "+ totalrecourc.ToString()+"/"+storage.ToString(),new Vector2(174,898), Color.Black,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
+					spriteBatch.DrawString(font, "next Level: "+(Marketlvl+2).ToString(),new Vector2(1237,898), Color.Black,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
+					spriteBatch.DrawString(font, ((Marketlvl+1)*80).ToString(),new Vector2(1080,950), Color.White,0,new Vector2(0,0),3f,SpriteEffects.None,0f);
+
+					break;
+				default:
+					break;
+				}
 
 				break;
 			default:

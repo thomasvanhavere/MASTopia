@@ -71,6 +71,8 @@ namespace MASTopia
 			font = content.Load<SpriteFont> ("MyFont");
 			if (quest.Vraag1==false) {
 				vragen = Acties.vraag;
+				gameObjects.cluster1 = false;
+
 			}
 			foreach (GUIElement element in harbour) {
 				element.LoadContent (content, gameObjects);
@@ -97,6 +99,7 @@ namespace MASTopia
 				quest.Update (gameObjects);
 				if (quest.Vraag1) {
 					vragen = Acties.main;
+					gameObjects.cluster1 = true;
 				}
 				break;
 			case Acties.main :
@@ -114,10 +117,6 @@ namespace MASTopia
 			default:
 				break;
 			}
-
-				
-
-			//Console.WriteLine ("Update harbour");
 		}
 		public void Draw(SpriteBatch spriteBatch)
 		{
