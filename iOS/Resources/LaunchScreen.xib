@@ -221,5 +221,54 @@
         <image name="Content/WastePlant/bar-ratio.png" width="513" height="57"/>
         <image name="Content/WastePlant/bar-speed.png" width="513" height="57"/>
         <image name="Content/Cross-Screen/welcome-screen.png" width="1920" height="1080"/>
+        <image name="Content/cluster1/answer1-right.png" width="792" height="125"/>
+        <image name="Content/cluster1/answer1.png" width="792" height="125"/>
+        <image name="Content/cluster1/answer2-wrong.png" width="792" height="125"/>
+        <image name="Content/cluster1/answer2.png" width="792" height="125"/>
+        <image name="Content/cluster1/answer3-wrong.png" width="792" height="125"/>
+        <image name="Content/cluster1/answer3.png" width="792" height="125"/>
+        <image name="Content/cluster1/answer4-wrong.png" width="792" height="125"/>
+        <image name="Content/cluster1/answer4.png" width="792" height="125"/>
+        <image name="Content/cluster1/cluster1-questions.png" width="1920" height="1080"/>
+        <image name="Content/cluster1/congratulations.png" width="1920" height="1080"/>
+        <image name="Content/cluster1/sailor.png" width="1920" height="1080"/>
+        <image name="Content/cluster2/Start-market.png" width="1920" height="1080"/>
+        <image name="Content/cluster2/button1-wrong.png" width="774" height="103"/>
+        <image name="Content/cluster2/button1.png" width="774" height="103"/>
+        <image name="Content/cluster2/button2-wrong.png" width="774" height="103"/>
+        <image name="Content/cluster2/button2.png" width="774" height="103"/>
+        <image name="Content/cluster2/button3-right.png" width="774" height="103"/>
+        <image name="Content/cluster2/button3.png" width="774" height="103"/>
+        <image name="Content/cluster2/button4-wrong.png" width="774" height="103"/>
+        <image name="Content/cluster2/button4.png" width="774" height="103"/>
+        <image name="Content/cluster2/congratulations-market.png" width="1920" height="1080"/>
+        <image name="Content/cluster2/questions-market.png" width="1920" height="1080"/>
+        <image name="Content/cluster3/button1.png" width="774" height="103"/>
+        <image name="Content/cluster3/button1right.png" width="774" height="103"/>
+        <image name="Content/cluster3/button2.png" width="774" height="103"/>
+        <image name="Content/cluster3/button2wrong.png" width="774" height="103"/>
+        <image name="Content/cluster3/button3.png" width="774" height="103"/>
+        <image name="Content/cluster3/button3wrong.png" width="774" height="103"/>
+        <image name="Content/cluster3/button4.png" width="774" height="103"/>
+        <image name="Content/cluster3/button4wrong.png" width="774" height="103"/>
+        <image name="Content/cluster3/congratulations_restaurant.png" width="1920" height="1080"/>
+        <image name="Content/cluster3/intro.png" width="1920" height="1080"/>
+        <image name="Content/cluster3/questions_restaurant1.png" width="1920" height="1080"/>
+        <image name="Content/cluster4/answer1-wrong.png" width="792" height="125"/>
+        <image name="Content/cluster4/answer1.png" width="792" height="125"/>
+        <image name="Content/cluster4/answer2-right.png" width="792" height="125"/>
+        <image name="Content/cluster4/answer2.png" width="792" height="125"/>
+        <image name="Content/cluster4/answer3-wrong.png" width="792" height="125"/>
+        <image name="Content/cluster4/answer3.png" width="792" height="125"/>
+        <image name="Content/cluster4/answer4-wrong.png" width="792" height="125"/>
+        <image name="Content/cluster4/answer4.png" width="792" height="125"/>
+        <image name="Content/cluster4/congratulations-screen.png" width="1920" height="1080"/>
+        <image name="Content/cluster4/moleman.png" width="1920" height="1080"/>
+        <image name="Content/cluster4/questions-waste.png" width="1920" height="1080"/>
+        <image name="Content/cluster5/augmentuliria-screen.png" width="1920" height="1080"/>
+        <image name="Content/cluster5/augmentulitaria-button.png" width="176" height="639"/>
+        <image name="Content/cluster5/rhizome-button.png" width="176" height="639"/>
+        <image name="Content/cluster5/rhizome-screen.png" width="1920" height="1080"/>
+        <image name="Content/cluster5/transhumania-screen.png" width="1920" height="1080"/>
     </resources>
 </document>

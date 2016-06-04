@@ -18,11 +18,12 @@ namespace MASTopia
 			Upgrade,
 			GoFish,
 			error,
+			vraag,
 			Exit
 
 		}
 		private Acties acties;
-
+		private Acties vragen;
 		public Acties State {
 			get
 			{
@@ -48,7 +49,7 @@ namespace MASTopia
 
 		List<GUIElement> harbour = new List<GUIElement>();
 		private SpriteFont font;
-
+		private Questions quest = new Questions();
 		public DrawHarbour ()
 		{
 			error = new Drawerror ();
@@ -66,8 +67,11 @@ namespace MASTopia
 		}
 		public void LoadContent(ContentManager content , GameObjects gameObjects)
 		{
+			quest.LoadContent (content, gameObjects);
 			font = content.Load<SpriteFont> ("MyFont");
-
+			if (quest.Vraag1==false) {
+				vragen = Acties.vraag;
+			}
 			foreach (GUIElement element in harbour) {
 				element.LoadContent (content, gameObjects);
 				element.clickEvent += OnClick;
@@ -88,46 +92,72 @@ namespace MASTopia
 		}
 		public void Update(GameObjects gameObjects)
 		{			
+			switch (vragen) {
+			case Acties.vraag:
+				quest.Update (gameObjects);
+				if (quest.Vraag1) {
+					vragen = Acties.main;
+				}
+				break;
+			case Acties.main :
 				foreach (GUIElement element in harbour) {
 					element.Update (gameObjects);
 				}
-			if (acties==Acties.Upgrade) {
-				acties = Acties.main;
-				Upgradelvl (gameObjects);
+				if (acties==Acties.Upgrade) {
+					acties = Acties.main;
+					Upgradelvl (gameObjects);
+				}
+				if (acties == Acties.error) {
+					error.Update (gameObjects);
+				}
+				break;
+			default:
+				break;
 			}
-			if (acties == Acties.error) {
-				error.Update (gameObjects);
-			}
+
+				
+
 			//Console.WriteLine ("Update harbour");
 		}
 		public void Draw(SpriteBatch spriteBatch)
 		{
-			foreach (GUIElement element in harbour) {
-				element.Draw (spriteBatch);
-				if (element.AssetName=="Boat/bar-speed") {
-					element.drawParial (HarbourLevel+1,16);
+			switch (vragen) {
+			case Acties.vraag:
+				quest.Draw (spriteBatch);
+				break;
+			case Acties.main:
+				foreach (GUIElement element in harbour) {
+					element.Draw (spriteBatch);
+					if (element.AssetName=="Boat/bar-speed") {
+						element.drawParial (HarbourLevel+1,16);
+					}
+					if (element.AssetName=="Boat/bar-nextspeed") {
+						element.drawParial (HarbourLevel+2,16);
+					}
+					if (element.AssetName=="Boat/bar-cap") {
+						element.drawParial (shipCapacity,45);
+					}
+					if (element.AssetName=="Boat/bar-nextcap") {
+						element.drawParial (shipCapacity+2,45);
+					}
 				}
-				if (element.AssetName=="Boat/bar-nextspeed") {
-					element.drawParial (HarbourLevel+2,16);
+				spriteBatch.DrawString(font, "Speed: "+ (120/shipCapacity).ToString()+" Per Min" ,new Vector2(415,838), Color.White,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
+				spriteBatch.DrawString(font, "Speed: "+ (120/(shipCapacity+2)).ToString()+"Per Min" ,new Vector2(1020,838), Color.White,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
+				spriteBatch.DrawString(font, "Capacity: "+shipCapacity.ToString(),new Vector2(415,915), Color.White,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
+				spriteBatch.DrawString(font, "Capacity: "+(shipCapacity+2).ToString(),new Vector2(1020,915), Color.White,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
+
+				spriteBatch.DrawString(font, HarbourLevel.ToString(),new Vector2(1030,90), Color.White,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
+				spriteBatch.DrawString(font, ((HarbourLevel+1)*90).ToString(),new Vector2(1780,950), Color.White,0,new Vector2(0,0),3f,SpriteEffects.None,0f);
+				if (acties == Acties.error) {
+					error.Draw (spriteBatch, Drawerror.Acties.harbour);
 				}
-				if (element.AssetName=="Boat/bar-cap") {
-					element.drawParial (shipCapacity,45);
-				}
-				if (element.AssetName=="Boat/bar-nextcap") {
-					element.drawParial (shipCapacity+2,45);
-				}
-				}
-			if (acties == Acties.error) {
-				error.Draw (spriteBatch, Drawerror.Acties.harbour);
+				break;
+			default:
+				break;
 			}
+				
 
-			spriteBatch.DrawString(font, "Speed: "+ (120/shipCapacity).ToString()+" Per Min" ,new Vector2(415,838), Color.White,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
-			spriteBatch.DrawString(font, "Speed: "+ (120/(shipCapacity+2)).ToString()+"Per Min" ,new Vector2(1020,838), Color.White,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
-			spriteBatch.DrawString(font, "Capacity: "+shipCapacity.ToString(),new Vector2(415,915), Color.White,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
-			spriteBatch.DrawString(font, "Capacity: "+(shipCapacity+2).ToString(),new Vector2(1020,915), Color.White,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
 
-			spriteBatch.DrawString(font, HarbourLevel.ToString(),new Vector2(1030,90), Color.White,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
-			spriteBatch.DrawString(font, ((HarbourLevel+1)*90).ToString(),new Vector2(1780,950), Color.White,0,new Vector2(0,0),3f,SpriteEffects.None,0f);
 
 
 		}

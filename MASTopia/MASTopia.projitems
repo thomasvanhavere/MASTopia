@@ -36,5 +36,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)Calamares.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Waffels.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)Drawerror.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)Questions.cs" />
   </ItemGroup>
 </Project>
