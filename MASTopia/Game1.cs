@@ -12,9 +12,6 @@ using System.Threading;
 
 namespace MASTopia
 {
-	/// <summary>
-	/// This is the main type for your game.
-	/// </summary>
 	public class Game1 : Game
 	{
 		GraphicsDeviceManager graphics;
@@ -25,9 +22,6 @@ namespace MASTopia
 		//Resolution Independence
 		Vector2 virtualScreen = new Vector2(1920f, 1080f);
 		Matrix Scale;
-
-		//Timer timer = new Timer (callback,"some state",TimeSpan.FromSeconds(1),TimeSpan.FromSeconds(1));
-
 
 		private MainMenu mainMenu = new MainMenu();
 		private GameView gameView = new GameView();
@@ -55,7 +49,6 @@ namespace MASTopia
 		protected override void Initialize ()
 		{
 			IsMouseVisible = true;  
-
 			
 			TouchPanel.EnabledGestures = GestureType.VerticalDrag | GestureType.Flick | GestureType.Tap; 
 
@@ -82,8 +75,6 @@ namespace MASTopia
 			settings.LoadContent (Content, gameObjects);
 			profile.LoadContent (Content, gameObjects);
 			factions.LoadContent (Content, gameObjects);
-
-
 		}
 	
 		public void CalculateGameBounds()
@@ -256,21 +247,23 @@ namespace MASTopia
 					gameObjects.touchInput.Y = (int)(touch.Position.Y/gameObjects.HeightScale);
 
 				}
-
 			}
 		}
 		protected override void Draw (GameTime gameTime)
 		{
-			graphics.GraphicsDevice.Clear (Color.CornflowerBlue);
+			graphics.GraphicsDevice.Clear (Color.Black);
             
 			gameObjects.gameTime = gameTime;
+			#if __IOS__
+
 			spriteBatch.Begin (SpriteSortMode.Immediate, null, null, null, null,null, Scale);
+			#elif __ANDROID__
+			spriteBatch.Begin (SpriteSortMode.Immediate,BlendState.NonPremultiplied, null, null, null,null, Scale);
+			#endif
 
 			if (mainMenu.State==MainMenu.GameState.MainMenu) {
 				mainMenu.Draw(spriteBatch);
-
 			}
-
 			if (mainMenu.State==MainMenu.GameState.settings) {
 				settings.Draw (spriteBatch);
 
