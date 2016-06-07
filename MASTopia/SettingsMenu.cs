@@ -39,6 +39,8 @@ namespace MASTopia
 
 		public SettingsMenu ()
 		{
+			Settings.Add (new GUIElement ("Main-Menu/Background"));
+
 			Settings.Add (new GUIElement ("Main-Menu/MAS-background"));
 			Settings.Add (new GUIElement ("settings/settings-bg"));
 			Settings.Add (new GUIElement ("settings/contact"));
@@ -69,7 +71,7 @@ namespace MASTopia
 			Settings.Find (x => x.AssetName == "settings/facebook").moveElement (660,815);
 
 
-			Settings.Find (x => x.AssetName == "Cross-Screen/X").moveElement (1750,65);
+			Settings.Find (x => x.AssetName == "Cross-Screen/X").moveElement (1740,65);
 
 		}
 		public void Update(GameObjects gameObjects)

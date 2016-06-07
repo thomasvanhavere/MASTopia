@@ -251,13 +251,14 @@ namespace MASTopia
 		}
 		protected override void Draw (GameTime gameTime)
 		{
-			graphics.GraphicsDevice.Clear (Color.Black);
+			
             
 			gameObjects.gameTime = gameTime;
 			#if __IOS__
-
+			graphics.GraphicsDevice.Clear (Color.White);
 			spriteBatch.Begin (SpriteSortMode.Immediate, null, null, null, null,null, Scale);
 			#elif __ANDROID__
+			graphics.GraphicsDevice.Clear (Color.Black);
 			spriteBatch.Begin (SpriteSortMode.Immediate,BlendState.NonPremultiplied, null, null, null,null, Scale);
 			#endif
 

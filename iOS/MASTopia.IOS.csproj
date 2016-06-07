@@ -76,7 +76,7 @@
     <MtouchUseSGen>true</MtouchUseSGen>
     <IpaPackageName>
     </IpaPackageName>
-    <CodesignProvision>fd581880-e82c-4042-b39e-25718186cc1b</CodesignProvision>
+    <CodesignProvision>0dd24f5d-0206-4239-8da2-d78502e27709</CodesignProvision>
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
@@ -251,6 +251,8 @@
     <BundleResource Include="Content\cluster5\rhizome-button.png" />
     <BundleResource Include="Content\cluster5\rhizome-screen.png" />
     <BundleResource Include="Content\cluster5\transhumania-screen.png" />
+    <BundleResource Include="Resources\Default-568h%402x.png" />
+    <BundleResource Include="Resources\Default%402x.png" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
@@ -260,9 +262,6 @@
   <Import Project="$(MSBuildExtensionsPath)\MonoGame\v3.0\MonoGame.Content.Builder.targets" />
   <ItemGroup>
     <Content Include="Content\MyFont.xnb">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </Content>
-    <Content Include="Content\Main-Menu\done.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
     <Content Include="Content\Main-Menu\play.png">
@@ -387,8 +386,5 @@
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Contents.json" />
-  </ItemGroup>
-  <ItemGroup>
-    <InterfaceDefinition Include="Resources\LaunchScreen.xib" />
   </ItemGroup>
 </Project>

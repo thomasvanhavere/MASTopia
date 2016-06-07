@@ -135,7 +135,7 @@ namespace MASTopia
 			Screen2.Find(x=>x.AssetName=="barracks/attack").moveElement(150,740);
 			Screen2.Find(x=>x.AssetName=="barracks/target").moveElement(660,740);
 			Screen2.Find(x=>x.AssetName=="barracks/Defense").moveElement(1230,740);
-			Screen2.Find(x=>x.AssetName=="Cross-Screen/X").moveElement(1750,65);
+			Screen2.Find(x=>x.AssetName=="Cross-Screen/X").moveElement(1740,65);
 
 			foreach (GUIElement element in Attack) {
 				element.LoadContent (content,gameObjects);

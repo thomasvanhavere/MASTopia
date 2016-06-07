@@ -116,8 +116,8 @@ namespace MASTopia
 			case GamePart.main:
 				foreach (GUIElement element in mainBuildings) {
 					if (element.AssetName=="Main-Game/Flag"||element.AssetName=="Main-Game/farm"||
-						element.AssetName=="Main-Game/Foodtruck"||element.AssetName=="Main-Game/market"||element.AssetName=="Main-Game/wastePlant") {
-						if (element.AssetName=="Main-Game/market"&&gameObjects.cluster1) {
+						element.AssetName=="Main-Game/Foodtruck"||element.AssetName=="Main-Game/market"||element.AssetName=="Main-Game/wastePlant"||element.AssetName=="Main-Game/barracks") {
+						if ((element.AssetName=="Main-Game/market"||element.AssetName=="Main-Game/farm")&&gameObjects.cluster1) {
 							element.Update (gameObjects);
 						}
 						if (element.AssetName=="Main-Game/Foodtruck"&&gameObjects.cluster2) {
@@ -126,7 +126,8 @@ namespace MASTopia
 						if (element.AssetName=="Main-Game/wastePlant"&&gameObjects.cluster3) {
 							element.Update (gameObjects);
 						}
-						if ((element.AssetName=="Main-Game/farm"||element.AssetName=="Main-Game/Flag")&&gameObjects.cluster4) {
+
+						if ((element.AssetName=="Main-Game/farm"||element.AssetName=="Main-Game/Flag"||element.AssetName=="Main-Game/barracks")&&gameObjects.cluster4) {
 							element.Update (gameObjects);
 						}
 					} else {
@@ -156,8 +157,8 @@ namespace MASTopia
 			case GamePart.main:
 				foreach (GUIElement element in mainBuildings) {
 					if (element.AssetName=="Main-Game/Flag"||element.AssetName=="Main-Game/farm"||
-						element.AssetName=="Main-Game/Foodtruck"||element.AssetName=="Main-Game/market"||element.AssetName=="Main-Game/wastePlant") {
-						if (element.AssetName=="Main-Game/market"&&obj.cluster1) {
+						element.AssetName=="Main-Game/Foodtruck"||element.AssetName=="Main-Game/market"||element.AssetName=="Main-Game/wastePlant"||element.AssetName=="Main-Game/barracks") {
+						if ((element.AssetName=="Main-Game/market"||element.AssetName=="Main-Game/farm")&&obj.cluster1) {
 							element.Draw (spriteBatch);
 
 						}
@@ -167,7 +168,8 @@ namespace MASTopia
 						if (element.AssetName=="Main-Game/wastePlant"&&obj.cluster3) {
 							element.Draw (spriteBatch);
 						}
-						if ((element.AssetName=="Main-Game/farm"||element.AssetName=="Main-Game/Flag")&&obj.cluster4) {
+
+						if ((element.AssetName=="Main-Game/farm"||element.AssetName=="Main-Game/Flag"||element.AssetName=="Main-Game/barracks")&&obj.cluster4) {
 							element.Draw (spriteBatch);
 						}
 

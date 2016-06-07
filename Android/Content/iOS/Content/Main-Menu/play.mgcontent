@@ -1,9 +1,9 @@
 <?xml version="1.0" encoding="utf-8"?>
 <PipelineBuildEvent xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <SourceFile>/Users/thomasvanhavere/Projects/MASTopia/Android/Assets/../../iOS/Content/Main-Menu/play.png</SourceFile>
-  <SourceTime>2016-05-02T11:12:28+02:00</SourceTime>
+  <SourceTime>2016-06-01T21:37:12+02:00</SourceTime>
   <DestFile>/Users/thomasvanhavere/Projects/MASTopia/Android/Content/bin/Android/../../iOS/Content/Main-Menu/play.xnb</DestFile>
-  <DestTime>2016-06-04T21:11:09+02:00</DestTime>
+  <DestTime>2016-06-07T11:32:45+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2016-03-30T08:36:22+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>
