@@ -39,6 +39,7 @@ namespace MASTopia
 		private DrawFactions factions = new DrawFactions();
 		private BaseLogics baselogics = new BaseLogics();
 		private Song song;
+		private SaveToFile save = new SaveToFile();
 		public Game1 ()
 		{
 			graphics = new GraphicsDeviceManager (this);
@@ -63,7 +64,6 @@ namespace MASTopia
 			gameObjects = new GameObjects();
 			CalculateGameBounds ();
 			spriteBatch = new SpriteBatch (GraphicsDevice);
-
 			gameObjects.waste = 50;
 			gameObjects.Chemwaste = 20;
 			gameObjects.Money = 100;
@@ -83,6 +83,8 @@ namespace MASTopia
 			settings.LoadContent (Content, gameObjects);
 			profile.LoadContent (Content, gameObjects);
 			factions.LoadContent (Content, gameObjects);
+			//save.Load (gameObjects);
+
 		}
 	
 		public void CalculateGameBounds()
@@ -221,6 +223,8 @@ namespace MASTopia
 			baselogics.fillProp(gameTime,farm,harbour,gameObjects, market);
 			baselogics.update (gameTime, resto, gameObjects);
 			gameObjects.CheckLevelPlayer ();
+			//save.Save (gameObjects);
+
 			base.Update(gameTime);
 		}
 

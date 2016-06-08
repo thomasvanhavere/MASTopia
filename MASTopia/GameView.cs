@@ -186,24 +186,35 @@ namespace MASTopia
 						element.Draw (spriteBatch);
 
 					}
-				}
 
+				}
+				if (obj.Gekozen) {
+					spriteBatch.DrawString(font, obj.XP.ToString()+"/"+obj.NextLevel.ToString(),new Vector2(480, 65), Color.Black,0,new Vector2(0,0),2.5f,SpriteEffects.None,0f);
+					spriteBatch.DrawString(font, obj.Money.ToString(),new Vector2(150,55), Color.Black,0,new Vector2(0,0),3f,SpriteEffects.None,0f);
+					spriteBatch.DrawString(font, obj.PLayerLevel.ToString(),new Vector2(390,55), Color.Black,0,new Vector2(0,0),3f,SpriteEffects.None,0f);
+
+				}
 				break;
 			case GamePart.BackMenu:
 				foreach (GUIElement element in mainBuildings) {
 					element.Draw (spriteBatch);
 				}
+				spriteBatch.DrawString(font, obj.XP.ToString()+"/"+obj.NextLevel.ToString(),new Vector2(480, 65), Color.Black,0,new Vector2(0,0),2.5f,SpriteEffects.None,0f);
+				spriteBatch.DrawString(font, obj.Money.ToString(),new Vector2(150,55), Color.Black,0,new Vector2(0,0),3f,SpriteEffects.None,0f);
+				spriteBatch.DrawString(font, obj.PLayerLevel.ToString(),new Vector2(390,55), Color.Black,0,new Vector2(0,0),3f,SpriteEffects.None,0f);
+
 				foreach (GUIElement element in backMenu) {
 					element.Draw (spriteBatch);
 				}
+				spriteBatch.DrawString(font, obj.XP.ToString()+"/"+obj.NextLevel.ToString(),new Vector2(480, 65), Color.Black,0,new Vector2(0,0),2.5f,SpriteEffects.None,0f);
+				spriteBatch.DrawString(font, obj.Money.ToString(),new Vector2(150,55), Color.Black,0,new Vector2(0,0),3f,SpriteEffects.None,0f);
+				spriteBatch.DrawString(font, obj.PLayerLevel.ToString(),new Vector2(390,55), Color.Black,0,new Vector2(0,0),3f,SpriteEffects.None,0f);
+
 				break;
 			default:
 				break;
 			}
-			spriteBatch.DrawString(font, obj.XP.ToString()+"/"+obj.NextLevel.ToString(),new Vector2(480, 65), Color.Black,0,new Vector2(0,0),2.5f,SpriteEffects.None,0f);
-			spriteBatch.DrawString(font, obj.Money.ToString(),new Vector2(150,55), Color.Black,0,new Vector2(0,0),3f,SpriteEffects.None,0f);
-			spriteBatch.DrawString(font, obj.PLayerLevel.ToString(),new Vector2(390,55), Color.Black,0,new Vector2(0,0),3f,SpriteEffects.None,0f);
-
+		
 
 		}
 		public void OnClick(string element)

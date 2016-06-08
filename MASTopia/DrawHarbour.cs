@@ -49,7 +49,7 @@ namespace MASTopia
 
 		List<GUIElement> harbour = new List<GUIElement>();
 		private SpriteFont font;
-		private Questions quest = new Questions();
+		private Questions quest;
 		public DrawHarbour ()
 		{
 			error = new Drawerror ();
@@ -67,11 +67,12 @@ namespace MASTopia
 		}
 		public void LoadContent(ContentManager content , GameObjects gameObjects)
 		{
-			quest.LoadContent (content, gameObjects);
 			font = content.Load<SpriteFont> ("MyFont");
-			if (quest.Vraag1==false) {
+			if (gameObjects.cluster1==false) {
 				vragen = Acties.vraag;
 				gameObjects.cluster1 = false;
+				quest = new Questions ();
+				quest.LoadContent (content, gameObjects);
 
 			}
 			foreach (GUIElement element in harbour) {

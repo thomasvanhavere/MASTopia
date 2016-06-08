@@ -24,7 +24,9 @@ namespace MASTopia
 			Cluster_1Q,
 			Cluster_1E,
 		}
-		private	bool vraag1 = false;
+		//private	bool vraag1 = false;
+		private	bool vraag1;
+
 		public bool Vraag1 {
 			get{return vraag1;}
 			set{vraag1 = value;}

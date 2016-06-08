@@ -557,33 +557,6 @@
     <AndroidAsset Include="..\iOS\Content\cluster4\questions-waste.png">
       <Link>Assets\Content\cluster4\questions-waste.png</Link>
     </AndroidAsset>
-    <AndroidAsset Include="..\iOS\Content\cluster5\augmentuliria-screen.png">
-      <Link>Assets\Content\cluster5\augmentuliria-screen.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\iOS\Content\cluster5\augmentulitaria-button.png">
-      <Link>Assets\Content\cluster5\augmentulitaria-button.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\iOS\Content\cluster5\choose-faction1.gif">
-      <Link>Assets\Content\cluster5\choose-faction1.gif</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\iOS\Content\cluster5\join-faction-button.gif">
-      <Link>Assets\Content\cluster5\join-faction-button.gif</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\iOS\Content\cluster5\rhizome-button.png">
-      <Link>Assets\Content\cluster5\rhizome-button.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\iOS\Content\cluster5\rhizome-screen.gif">
-      <Link>Assets\Content\cluster5\rhizome-screen.gif</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\iOS\Content\cluster5\rhizome-screen.png">
-      <Link>Assets\Content\cluster5\rhizome-screen.png</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\iOS\Content\cluster5\transhumania-button.gif">
-      <Link>Assets\Content\cluster5\transhumania-button.gif</Link>
-    </AndroidAsset>
-    <AndroidAsset Include="..\iOS\Content\cluster5\transhumania-screen.png">
-      <Link>Assets\Content\cluster5\transhumania-screen.png</Link>
-    </AndroidAsset>
     <AndroidAsset Include="..\iOS\Content\error\farm-error-money.png">
       <Link>Assets\Content\error\farm-error-money.png</Link>
     </AndroidAsset>
@@ -656,6 +629,36 @@
     </AndroidAsset>
     <AndroidAsset Include="..\iOS\Content\Main-Menu\cloud.gif">
       <Link>Assets\Content\Main-Menu\cloud.gif</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster5\aug-bg.png">
+      <Link>Assets\Content\cluster5\aug-bg.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster5\aug-button.png">
+      <Link>Assets\Content\cluster5\aug-button.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster5\join-aug.gif">
+      <Link>Assets\Content\cluster5\join-aug.gif</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster5\join-rhiz.gif">
+      <Link>Assets\Content\cluster5\join-rhiz.gif</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster5\join-trans.gif">
+      <Link>Assets\Content\cluster5\join-trans.gif</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster5\rhizome-bg.png">
+      <Link>Assets\Content\cluster5\rhizome-bg.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster5\rhizome-button.png">
+      <Link>Assets\Content\cluster5\rhizome-button.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster5\trans-button.gif">
+      <Link>Assets\Content\cluster5\trans-button.gif</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster5\transhumania-bg.png">
+      <Link>Assets\Content\cluster5\transhumania-bg.png</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\cluster5\choose-bg.png">
+      <Link>Assets\Content\cluster5\choose-bg.png</Link>
     </AndroidAsset>
   </ItemGroup>
   <Import Project="..\MASTopia\MASTopia.projitems" Label="Shared" Condition="Exists('..\MASTopia\MASTopia.projitems')" />

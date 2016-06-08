@@ -41,5 +41,6 @@
     <Compile Include="$(MSBuildThisFileDirectory)question3.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)question4.cs" />
     <Compile Include="$(MSBuildThisFileDirectory)ChoseFaction.cs" />
+    <Compile Include="$(MSBuildThisFileDirectory)SaveToFile.cs" />
   </ItemGroup>
 </Project>

@@ -2245,18 +2245,6 @@
 /processorParam:TextureFormat=Color
 /build:cluster5/aug-button.png
 
-#begin cluster5/choose-bg.gif
-/importer:TextureImporter
-/processor:TextureProcessor
-/processorParam:ColorKeyColor=255,0,255,255
-/processorParam:ColorKeyEnabled=True
-/processorParam:GenerateMipmaps=False
-/processorParam:PremultiplyAlpha=True
-/processorParam:ResizeToPowerOfTwo=False
-/processorParam:MakeSquare=False
-/processorParam:TextureFormat=Color
-/build:cluster5/choose-bg.gif
-
 #begin cluster5/join-aug.gif
 /importer:TextureImporter
 /processor:TextureProcessor
@@ -2340,4 +2328,16 @@
 /processorParam:MakeSquare=False
 /processorParam:TextureFormat=Color
 /build:cluster5/transhumania-bg.png
+
+#begin cluster5/choose-bg.png
+/importer:TextureImporter
+/processor:TextureProcessor
+/processorParam:ColorKeyColor=255,0,255,255
+/processorParam:ColorKeyEnabled=True
+/processorParam:GenerateMipmaps=False
+/processorParam:PremultiplyAlpha=True
+/processorParam:ResizeToPowerOfTwo=False
+/processorParam:MakeSquare=False
+/processorParam:TextureFormat=Color
+/build:cluster5/choose-bg.png
 

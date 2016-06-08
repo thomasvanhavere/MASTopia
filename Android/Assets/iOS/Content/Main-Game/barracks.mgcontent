@@ -3,7 +3,7 @@
   <SourceFile>/Users/thomasvanhavere/Projects/MASTopia/Android/Assets/../../iOS/Content/Main-Game/barracks.png</SourceFile>
   <SourceTime>2016-05-17T10:09:14+02:00</SourceTime>
   <DestFile>/Users/thomasvanhavere/Projects/MASTopia/Android/Assets/bin/Windows/../../iOS/Content/Main-Game/barracks.xnb</DestFile>
-  <DestTime>2016-06-07T12:06:21+02:00</DestTime>
+  <DestTime>2016-06-08T20:27:22+02:00</DestTime>
   <Importer>TextureImporter</Importer>
   <ImporterTime>2016-03-30T08:36:22+02:00</ImporterTime>
   <Processor>TextureProcessor</Processor>

@@ -98,7 +98,6 @@
     <None Include="Content\Market\.DS_Store" />
     <None Include="Content\Market\Buy\.DS_Store" />
     <None Include="Entitlements.plist" />
-    <None Include="Content\cluster5\choose-bg.gif" />
     <None Include="Content\cluster5\join-aug.gif" />
     <None Include="Content\cluster5\join-rhiz.gif" />
     <None Include="Content\cluster5\join-trans.gif" />
@@ -256,6 +255,7 @@
     <BundleResource Include="Content\cluster5\rhizome-bg.png" />
     <BundleResource Include="Content\cluster5\rhizome-button.png" />
     <BundleResource Include="Content\cluster5\transhumania-bg.png" />
+    <BundleResource Include="Content\cluster5\choose-bg.png" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />
