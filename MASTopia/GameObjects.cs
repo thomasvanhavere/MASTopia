@@ -122,6 +122,10 @@ namespace MASTopia
 			get;
 			set;
 		}
+		public bool Gekozen {
+			get;
+			set;
+		}
 		public void CheckLevelPlayer()
 		{
 			// y = 100(1 + 0.26) ^ x

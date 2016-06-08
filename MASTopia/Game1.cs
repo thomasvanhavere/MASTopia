@@ -72,7 +72,7 @@ namespace MASTopia
 			MediaPlayer.IsRepeating = true;
 			mainMenu.LoadContent (Content,gameObjects);
 			gameObjects.Music = true;
-
+			gameObjects.Gekozen = false;
 			gameView.LoadContent (Content, gameObjects);
 			barrack.LoadContent (Content, gameObjects);
 			harbour.LoadContent (Content, gameObjects);

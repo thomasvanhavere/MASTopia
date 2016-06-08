@@ -98,10 +98,11 @@
     <None Include="Content\Market\.DS_Store" />
     <None Include="Content\Market\Buy\.DS_Store" />
     <None Include="Entitlements.plist" />
-    <None Include="Content\cluster5\choose-faction1.gif" />
-    <None Include="Content\cluster5\join-faction-button.gif" />
-    <None Include="Content\cluster5\rhizome-screen.gif" />
-    <None Include="Content\cluster5\transhumania-button.gif" />
+    <None Include="Content\cluster5\choose-bg.gif" />
+    <None Include="Content\cluster5\join-aug.gif" />
+    <None Include="Content\cluster5\join-rhiz.gif" />
+    <None Include="Content\cluster5\join-trans.gif" />
+    <None Include="Content\cluster5\trans-button.gif" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="GameThumbnail.png" />
@@ -248,13 +249,13 @@
     <BundleResource Include="Content\cluster4\congratulations-screen.png" />
     <BundleResource Include="Content\cluster4\moleman.png" />
     <BundleResource Include="Content\cluster4\questions-waste.png" />
-    <BundleResource Include="Content\cluster5\augmentuliria-screen.png" />
-    <BundleResource Include="Content\cluster5\augmentulitaria-button.png" />
-    <BundleResource Include="Content\cluster5\rhizome-button.png" />
-    <BundleResource Include="Content\cluster5\rhizome-screen.png" />
-    <BundleResource Include="Content\cluster5\transhumania-screen.png" />
     <BundleResource Include="Resources\Default-568h%402x.png" />
     <BundleResource Include="Resources\Default%402x.png" />
+    <BundleResource Include="Content\cluster5\aug-bg.png" />
+    <BundleResource Include="Content\cluster5\aug-button.png" />
+    <BundleResource Include="Content\cluster5\rhizome-bg.png" />
+    <BundleResource Include="Content\cluster5\rhizome-button.png" />
+    <BundleResource Include="Content\cluster5\transhumania-bg.png" />
   </ItemGroup>
   <ItemGroup>
     <MonoGameContentReference Include="Content\Content.mgcb" />

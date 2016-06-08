@@ -170,7 +170,7 @@ namespace MASTopia
 				foreach (GUIElement element in waste) {
 					element.Draw (spriteBatch);
 				}
-				spriteBatch.DrawString(font, (80*(wastelevel+1)).ToString(),new Vector2(360,950), Color.Black,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
+				spriteBatch.DrawString(font, (((80*(wastelevel+1))*2)).ToString(),new Vector2(360,950), Color.Black,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
 				spriteBatch.DrawString(font, wastelevel.ToString(),new Vector2(1000,84), Color.White,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
 
 				spriteBatch.DrawString(font, "Biochemical W.: "+Biowaste.ToString() ,new Vector2(128,595), Color.Black,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
@@ -209,9 +209,9 @@ namespace MASTopia
 		public void Upgradelvl(GameObjects Presource)
 		{
 			//=100*Level
-			if (Presource.Money >= (((80*(wastelevel+1))*2)/10))
+			if (Presource.Money >= (((80*(wastelevel+1))*2)))
 			{
-				Presource.Money =Presource.Money- (((80*(wastelevel+1))*2)/10);
+				Presource.Money =Presource.Money- (((80*(wastelevel+1))*2));
 				double W = 400*Math.Pow((1+0.45),wastelevel);
 				maxBio = (int)((3 / 5) * W);
 				maxChem = (int)((2 / 5) * W);
