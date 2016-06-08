@@ -101,7 +101,7 @@ namespace MASTopia
 			spriteBatch.DrawString(font, boemkool.ToString(),new Vector2(1605,945), Color.White,0,new Vector2(0,0),1.3f,SpriteEffects.None,0f);
 			spriteBatch.DrawString(font, egel.ToString(),new Vector2(1605,805), Color.White,0,new Vector2(0,0),1.3f,SpriteEffects.None,0f);
 
-			spriteBatch.DrawString(font, playerlevel.ToString(),new Vector2(1030,90), Color.White,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
+			spriteBatch.DrawString(font, playerlevel.ToString(),new Vector2(1000,80), Color.White,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
 
 
 		}

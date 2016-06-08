@@ -180,7 +180,7 @@ namespace MASTopia
 				spriteBatch.DrawString(font, calamares.ToString(),new Vector2(1030,567), Color.White,0,new Vector2(0,0),1.3f,SpriteEffects.None,0f);
 				spriteBatch.DrawString(font, waffel.ToString(),new Vector2(1030,687), Color.White,0,new Vector2(0,0),1.3f,SpriteEffects.None,0f);
 
-				spriteBatch.DrawString(font, RestoLevel.ToString(),new Vector2(1030,90), Color.White,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
+				spriteBatch.DrawString(font, RestoLevel.ToString(),new Vector2(1015,80), Color.White,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
 				spriteBatch.DrawString(font, ((RestoLevel+1)*130).ToString(),new Vector2(1020,950), Color.White,0,new Vector2(0,0),3f,SpriteEffects.None,0f);
 				if (food.Count!=0) {
 					spriteBatch.DrawString(font, "Time : "+((int)(food.ElementAt (0).endTick-obj.gameTime.TotalGameTime.TotalSeconds)).ToString(),new Vector2(220,880), Color.Black,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
@@ -279,8 +279,9 @@ namespace MASTopia
 			//=130*Level
 			if (Presource.Money>=((RestoLevel+1)*130))
 			{
-				RestoLevel++;
 				Presource.Money -= ((RestoLevel+1) * 130);
+				RestoLevel++;
+
 			} else {
 				acties = Acties.error;
 			}

@@ -44,8 +44,8 @@ namespace MASTopia
 			get;
 			set;
 		}
-		private int maxChem;
-		private int maxBio;
+		private int maxChem = 160;
+		private int maxBio = 240;
 		List<GUIElement> waste = new List<GUIElement>();
 		private Drawerror error;
 		private SpriteFont font;
@@ -209,10 +209,14 @@ namespace MASTopia
 		public void Upgradelvl(GameObjects Presource)
 		{
 			//=100*Level
-			int next = (((80*(wastelevel+1))*2)/10);
-				if (Presource.Money >= next)
+			if (Presource.Money >= (((80*(wastelevel+1))*2)/10))
 			{
-				Presource.Money -= next;
+				Presource.Money =Presource.Money- (((80*(wastelevel+1))*2)/10);
+				double W = 400*Math.Pow((1+0.45),wastelevel);
+				maxBio = (int)((3 / 5) * W);
+				maxChem = (int)((2 / 5) * W);
+
+				wastelevel++;
 
 			} else {
 				acties = Acties.error;

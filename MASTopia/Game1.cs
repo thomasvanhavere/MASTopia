@@ -9,9 +9,12 @@ using Microsoft.Xna.Framework.Content;
 using System.Linq;
 using System;
 using System.Threading;
+using Microsoft.Xna.Framework.Media;
 
 namespace MASTopia
 {
+	using MediaPlayer = Microsoft.Xna.Framework.Media.MediaPlayer;
+
 	public class Game1 : Game
 	{
 		GraphicsDeviceManager graphics;
@@ -35,6 +38,7 @@ namespace MASTopia
 		private DrawProfile profile = new DrawProfile();
 		private DrawFactions factions = new DrawFactions();
 		private BaseLogics baselogics = new BaseLogics();
+		private Song song;
 		public Game1 ()
 		{
 			graphics = new GraphicsDeviceManager (this);
@@ -62,8 +66,12 @@ namespace MASTopia
 
 			gameObjects.waste = 50;
 			gameObjects.Chemwaste = 20;
-
+			gameObjects.Money = 100;
+			song = Content.Load<Song> ("song");
+			MediaPlayer.Play (song);
+			MediaPlayer.IsRepeating = true;
 			mainMenu.LoadContent (Content,gameObjects);
+			gameObjects.Music = true;
 
 			gameView.LoadContent (Content, gameObjects);
 			barrack.LoadContent (Content, gameObjects);
@@ -109,6 +117,7 @@ namespace MASTopia
 			if (GamePad.GetState (PlayerIndex.One).Buttons.Back == ButtonState.Pressed || Keyboard.GetState ().IsKeyDown (Keys.Escape))
 				Exit ();
 			#endif
+
 			gameObjects.touchInput = new TouchInput ();
 			GetTouchInput ();
 			if (mainMenu.State == MainMenu.GameState.MainMenu) {

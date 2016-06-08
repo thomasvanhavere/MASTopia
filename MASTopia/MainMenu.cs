@@ -31,14 +31,9 @@ namespace MASTopia
 		List<GUIElement>main = new List<GUIElement>();
 		public MainMenu()
 		{	
-			#if __IOS__
 			main.Add (new GUIElement ("Main-Menu/Background"));
-
+			main.Add (new GUIElement ("Main-Menu/cloud"));
 			main.Add (new GUIElement ("Main-Menu/MAS-background"));
-			#elif __ANDROID__
-			main.Add (new GUIElement ("Main-Menu/bg-android"));
-			#endif
-
 			main.Add (new GUIElement ("Main-Menu/play"));
 			main.Add (new GUIElement ("Main-Menu/Settings"));
 			main.Add (new GUIElement ("Main-Menu/leaderboard"));
@@ -50,28 +45,37 @@ namespace MASTopia
 				element.clickEvent += OnClick;
 					
 			}
-		
-			#if __IOS__
 			main.Find (x => x.AssetName == "Main-Menu/Background").PutBg();
 
 			main.Find (x => x.AssetName == "Main-Menu/MAS-background").moveElement (0,10);
 			main.Find (x => x.AssetName == "Main-Menu/play").moveElement (730,835);
 			main.Find (x => x.AssetName == "Main-Menu/Settings").moveElement (550,850);
 			main.Find (x => x.AssetName == "Main-Menu/leaderboard").moveElement (1200,850);
-			#elif __ANDROID__
-			main.Find (x => x.AssetName == "Main-Menu/play").moveElement (730,835);
-			main.Find (x => x.AssetName == "Main-Menu/Settings").moveElement (550,850);
-			main.Find (x => x.AssetName == "Main-Menu/leaderboard").moveElement (1200,850);
-			#endif
+
 		
 		}
+		int X=1,Y;
 		public void Update(GameObjects Obj)
 		{
 			
-				foreach (GUIElement element in main) {
+			foreach (GUIElement element in main) {
+				if (element.AssetName=="Main-Menu/cloud") {
+
+					Y++;
+					if (Y==1) {
+						element.moveElement(X,0);
+						Y = 0;
+					}
+					if (element.guiRect.X>1920) {
+						element.moveElement(-1920,0);
+					}
+
+				} else {
 					element.Update (Obj);
+
 				}
 
+			}
 		}
 		public void Draw(SpriteBatch spriteBatch)
 		{

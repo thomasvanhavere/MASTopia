@@ -118,6 +118,10 @@ namespace MASTopia
 			get;
 			set;
 		}
+		public bool Music {
+			get;
+			set;
+		}
 		public void CheckLevelPlayer()
 		{
 			// y = 100(1 + 0.26) ^ x

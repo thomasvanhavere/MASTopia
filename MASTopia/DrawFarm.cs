@@ -128,8 +128,8 @@ namespace MASTopia
 			spriteBatch.DrawString(font, "Tiles: " + tottiles.ToString() ,new Vector2(464,848), Color.Black,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
 			spriteBatch.DrawString(font, "Tiles: "+ (tottiles+3).ToString() ,new Vector2(1034,848), Color.Black,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
 
-			spriteBatch.DrawString(font, FarmLevel.ToString(),new Vector2(1020,110), Color.White,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
-			spriteBatch.DrawString(font, ((FarmLevel+1)*90).ToString(),new Vector2(370,950), Color.White,0,new Vector2(0,0),3f,SpriteEffects.None,0f);
+			spriteBatch.DrawString(font, FarmLevel.ToString(),new Vector2(1000,80), Color.White,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
+			spriteBatch.DrawString(font, ((FarmLevel+1)*100).ToString(),new Vector2(370,950), Color.White,0,new Vector2(0,0),3f,SpriteEffects.None,0f);
 
 			if (acties == Acties.error) {
 				error.Draw (spriteBatch, Drawerror.Acties.farm);
@@ -159,8 +159,8 @@ namespace MASTopia
 			//=100*Level
 			if (Presource.Money >= ((FarmLevel+1) * 100))
 			{
-				FarmLevel++;
 				Presource.Money -= ((FarmLevel+1) * 100);
+				FarmLevel++;
 				tottiles += 3;
 				meatTile++;
 				vegieTile++;

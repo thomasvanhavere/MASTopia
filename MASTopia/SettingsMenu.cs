@@ -77,7 +77,13 @@ namespace MASTopia
 		public void Update(GameObjects gameObjects)
 		{	
 			foreach (GUIElement element in Settings) {
-				
+				if (element.AssetName=="settings/music-on"&&gameObjects.Music) {
+					element.Update (gameObjects);
+				}
+				if (element.AssetName=="settings/music-off"&&gameObjects.Music==false) {
+					element.Update (gameObjects);
+
+				}
 				element.Update (gameObjects);
 			}
 

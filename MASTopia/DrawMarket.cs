@@ -347,6 +347,7 @@ namespace MASTopia
 								rect.Y = 760;
 								element.Draw (spriteBatch, rect);
 								spriteBatch.DrawString(font, obj.Meat.ToString(),new Vector2(rect.X-20,770), Color.Black,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
+								spriteBatch.DrawString(font, Marketlvl.ToString(),new Vector2(1000,80), Color.White,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
 
 							}
 						} else {
@@ -363,6 +364,8 @@ namespace MASTopia
 					foreach (GUIElement element in Buttons) {
 						element.Draw (spriteBatch);
 					}
+					spriteBatch.DrawString(font, Marketlvl.ToString(),new Vector2(1000,80), Color.White,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
+
 					spriteBatch.DrawString(font, aGrain.ToString(),new Vector2(385,818), Color.Black,0,new Vector2(0,0),3f,SpriteEffects.None,0f);
 					spriteBatch.DrawString(font, aFish.ToString(),new Vector2(755,818), Color.Black,0,new Vector2(0,0),3f,SpriteEffects.None,0f);
 					spriteBatch.DrawString(font, aVege.ToString(),new Vector2(1125,818), Color.Black,0,new Vector2(0,0),3f,SpriteEffects.None,0f);
@@ -378,6 +381,7 @@ namespace MASTopia
 						error.Draw (spriteBatch, Drawerror.Acties.market);
 					}
 
+					spriteBatch.DrawString(font, Marketlvl.ToString(),new Vector2(1000,80), Color.White,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
 
 					spriteBatch.DrawString(font, "Current "+ totalrecourc.ToString()+"/"+storage.ToString(),new Vector2(174,898), Color.Black,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
 					spriteBatch.DrawString(font, "next Level: "+(Marketlvl+2).ToString(),new Vector2(1237,898), Color.Black,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
@@ -461,9 +465,10 @@ namespace MASTopia
 			//=90*Level
 			if (Presource.Money >= (Marketlvl+1 * 90))
 			{
-				Marketlvl++;
 				Presource.Money -= ((Marketlvl+1) * 80);
 				storage = (int)(400 * Math.Pow ((1 + 0.26), Marketlvl));
+				Marketlvl++;
+						
 			} 
 			else {
 				acties = Acties.error;

@@ -102,6 +102,7 @@
     <None Include="Content\cluster5\join-faction-button.gif" />
     <None Include="Content\cluster5\rhizome-screen.gif" />
     <None Include="Content\cluster5\transhumania-button.gif" />
+    <None Include="Content\Main-Menu\cloud.gif" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="GameThumbnail.png" />
@@ -377,6 +378,7 @@
     <Content Include="Content\WastePlant\bar-nextspeed.png" />
     <Content Include="Content\WastePlant\bar-ratio.png" />
     <Content Include="Content\WastePlant\bar-speed.png" />
+    <Content Include="Content\song.mp3" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Main-Game\" />

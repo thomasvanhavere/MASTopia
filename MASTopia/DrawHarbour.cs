@@ -140,12 +140,12 @@ namespace MASTopia
 						element.drawParial (shipCapacity+2,45);
 					}
 				}
-				spriteBatch.DrawString(font, "Speed: "+ (120/shipCapacity).ToString()+" Per Min" ,new Vector2(415,838), Color.Black,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
-				spriteBatch.DrawString(font, "Speed: "+ (120/(shipCapacity+2)).ToString()+"Per Min" ,new Vector2(1020,838), Color.Black,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
+				spriteBatch.DrawString(font, "Speed: "+ ((shipCapacity)/2).ToString()+" Per Min" ,new Vector2(415,838), Color.Black,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
+				spriteBatch.DrawString(font, "Speed: "+ ((shipCapacity+2)/2).ToString()+" Per Min" ,new Vector2(1020,838), Color.Black,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
 				spriteBatch.DrawString(font, "Capacity: "+shipCapacity.ToString(),new Vector2(415,915), Color.Black,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
 				spriteBatch.DrawString(font, "Capacity: "+(shipCapacity+2).ToString(),new Vector2(1020,915), Color.Black,0,new Vector2(0,0),1.7f,SpriteEffects.None,0f);
 
-				spriteBatch.DrawString(font, HarbourLevel.ToString(),new Vector2(1030,90), Color.White,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
+				spriteBatch.DrawString(font, HarbourLevel.ToString(),new Vector2(1000,80), Color.White,0,new Vector2(0,0),2f,SpriteEffects.None,0f);
 				spriteBatch.DrawString(font, ((HarbourLevel+1)*90).ToString(),new Vector2(1780,950), Color.Black,0,new Vector2(0,0),3f,SpriteEffects.None,0f);
 				if (acties == Acties.error) {
 					error.Draw (spriteBatch, Drawerror.Acties.harbour);
@@ -179,9 +179,10 @@ namespace MASTopia
 			//=90*Level
 			if (Presource.Money >= ((HarbourLevel+1) * 90))
 			{
-				HarbourLevel++;
-				Presource.Money -= ((HarbourLevel+1) * 90);
+				Presource.Money -=((HarbourLevel+1) * 90);
 				shipCapacity += 2;
+				HarbourLevel++;
+
 			} else {
 				acties = Acties.error;
 

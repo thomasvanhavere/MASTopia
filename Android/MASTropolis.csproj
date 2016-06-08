@@ -651,6 +651,12 @@
       <Link>Assets\Content\storage\vege-sym.png</Link>
     </AndroidAsset>
     <AndroidAsset Include="Assets\Content\Main-Menu\bg-android.png" />
+    <AndroidAsset Include="..\iOS\Content\song.mp3">
+      <Link>Assets\Content\song.mp3</Link>
+    </AndroidAsset>
+    <AndroidAsset Include="..\iOS\Content\Main-Menu\cloud.gif">
+      <Link>Assets\Content\Main-Menu\cloud.gif</Link>
+    </AndroidAsset>
   </ItemGroup>
   <Import Project="..\MASTopia\MASTopia.projitems" Label="Shared" Condition="Exists('..\MASTopia\MASTopia.projitems')" />
   <Import Project="$(MSBuildExtensionsPath)\Xamarin\Android\Xamarin.Android.CSharp.targets" />
