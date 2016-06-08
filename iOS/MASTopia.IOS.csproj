@@ -102,7 +102,6 @@
     <None Include="Content\cluster5\join-faction-button.gif" />
     <None Include="Content\cluster5\rhizome-screen.gif" />
     <None Include="Content\cluster5\transhumania-button.gif" />
-    <None Include="Content\Main-Menu\cloud.gif" />
   </ItemGroup>
   <ItemGroup>
     <BundleResource Include="GameThumbnail.png" />
@@ -213,7 +212,9 @@
     <BundleResource Include="Content\cluster1\answer4.png" />
     <BundleResource Include="Content\cluster1\cluster1-questions.png" />
     <BundleResource Include="Content\cluster1\congratulations.png" />
-    <BundleResource Include="Content\cluster1\sailor.png" />
+    <BundleResource Include="Content\cluster1\sailor.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </BundleResource>
     <BundleResource Include="Content\cluster2\Start-market.png" />
     <BundleResource Include="Content\cluster2\button1-wrong.png" />
     <BundleResource Include="Content\cluster2\button1.png" />
@@ -379,6 +380,9 @@
     <Content Include="Content\WastePlant\bar-ratio.png" />
     <Content Include="Content\WastePlant\bar-speed.png" />
     <Content Include="Content\song.mp3" />
+    <Content Include="Content\Main-Menu\cloud.gif">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Content>
   </ItemGroup>
   <ItemGroup>
     <Folder Include="Content\Main-Game\" />

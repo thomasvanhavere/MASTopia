@@ -67,7 +67,7 @@ namespace MASTopia
 						Y = 0;
 					}
 					if (element.guiRect.X>1920) {
-						element.moveElement(-1920,0);
+						element.moveElement(-3840,0);
 					}
 
 				} else {
