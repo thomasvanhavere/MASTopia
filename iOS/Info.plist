@@ -29,5 +29,7 @@
 	</array>
 	<key>CFBundleName</key>
 	<string>MASTropolis</string>
+	<key>XSLaunchImageAssets</key>
+	<string>Resources/Images.xcassets/LaunchImage-1.launchimage</string>
 </dict>
 </plist>

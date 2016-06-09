@@ -451,6 +451,7 @@
     </AndroidAsset>
     <AndroidAsset Include="..\iOS\Content\cluster1\cluster1-questions.png">
       <Link>Assets\Content\cluster1\cluster1-questions.png</Link>
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </AndroidAsset>
     <AndroidAsset Include="..\iOS\Content\cluster1\congratulations.png">
       <Link>Assets\Content\cluster1\congratulations.png</Link>

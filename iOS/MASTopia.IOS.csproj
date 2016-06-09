@@ -210,7 +210,9 @@
     <BundleResource Include="Content\cluster1\answer3.png" />
     <BundleResource Include="Content\cluster1\answer4-wrong.png" />
     <BundleResource Include="Content\cluster1\answer4.png" />
-    <BundleResource Include="Content\cluster1\cluster1-questions.png" />
+    <BundleResource Include="Content\cluster1\cluster1-questions.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </BundleResource>
     <BundleResource Include="Content\cluster1\congratulations.png" />
     <BundleResource Include="Content\cluster1\sailor.png">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
@@ -248,8 +250,6 @@
     <BundleResource Include="Content\cluster4\congratulations-screen.png" />
     <BundleResource Include="Content\cluster4\moleman.png" />
     <BundleResource Include="Content\cluster4\questions-waste.png" />
-    <BundleResource Include="Resources\Default-568h%402x.png" />
-    <BundleResource Include="Resources\Default%402x.png" />
     <BundleResource Include="Content\cluster5\aug-bg.png" />
     <BundleResource Include="Content\cluster5\aug-button.png" />
     <BundleResource Include="Content\cluster5\rhizome-bg.png" />
@@ -393,5 +393,8 @@
   </ItemGroup>
   <ItemGroup>
     <ImageAsset Include="Resources\Images.xcassets\LaunchImage.launchimage\Contents.json" />
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage-1.launchimage\Contents.json" />
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage-1.launchimage\Default%402x.png" />
+    <ImageAsset Include="Resources\Images.xcassets\LaunchImage-1.launchimage\Default-568h%402x.png" />
   </ItemGroup>
 </Project>
